@@ -5,17 +5,17 @@ export const AboutSection: React.FC = () => {
   return (
     <section id="about" className="py-12 lg:py-16 bg-[#F4F5F7]">
       <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
-        {/* ===================== DESKTOP INTRODUCTION (3 Columns: 593 / 356 / 443 px) ===================== */}
-        <div className="hidden lg:grid grid-cols-[593px_356px_443px] gap-0 items-start h-[392px]">
-          {/* Column 1: Left content (593 x 392 px) */}
-          <div className="w-[593px] h-[392px] flex flex-col justify-between pr-8">
+        {/* ===================== DESKTOP INTRODUCTION (Adaptive 3 Columns: ~1.35fr / 1fr / 1.15fr up to 593 / 356 / 443 px) ===================== */}
+        <div className="hidden lg:grid grid-cols-[1.35fr_1fr_1.15fr] 2xl:grid-cols-[593px_356px_443px] gap-6 xl:gap-8 items-stretch min-h-[380px]">
+          {/* Column 1: Left content */}
+          <div className="flex flex-col justify-between pr-2 xl:pr-6 w-full">
             <div>
               {/* Eyebrow */}
-              <span className="block text-[14px] leading-[22px] font-semibold text-[#5B6B80] tracking-wide mb-[10px]">
+              <span className="block text-[13px] xl:text-[14px] leading-[22px] font-semibold text-[#5B6B80] tracking-wide mb-[8px] xl:mb-[10px]">
                 About Our College
               </span>
-              {/* Title: Montserrat SemiBold 36/45 px, two lines */}
-              <h2 className="text-[36px] leading-[45px] font-semibold text-[#1F2A3C] font-heading tracking-tight mb-[24px]">
+              {/* Title: Montserrat SemiBold, responsive 28-36px */}
+              <h2 className="text-[28px] xl:text-[34px] 2xl:text-[36px] leading-[1.25] font-semibold text-[#1F2A3C] font-heading tracking-tight mb-[18px] xl:mb-[24px]">
                 New Lucknow City<br />Private ITI
               </h2>
 
@@ -30,7 +30,7 @@ export const AboutSection: React.FC = () => {
                       <line x1="3" y1="10" x2="21" y2="10" strokeWidth="1.75" />
                     </svg>
                   </div>
-                  <span className="font-hindi text-[#1F2A3C] font-medium text-[15px]">2019 में स्थापित</span>
+                  <span className="font-hindi text-[#1F2A3C] font-medium text-[14px] xl:text-[15px]">2019 में स्थापित</span>
                 </div>
 
                 <div className="flex items-center gap-3 text-sm">
@@ -39,24 +39,24 @@ export const AboutSection: React.FC = () => {
                       <path strokeWidth="1.75" d="M3 21h18M3 10h18M5 10v11M9 10v11M15 10v11M19 10v11M12 3l9 7H3l9-7z" />
                     </svg>
                   </div>
-                  <span className="font-hindi text-[#1F2A3C] font-medium text-[15px]">भारत सरकार NCVT द्वारा मान्यता प्राप्त</span>
+                  <span className="font-hindi text-[#1F2A3C] font-medium text-[14px] xl:text-[15px]">भारत सरकार NCVT द्वारा मान्यता प्राप्त</span>
                 </div>
               </div>
             </div>
 
-            {/* Desktop CTA: 212 x 56 px, 4px radius */}
+            {/* Desktop CTA */}
             <div>
               <a
                 href="#enquiry"
-                className="inline-flex items-center justify-center w-[212px] h-[56px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-semibold text-[15px] rounded-[4px] shadow-xs transition-colors"
+                className="inline-flex items-center justify-center w-[180px] xl:w-[212px] h-[48px] xl:h-[56px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-semibold text-[14px] xl:text-[15px] rounded-[4px] shadow-xs transition-colors"
               >
                 Go To Enquiry
               </a>
             </div>
           </div>
 
-          {/* Column 2: Image slot (356 x 392 px, 16px radius) */}
-          <div className="w-[356px] h-[392px] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] flex-shrink-0">
+          {/* Column 2: Image slot */}
+          <div className="rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative min-h-[320px] 2xl:h-[392px] w-full">
             <img
               src={siteImages.aboutCampus}
               alt="New Lucknow City Private ITI Institute Campus"
@@ -67,8 +67,8 @@ export const AboutSection: React.FC = () => {
             />
           </div>
 
-          {/* Column 3: Description (443 x 392 px, inner width 403 px, Hind Regular 14px / 24px) */}
-          <div className="w-[443px] h-[392px] pl-[40px] flex flex-col justify-start text-[14px] leading-[24px] text-[#2E3B4E] font-hindi">
+          {/* Column 3: Description */}
+          <div className="flex flex-col justify-start text-[13px] xl:text-[14px] leading-[22px] xl:leading-[24px] text-[#2E3B4E] font-hindi w-full pl-0 xl:pl-4">
             <p className="mb-4">
               न्यू लखनऊ सिटी प्राइवेट आईटीआई ने लखनऊ के सर्वश्रेष्ठ आईटीआई कॉलेजों में से एक के रूप में तेज़ी से अपनी पहचान बनाई है, जो छात्रों को उद्योग-प्रासंगिक कौशल और व्यावहारिक ज्ञान प्रदान करने के लिए समर्पित है। न्यू लखनऊ सिटी प्राइवेट इंडस्ट्रियल ट्रेनिंग इंस्टीट्यूट, जिसकी स्थापना 2019 में हुई थी, प्राउडली फिनिकल एजुकेशनल ट्रस्ट द्वारा प्रमोट किया गया है। यह ट्रस्ट भारतीय ट्रस्ट अधिनियम, 1882 (पंजीकरण संख्या: 5367) के अंतर्गत पंजीकृत है और इसका पंजीकृत कार्यालय 3 कैनाल स्ट्रीट, लखनऊ - 700014 में स्थित है।
             </p>

@@ -115,8 +115,28 @@ All brand tokens are declared in **`src/index.css`** inside the Tailwind CSS v4 
 - **Reusable Components**:
   - `src/components/GuestLecturesPage.tsx`: Page wrapper with title band and responsive grid.
   - `src/components/GuestLectureCard.tsx`: Reusable lecture card displaying media panel, duration, title, speaker, active rule, and mapped topic rows with double chevron icons.
-- **Responsive Architecture**:
-  - **Desktop (≥1440px)**: 1392px centered container, 2-column grid (`678 × 550 px` cards, 36px column gap, 80px row gap), media panel `270px` wide with dark gradient overlay.
-  - **Tablet (768–1023px)**: Single column with balanced side-by-side media and content.
-  - **Mobile (<768px)**: Single column stacked layout with responsive 16:9 media header, touch-friendly proportions, natural text wrapping, and zero horizontal overflow.
+---
+
+## 6. Responsive Desktop Architecture & Standards
+
+To ensure balanced proportions, readability, and zero horizontal clipping across all desktop viewports—especially 14-inch laptops (~1265 × 551 CSS px at 100% browser zoom) as well as 80% and 90% zoom:
+
+1. **Fluid Containers with Adaptive Horizontal Padding**:
+   - Instead of static margins or rigid outer padding, containers use:
+     `max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0`
+   - Guarantees minimum 32px–40px breathing room on laptops without edge clipping or horizontal overflow.
+
+2. **Fractional Grid Tracks & Min-Max Ranges**:
+   - Replaced fixed-pixel desktop grid columns (e.g. `grid-cols-[593px_356px_443px]`, `grid-cols-[809px_551px]`, `grid-cols-[809px_519px]`) with flexible fractional tracks (`grid-cols-[1.35fr_1fr_1.15fr]`, `grid-cols-[1.38fr_1fr]`, `grid-cols-[1.45fr_1fr]`), capped at Figma specifications only at `2xl:` (≥1520px).
+   - Allows multi-column layouts to smoothly scale between 1024px and 1520px without distortion.
+
+3. **Viewport-Aware Heights on Constrained Laptop Screens**:
+   - Hero section uses `lg:min-h-[500px] lg:h-[clamp(520px,64vh,780px)] 2xl:h-[807px]`, preventing the hero from occupying multiple screen heights on short 551px viewports.
+   - College Life masonry tiles use clamp heights (`clamp(320px,36vw,625px)` and `clamp(160px,18vw,301px)`) that preserve the 1:2 height rhythm while fitting the container width.
+
+4. **Fluid Typography & Adaptive Spacing**:
+   - Hero Hindi typography scales smoothly (`clamp(36px, 3.5vw, 56px)` for headings, `clamp(22px, 2vw, 30px)` for subheadings).
+   - Section titles scale cleanly from 28px on laptops to 36px on wide displays.
+   - Navigation links adapt from `px-2.5 text-[14px]` at 1024px to `px-3 text-[15px]` at 1280px+.
+
 

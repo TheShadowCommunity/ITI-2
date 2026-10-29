@@ -30,14 +30,14 @@ export const HomePage: React.FC = () => {
         {/* 4. Introduction: About Our College (Figma 10:388 / 67:768) */}
         <AboutSection />
 
-        {/* 5. Desktop-specific Middle Section: Enquiry Form (809px) + Recruiters (551px) (Figma 33:847) */}
-        <div className="hidden lg:block py-16 bg-white border-y border-[#DDE1E7]">
+        {/* 5. Desktop-specific Middle Section: Enquiry Form + Recruiters */}
+        <div className="hidden lg:block py-12 xl:py-16 bg-white border-y border-[#DDE1E7]">
           <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
-            <div className="grid grid-cols-[809px_551px] gap-[32px] items-start">
-              <div className="w-[809px]">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.38fr_1fr] 2xl:grid-cols-[809px_551px] gap-6 xl:gap-[32px] items-start">
+              <div className="w-full max-w-[809px]">
                 <EnquiryForm idPrefix="desktop-mid-enquiry" />
               </div>
-              <div className="w-[551px] pl-6 flex flex-col justify-start">
+              <div className="w-full max-w-[551px] pl-0 lg:pl-2 xl:pl-6 flex flex-col justify-start">
                 <RecruitersSection />
               </div>
             </div>

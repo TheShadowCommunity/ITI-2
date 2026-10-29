@@ -130,7 +130,7 @@ export const Header: React.FC = () => {
           </a>
 
           {/* Desktop Navigation Group (906 x 54 px) */}
-          <nav className="hidden lg:flex items-center space-x-2" aria-label="Main Navigation">
+          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2" aria-label="Main Navigation">
             {navItems.map((item) => (
               <div 
                 key={item.name} 
@@ -141,7 +141,7 @@ export const Header: React.FC = () => {
                 <a
                   href={item.href}
                   onClick={(e) => handleLinkClick(e, item.href)}
-                  className="px-3 py-2 text-[15px] font-medium text-[#1F2A3C] hover:text-[#D99A00] transition-colors inline-flex items-center gap-1 rounded-md"
+                  className="px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-medium text-[#1F2A3C] hover:text-[#D99A00] transition-colors inline-flex items-center gap-1 rounded-md"
                 >
                   {item.name}
                   {item.hasDropdown && (

@@ -15,26 +15,26 @@ export const TradesSection: React.FC = () => {
         </div>
 
         {/* ===================== DESKTOP 3x2 GRID (Hidden on mobile) ===================== */}
-        <div className="hidden lg:grid grid-cols-3 gap-8">
+        <div className="hidden lg:grid grid-cols-3 gap-6 xl:gap-8">
           {tradesData.map((trade) => (
             <div
               key={trade.id}
               className="bg-white text-[#2E3B4E] rounded-[16px] overflow-hidden shadow-md flex flex-col justify-between border border-white/10 group hover:shadow-xl transition-all duration-200"
             >
               {/* Content Panel */}
-              <div className="p-6 flex flex-col justify-between flex-grow">
+              <div className="p-5 xl:p-6 flex flex-col justify-between flex-grow">
                 <div>
-                  <h3 className="text-[20px] font-bold text-[#1F2A3C] font-hindi leading-snug">
+                  <h3 className="text-[18px] xl:text-[20px] font-bold text-[#1F2A3C] font-hindi leading-snug">
                     {trade.titleHindi}
                   </h3>
-                  <span className="block text-[13px] font-semibold text-[#5B6B80] mb-3 font-sans">
+                  <span className="block text-[12px] xl:text-[13px] font-semibold text-[#5B6B80] mb-2.5 xl:mb-3 font-sans">
                     {trade.titleEnglish}
                   </span>
-                  <p className="text-[13px] leading-[22px] text-[#2E3B4E] font-hindi line-clamp-3">
+                  <p className="text-[12px] xl:text-[13px] leading-[20px] xl:leading-[22px] text-[#2E3B4E] font-hindi line-clamp-3">
                     {trade.description}
                   </p>
                 </div>
-                <div className="mt-5 pt-1">
+                <div className="mt-4 xl:mt-5 pt-1">
                   <a
                     href="#enquiry"
                     className="inline-flex items-center text-[13px] font-bold text-[#8A6100] hover:text-[#1F2A3C] transition-colors gap-1"
@@ -45,7 +45,7 @@ export const TradesSection: React.FC = () => {
               </div>
 
               {/* Edge-attached image at bottom */}
-              <div className="w-full h-[180px] bg-slate-200 overflow-hidden relative">
+              <div className="w-full h-[160px] xl:h-[180px] bg-slate-200 overflow-hidden relative">
                 <img
                   src={trade.image}
                   alt={`${trade.titleHindi} ${trade.titleEnglish}`}
