@@ -1,49 +1,93 @@
 import React, { useState } from 'react';
 import { ItiLogo } from './ItiLogo';
+import { navigateTo } from '../utils/navigation';
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const navItems = [
-    { name: 'Home', href: '#', hasDropdown: false },
+    { name: 'Home', href: '/', hasDropdown: false },
     { 
       name: 'Admissions', 
-      href: '#enquiry', 
+      href: '/#enquiry', 
       hasDropdown: true,
-      items: ['Admission Process', 'Eligibility Criteria', 'Fee Structure', 'Apply Online']
+      items: [
+        { label: 'Admission Process', href: '/#enquiry' },
+        { label: 'Eligibility Criteria', href: '/#enquiry' },
+        { label: 'Fee Structure', href: '/#enquiry' },
+        { label: 'Apply Online', href: '/#enquiry' }
+      ]
     },
     { 
       name: 'Academics', 
-      href: '#trades', 
+      href: '/guest-lectures', 
       hasDropdown: true,
-      items: ['All Trades', 'Electrician', 'Fitter', 'Fashion Designing', 'Academic Calendar']
+      items: [
+        { label: 'Guest Lectures', href: '/guest-lectures' },
+        { label: 'All Trades', href: '/#trades' },
+        { label: 'Electrician', href: '/#trades' },
+        { label: 'Fitter', href: '/#trades' },
+        { label: 'Fashion Designing', href: '/#trades' },
+        { label: 'Academic Calendar', href: '#' }
+      ]
     },
     { 
       name: 'Departments', 
-      href: '#', 
+      href: '/#trades', 
       hasDropdown: true,
-      items: ['Engineering Trades', 'Non-Engineering Trades', 'IT Cell', 'Workshop Staff']
+      items: [
+        { label: 'Engineering Trades', href: '/#trades' },
+        { label: 'Non-Engineering Trades', href: '/#trades' },
+        { label: 'IT Cell', href: '#' },
+        { label: 'Workshop Staff', href: '#' }
+      ]
     },
     { 
       name: 'Administration', 
-      href: '#about', 
+      href: '/#about', 
       hasDropdown: true,
-      items: ['Trust Board', 'Principal Desk', 'Managing Committee', 'NCVT Affiliation']
+      items: [
+        { label: 'Trust Board', href: '/#about' },
+        { label: 'Principal Desk', href: '/#about' },
+        { label: 'Managing Committee', href: '/#about' },
+        { label: 'NCVT Affiliation', href: '/#about' }
+      ]
     },
     { 
       name: 'Infrastructure', 
-      href: '#gallery', 
+      href: '/#gallery', 
       hasDropdown: true,
-      items: ['Campus & Classrooms', 'Practical Labs', 'Library', 'Hostel Facilities']
+      items: [
+        { label: 'Campus & Classrooms', href: '/#gallery' },
+        { label: 'Practical Labs', href: '/#gallery' },
+        { label: 'Library', href: '/#gallery' },
+        { label: 'Hostel Facilities', href: '/#gallery' }
+      ]
     },
     { 
       name: 'Placements', 
-      href: '#recruiters', 
+      href: '/#recruiters', 
       hasDropdown: true,
-      items: ['Placement Cell', 'Our Recruiters', 'Apprenticeship', 'Placement Records']
+      items: [
+        { label: 'Placement Cell', href: '/#recruiters' },
+        { label: 'Our Recruiters', href: '/#recruiters' },
+        { label: 'Apprenticeship', href: '/#recruiters' },
+        { label: 'Placement Records', href: '/#recruiters' }
+      ]
     },
   ];
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // If external or mailto
+    if (href.startsWith('mailto:') || href.startsWith('http://') || href.startsWith('https://')) {
+      return;
+    }
+    e.preventDefault();
+    navigateTo(href);
+    setMobileMenuOpen(false);
+    setActiveDropdown(null);
+  };
 
   return (
     <header className="w-full sticky top-0 z-50 bg-white shadow-xs">
@@ -53,17 +97,17 @@ export const Header: React.FC = () => {
           <div className="flex items-center h-full">
             {/* First four neutral links */}
             <div className="flex items-center space-x-6 text-[#DDE1E7] font-medium mr-4">
-              <a href="#about" className="hover:text-[#F2B418] transition-colors">About Us</a>
-              <a href="#enquiry" className="hover:text-[#F2B418] transition-colors">Careers</a>
-              <a href="#gallery" className="hover:text-[#F2B418] transition-colors">Events</a>
-              <a href="#notices" className="hover:text-[#F2B418] transition-colors">Notice</a>
+              <a href="/#about" onClick={(e) => handleLinkClick(e, '/#about')} className="hover:text-[#F2B418] transition-colors">About Us</a>
+              <a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="hover:text-[#F2B418] transition-colors">Careers</a>
+              <a href="/#gallery" onClick={(e) => handleLinkClick(e, '/#gallery')} className="hover:text-[#F2B418] transition-colors">Events</a>
+              <a href="/#notices" onClick={(e) => handleLinkClick(e, '/#notices')} className="hover:text-[#F2B418] transition-colors">Notice</a>
             </div>
 
             {/* Yellow-highlighted group 86:693 */}
             <div className="bg-[#F2B418] text-[#14171C] font-semibold flex items-center h-full px-4 space-x-5">
-              <a href="#enquiry" className="hover:opacity-80 transition-opacity">Admissions</a>
+              <a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="hover:opacity-80 transition-opacity">Admissions</a>
               <a href="#" className="hover:opacity-80 transition-opacity">Prospectus</a>
-              <a href="#enquiry" className="hover:opacity-80 transition-opacity">Feedbacks</a>
+              <a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="hover:opacity-80 transition-opacity">Feedbacks</a>
             </div>
           </div>
         </div>
@@ -73,8 +117,13 @@ export const Header: React.FC = () => {
       <div className="w-full">
         <div className="max-w-[1392px] mx-auto px-4 lg:px-0 flex items-center justify-between h-[65px] lg:h-[86px]">
           {/* Logo Region */}
-          <a href="#" className="flex items-center group" aria-label="New Lucknow City Private ITI Homepage">
-            {/* On desktop: Industrial Training Institute visible; New Lucknow City P.V.T hidden in node 10:466 per desktop spec */}
+          <a 
+            href="/" 
+            onClick={(e) => handleLinkClick(e, '/')}
+            className="flex items-center group" 
+            aria-label="New Lucknow City Private ITI Homepage"
+          >
+            {/* On desktop: Industrial Training Institute visible */}
             <ItiLogo variant="header-desktop" className="hidden lg:flex" />
             {/* On mobile: 79 x 42 px */}
             <ItiLogo variant="header-mobile" className="flex lg:hidden" />
@@ -91,6 +140,7 @@ export const Header: React.FC = () => {
               >
                 <a
                   href={item.href}
+                  onClick={(e) => handleLinkClick(e, item.href)}
                   className="px-3 py-2 text-[15px] font-medium text-[#1F2A3C] hover:text-[#D99A00] transition-colors inline-flex items-center gap-1 rounded-md"
                 >
                   {item.name}
@@ -106,11 +156,12 @@ export const Header: React.FC = () => {
                   <div className="absolute left-0 mt-0 w-52 bg-white rounded-md shadow-lg border border-[#DDE1E7] py-2 z-50">
                     {item.items?.map((subItem) => (
                       <a
-                        key={subItem}
-                        href={item.href}
+                        key={subItem.label}
+                        href={subItem.href}
+                        onClick={(e) => handleLinkClick(e, subItem.href)}
                         className="block px-4 py-2 text-xs text-[#1F2A3C] hover:bg-[#F4F5F7] hover:text-[#8A6100] transition-colors"
                       >
-                        {subItem}
+                        {subItem.label}
                       </a>
                     ))}
                   </div>
@@ -144,17 +195,17 @@ export const Header: React.FC = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-[#DDE1E7] px-4 pt-3 pb-6 space-y-2 shadow-xl animate-in fade-in slide-in-from-top-2 duration-150">
           <div className="grid grid-cols-2 gap-2 pb-3 mb-2 border-b border-[#DDE1E7] text-xs">
-            <a href="#about" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">About Us</a>
-            <a href="#enquiry" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 bg-[#F2B418]/20 rounded text-[#14171C] font-bold">Admissions</a>
-            <a href="#notices" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">Notices</a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">Contact</a>
+            <a href="/#about" onClick={(e) => handleLinkClick(e, '/#about')} className="px-3 py-2 bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">About Us</a>
+            <a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="px-3 py-2 bg-[#F2B418]/20 rounded text-[#14171C] font-bold">Admissions</a>
+            <a href="/#notices" onClick={(e) => handleLinkClick(e, '/#notices')} className="px-3 py-2 bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">Notices</a>
+            <a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="px-3 py-2 bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">Guest Lectures</a>
           </div>
 
           {navItems.map((item) => (
             <div key={item.name} className="border-b border-slate-100 last:border-none">
               <a
                 href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleLinkClick(e, item.href)}
                 className="flex items-center justify-between py-2 text-sm font-semibold text-[#1F2A3C] hover:text-[#D99A00] transition-colors"
               >
                 <span>{item.name}</span>
@@ -162,13 +213,27 @@ export const Header: React.FC = () => {
                   <span className="text-xs text-[#5B6B80]">▾</span>
                 )}
               </a>
+              {item.hasDropdown && (
+                <div className="pl-3 pb-2 space-y-1">
+                  {item.items?.map((sub) => (
+                    <a
+                      key={sub.label}
+                      href={sub.href}
+                      onClick={(e) => handleLinkClick(e, sub.href)}
+                      className="block py-1 text-xs text-[#5B6B80] hover:text-[#1F2A3C]"
+                    >
+                      • {sub.label}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
 
           <div className="pt-3">
             <a
-              href="#enquiry"
-              onClick={() => setMobileMenuOpen(false)}
+              href="/#enquiry"
+              onClick={(e) => handleLinkClick(e, '/#enquiry')}
               className="w-full flex items-center justify-center h-[46px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-bold text-sm rounded-[4px] shadow-xs transition-colors"
             >
               Go To Enquiry

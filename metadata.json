@@ -1,6 +1,8 @@
 {
-  "name": "New Lucknow City Private ITI",
+  "name": "ITI - Rajajipuram",
   "description": "Official website of New Lucknow City Private ITI - Empowering youth with vocational education, NCVT certified technical trades, industry placements, and campus excellence.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

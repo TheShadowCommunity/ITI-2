@@ -103,3 +103,20 @@ All brand tokens are declared in **`src/index.css`** inside the Tailwind CSS v4 
 - **Contact Details (69:989 & 10:928)**: Stacked contact rows followed by full-width 398px Map visual.
 - **Gallery (10:917)**: Mobile 2-column photo grid.
 - **Footer (10:974)**: Stacked footer with attribution `Made by Shadow Community`.
+
+---
+
+## 5. Guest Lectures Page (`/guest-lectures`)
+
+- **Route**: Accessible directly at `/guest-lectures` and via the shared Header (Academics dropdown) and Footer (Academics column).
+- **JSON Data Source**: **`src/data/guest-lectures.json`**
+  - Add or modify lecture cards and topic points directly in this JSON file without modifying any component markup.
+  - Schema includes: `id`, `title`, `duration`, `speaker` (`name`, `designation`, `avatar`), `image`, `imageAlt`, `topics` (array of strings).
+- **Reusable Components**:
+  - `src/components/GuestLecturesPage.tsx`: Page wrapper with title band and responsive grid.
+  - `src/components/GuestLectureCard.tsx`: Reusable lecture card displaying media panel, duration, title, speaker, active rule, and mapped topic rows with double chevron icons.
+- **Responsive Architecture**:
+  - **Desktop (≥1440px)**: 1392px centered container, 2-column grid (`678 × 550 px` cards, 36px column gap, 80px row gap), media panel `270px` wide with dark gradient overlay.
+  - **Tablet (768–1023px)**: Single column with balanced side-by-side media and content.
+  - **Mobile (<768px)**: Single column stacked layout with responsive 16:9 media header, touch-friendly proportions, natural text wrapping, and zero horizontal overflow.
+
