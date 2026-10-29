@@ -5,7 +5,7 @@ import { siteImages } from '../data/assets';
 export const ContactDetailsSection: React.FC = () => {
   return (
     <section id="contact" className="py-14 lg:py-20 bg-white">
-      <div className="max-w-[1392px] mx-auto px-4 lg:px-0">
+      <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
         {/* Section Heading with 200px Yellow Active Indicator (Figma 47:768) */}
         <div className="mb-10 lg:mb-12">
           <h2 className="text-[28px] sm:text-[34px] lg:text-[36px] font-bold text-[#1F2A3C] tracking-tight">

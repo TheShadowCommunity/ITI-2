@@ -4,7 +4,7 @@ import { siteImages } from '../data/assets';
 export const AboutSection: React.FC = () => {
   return (
     <section id="about" className="py-12 lg:py-16 bg-[#F4F5F7]">
-      <div className="max-w-[1392px] mx-auto px-4 lg:px-0">
+      <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
         {/* ===================== DESKTOP INTRODUCTION (3 Columns: 593 / 356 / 443 px) ===================== */}
         <div className="hidden lg:grid grid-cols-[593px_356px_443px] gap-0 items-start h-[392px]">
           {/* Column 1: Left content (593 x 392 px) */}

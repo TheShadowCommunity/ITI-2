@@ -20,30 +20,30 @@ export const GuestLecturesPage: React.FC = () => {
       <Header />
 
       <main className="flex-grow">
-        {/* 2. Page-Title Band / Hero (Figma frame 155:1677: 1520 x 200 px) */}
-        <section className="w-full bg-white pt-8 pb-6 sm:pt-12 sm:pb-8 border-b border-[#DDE1E7]/60">
-          <div className="max-w-[1392px] mx-auto px-4 sm:px-6 lg:px-0">
-            {/* Desktop: Title & Thin active indicator / rule on the same baseline row */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-8">
-              {/* Heading: Montserrat SemiBold, 56px on desktop (434 x 70 px measured layer) */}
-              <h1 className="text-[32px] sm:text-[42px] lg:text-[56px] leading-[40px] sm:leading-[52px] lg:leading-[70px] font-semibold text-[#1F2A3C] font-heading tracking-tight flex-shrink-0 m-0">
+        {/* 2. Page-Title Band / Hero: responsive padding & balanced font size */}
+        <section className="w-full bg-white pt-6 pb-4 sm:pt-8 sm:pb-6 lg:pt-10 lg:pb-7 border-b border-[#DDE1E7]/60">
+          <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
+            {/* Title & Thin active indicator / rule on the same baseline row */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-6 lg:gap-8">
+              {/* Heading: smoothly scales from 28px on mobile to 44px on laptop and 56px on 1520px desktop */}
+              <h1 className="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] 2xl:text-[56px] leading-[1.2] 2xl:leading-[70px] font-semibold text-[#1F2A3C] font-heading tracking-tight flex-shrink-0 m-0">
                 Guest Lectures
               </h1>
 
               {/* Active Indicator / Gradient Line extending across to the right margin */}
               <div 
-                className="w-full max-w-[850px] h-[6px] sm:h-[8px] rounded-full bg-gradient-to-r from-[#DDE1E7]/40 via-[#F2B418]/60 to-[#F2B418] flex-grow self-center"
+                className="w-full max-w-[850px] h-[5px] sm:h-[6px] lg:h-[7px] 2xl:h-[8px] rounded-full bg-gradient-to-r from-[#DDE1E7]/40 via-[#F2B418]/60 to-[#F2B418] flex-grow self-center"
                 aria-hidden="true" 
               />
             </div>
           </div>
         </section>
 
-        {/* 3. Main Lectures Grid Section (Figma: 1392 x 2440 px, 2 columns, 36px col gap, 80px row gap) */}
-        <section className="w-full py-12 sm:py-16 lg:py-[100px] bg-white">
-          <div className="max-w-[1392px] mx-auto px-4 sm:px-6 lg:px-0">
+        {/* 3. Main Lectures Grid Section: responsive vertical padding & adaptive column/row gaps */}
+        <section className="w-full py-8 sm:py-10 md:py-12 lg:py-12 xl:py-16 2xl:py-[80px] bg-white">
+          <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
             {lectures && lectures.length > 0 ? (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[36px] gap-y-12 sm:gap-y-16 lg:gap-y-[80px]">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-6 lg:gap-x-7 xl:gap-x-8 2xl:gap-x-[36px] gap-y-8 sm:gap-y-10 md:gap-y-12 lg:gap-y-12 xl:gap-y-14 2xl:gap-y-[80px]">
                 {lectures.map((lecture) => (
                   <GuestLectureCard key={lecture.id} lecture={lecture} />
                 ))}

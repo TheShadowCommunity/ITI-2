@@ -93,7 +93,7 @@ export const Header: React.FC = () => {
     <header className="w-full sticky top-0 z-50 bg-white shadow-xs">
       {/* 1. Desktop Top Navigation Strip (Figma node 10:442: 1520 x 46 px) */}
       <div className="hidden lg:block bg-[#1F2A3C] text-white text-[12px] h-[46px] border-b border-white/10">
-        <div className="max-w-[1392px] mx-auto h-full px-4 sm:px-6 lg:px-0 flex justify-end items-center">
+        <div className="max-w-[1392px] mx-auto h-full px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0 flex justify-end items-center">
           <div className="flex items-center h-full">
             {/* First four neutral links */}
             <div className="flex items-center space-x-6 text-[#DDE1E7] font-medium mr-4">
@@ -115,7 +115,7 @@ export const Header: React.FC = () => {
 
       {/* 2. Desktop Menu Bar (Figma node 10:451: 1520 x 86 px) / Mobile Header (10:782: 430 x 65 px) */}
       <div className="w-full">
-        <div className="max-w-[1392px] mx-auto px-4 lg:px-0 flex items-center justify-between h-[65px] lg:h-[86px]">
+        <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0 flex items-center justify-between h-[65px] lg:h-[86px]">
           {/* Logo Region */}
           <a 
             href="/" 

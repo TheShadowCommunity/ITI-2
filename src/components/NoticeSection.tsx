@@ -30,7 +30,7 @@ export const NoticeSection: React.FC = () => {
 
   return (
     <section id="notices" className="py-12 lg:py-16 bg-white">
-      <div className="max-w-[1392px] mx-auto px-4 lg:px-0">
+      <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
         {/* Dark Navy Header Banner with Megaphone Icon (Figma 57:1101) */}
         <div className="bg-[#1F2A3C] rounded-t-[16px] px-6 py-6 sm:px-8 sm:py-7 flex items-center gap-4 text-white">
           <div className="text-[#F2B418] flex-shrink-0">

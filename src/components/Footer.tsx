@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-white border-t border-[#DDE1E7] pt-12 lg:pt-14 pb-8">
-      <div className="max-w-[1392px] mx-auto px-4 lg:px-0">
+      <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
         {/* Main Footer Links & Branding Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-[#DDE1E7]">
           {/* Brand Col (396 x 72 px) */}
