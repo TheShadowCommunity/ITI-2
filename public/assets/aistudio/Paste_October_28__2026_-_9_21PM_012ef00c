@@ -1,0 +1,587 @@
+# Project: Build a High-Performance ITI College Website from Figma Designs
+
+## 1. Your role
+
+Act as a senior frontend engineer, UI implementation specialist and web performance engineer.
+
+Your task is to implement the homepage of a real ITI college website using the Figma design screenshots I provide.
+
+You are responsible for the complete initial implementation: choosing an appropriate framework, establishing the project structure, implementing the responsive UI, setting up the design system, and preparing the code for future integrations.
+
+This is not a design exploration or a prototype that only looks correct in a screenshot. Build a working, exportable website codebase that can later be developed and debugged using Codex, Claude or another coding agent.
+
+Prioritize speed of implementation, visual accuracy, performance, simplicity and reliable behaviour.
+
+Do not begin by generating code immediately. First inspect the supplied reference documents and images, establish your technical decisions, and then implement the project.
+
+---
+
+## 2. Reference materials you must use
+
+I will provide the following files:
+
+### Reference A: `tailwind_design_system_guide.docx`
+
+Read this document to understand the intended design-system approach, including:
+
+- Centralized design tokens.
+- Tailwind CSS usage.
+- Colour, typography, spacing and responsive styling.
+- Local font files and font-family management.
+- Local image and icon requirements.
+- How global visual changes should be made without editing every component.
+
+Use this document as a design-system guide, not as a rigid requirement to reproduce an older project's configuration.
+
+### Reference B: `website_technical_brief.docx`
+
+Read this document to understand:
+
+- Project scope and priorities.
+- Performance requirements.
+- Future Sanity CMS and Resend integrations.
+- Local asset restrictions.
+- Requirements for static content, notices and contact forms.
+- Framework-selection principles.
+- Features that must remain unconfigured during this initial phase.
+
+Treat this as the primary written requirements document.
+
+### Reference C: Figma homepage PNGs
+
+I will provide separate screenshots showing the intended desktop and mobile homepage designs.
+
+Use these screenshots as the primary visual source of truth.
+
+Study the complete page, including:
+
+- Section order.
+- Layout proportions.
+- Typography hierarchy.
+- Colours and contrast.
+- Spacing and alignment.
+- Image placement and aspect ratios.
+- Cards, forms, navigation, buttons and section dividers.
+- Responsive rearrangement of content.
+- Mobile-specific changes to section composition and density.
+
+The desktop and mobile screenshots represent two intentional layouts. Do not merely scale the desktop design down to fit a mobile viewport.
+
+If the documents and screenshots disagree, use the screenshots for visual decisions and the technical brief for functional requirements. If an important conflict cannot be resolved from the references, state the ambiguity instead of silently inventing a solution.
+
+---
+
+## 3. Project scope
+
+This is a college website expected to contain approximately 12 pages.
+
+For this phase, implement the homepage only.
+
+I will provide designs for the remaining pages later. Do not invent or implement all 12 pages now.
+
+The homepage includes the following sections, as visible in the supplied designs:
+
+- Header and navigation.
+- Hero section with the college's main visual and introductory content.
+- College introduction.
+- Admission or inquiry form.
+- Recruitment or placement-related content and company logos.
+- Trade/course cards.
+- Student testimonials or experiences.
+- Notice and announcement section.
+- Contact details and contact form.
+- Location/map visual.
+- College life gallery.
+- Footer.
+
+Use the screenshots to determine the actual arrangement and responsive behaviour of these sections. The list above identifies expected content, not permission to redesign the page.
+
+Implement only the sections and interactions supported by the supplied design and requirements.
+
+---
+
+## 4. Choose the framework and architecture
+
+You may choose the framework, rendering strategy and project structure that best meet the requirements.
+
+Do not assume that Astro must be used simply because a previous website used it. Equally, do not choose React, Next.js or another framework merely because it is familiar or convenient for generating UI.
+
+Evaluate the smallest practical architecture that supports:
+
+- A mostly static, content-oriented website.
+- Fast loading, particularly on mobile devices.
+- Tailwind CSS styling.
+- A homepage that can later expand to approximately 12 pages.
+- Future Sanity integration for notices and form submissions.
+- Future Resend email integration.
+- A conventional source codebase that can be exported, inspected and debugged with other coding agents.
+- Straightforward deployment to a conventional hosting platform.
+
+Prefer static generation or server rendering where appropriate, with minimal client-side JavaScript.
+
+Avoid shipping a large client-side application solely to render static content.
+
+Before implementing, briefly state:
+
+1. The framework and rendering strategy you selected.
+2. Why they are suitable for this particular website.
+3. The Tailwind CSS version and configuration mechanism you will use.
+4. How the project will remain exportable and easy to debug.
+5. How the deferred Sanity and Resend integrations will fit into the architecture.
+6. Any material performance trade-offs.
+
+Then proceed with the implementation. Do not turn this into a lengthy framework comparison or wait for approval unless a critical requirement is genuinely ambiguous.
+
+---
+
+## 5. Tailwind CSS and centralized design system
+
+Tailwind CSS is a requirement.
+
+The design system must be centralized so that I can adjust the brand colours, fonts and other global design decisions later without editing every component or page.
+
+Use the supplied `tailwind_design_system_guide.docx` as the reference for the desired approach.
+
+### Design tokens
+
+Establish one clear source of truth for:
+
+- Brand and accent colours.
+- Page backgrounds and surface colours.
+- Primary and muted text colours.
+- Borders and focus colours.
+- Font families and weights.
+- Typography sizes and line heights.
+- Common spacing and section spacing.
+- Border radii and shadows.
+- Any other recurring design values that are clearly visible in the screenshots.
+
+Use semantic token names such as `brand`, `accent`, `surface`, `text-primary` and `text-muted`, adapted to the selected Tailwind version and its supported naming conventions.
+
+The exact names are flexible; centralized control is mandatory.
+
+### Derive the initial design system from the screenshots
+
+Inspect the Figma PNGs and infer a practical initial set of colours, typography, spacing, radii and layout values.
+
+Treat screenshot-derived values as estimates where exact design data is unavailable.
+
+Do not blindly copy a colour palette from the previous ITI project if it does not match the new screenshots.
+
+If exact Figma colour values are unavailable, select sensible approximate values that closely match the reference and keep them centralized.
+
+### Configuration rules
+
+- If using Tailwind CSS v4, use its supported CSS-first theme configuration where appropriate.
+- If using Tailwind CSS v3, use its supported JavaScript configuration approach.
+- Do not mix configuration conventions from incompatible major versions.
+- Do not create redundant configuration files without a clear reason.
+- Ensure that global changes to a token propagate throughout the UI.
+
+Avoid scattering raw hexadecimal colours, repeated font-family declarations and unnecessary arbitrary values throughout the markup.
+
+Use one-off utility values when the design genuinely requires a unique measurement, not as a substitute for a coherent design system.
+
+Do not overengineer a design-token system or build a complex component library for this relatively small website.
+
+---
+
+## 6. Typography and Hindi/English support
+
+The website uses both Hindi and English.
+
+The final text may be edited manually by me, so prioritize matching the visible content hierarchy, text density and approximate line lengths rather than spending excessive time deciphering unclear text in the screenshots.
+
+Copy text from the screenshots wherever it is reasonably legible.
+
+For unclear text, use a concise, clearly editable placeholder rather than inventing institutional claims or important details.
+
+### Font requirements
+
+I have local font files available with the following filenames:
+
+- `hind-v17-latin-300.woff2`
+- `hind-v17-latin-500.woff2`
+- `hind-v17-latin-600.woff2`
+- `hind-v17-latin-regular.woff2`
+- `montserrat-v30-latin-300.woff2`
+- `montserrat-v30-latin-500.woff2`
+- `montserrat-v30-latin-600.woff2`
+- `montserrat-v30-latin-regular.woff2`
+
+I may add the actual font files to the project later.
+
+Prepare the typography setup so I can change font-family choices centrally using Tailwind theme tokens or the equivalent supported mechanism.
+
+Do not hardcode font families independently in every component.
+
+If the files are not physically available in the project, do not pretend that they have been installed. Set up clear local font integration points and use an appropriate fallback until the files are added.
+
+The filenames include a `latin` subset. Do not assume these files contain Devanagari glyphs. Ensure the typography strategy can accommodate a suitable Hindi/Devanagari font later.
+
+Use the correct font-weight mappings for the available files. Do not declare a font file as a weight it does not contain.
+
+Use local font assets and avoid external font requests. Prefer `font-display: swap` and avoid unnecessary font weights or blocking font loads.
+
+---
+
+## 7. Images and icons: local assets only
+
+Do not fetch images or icons from the internet.
+
+Do not insert remote image URLs from stock-photo services, image search results or external websites.
+
+### Image placeholder strategy
+
+For this initial implementation, use a single local placeholder image in all image positions throughout the homepage.
+
+The purpose is to let me replace the images manually after the layout is complete.
+
+Requirements:
+
+- Use a local image asset, not a remote URL.
+- Keep the placeholder in a clearly identifiable asset location.
+- Make each image's source straightforward to replace independently later.
+- Preserve the appropriate dimensions, aspect ratios, crop behaviour and responsive layout shown in the design.
+- Avoid broken images and dependencies on network access.
+- Do not generate or source dozens of temporary images.
+- If I have not supplied a placeholder image file, create or use a simple local placeholder asset where the environment supports it.
+
+Even though the same image will initially appear in multiple positions, the implementation must preserve the intended layout and image treatment of each section.
+
+Use sensible image loading behaviour and reserve space to reduce layout shift.
+
+Do not lazy-load the main hero image if doing so would delay the initial page's Largest Contentful Paint. Below-the-fold images can use lazy loading when appropriate.
+
+### Icons
+
+I have icons in my Figma design that I will add or replace manually.
+
+- Do not download icons from the web.
+- Do not load icons from remote icon APIs.
+- Do not use external image URLs for icons.
+- Avoid adding a large icon library just for a small number of interface icons.
+- Use simple local SVG placeholders or local asset references where appropriate.
+- Keep icon references easy to locate and replace.
+- Preserve icon dimensions, alignment and spacing so replacing a placeholder does not break the layout.
+
+If an icon asset is not yet available, use a simple local placeholder rather than spending time sourcing a substitute.
+
+---
+
+## 8. Static content and future Sanity integration
+
+Most of the website's informational content will be static.
+
+The notice and announcement section must eventually retrieve its content from Sanity CMS.
+
+All contact form submissions are also intended to be saved in Sanity.
+
+However, I explicitly do not want the actual Sanity configuration performed during this phase.
+
+### What to implement now
+
+Build the notice section UI to match the screenshots, including:
+
+- Notice rows or cards.
+- Relevant dates or metadata where shown.
+- The appropriate typography and layout.
+- Any visible download or detail links.
+- Responsive behaviour.
+- A view-all action if it appears in the design.
+
+Create a clear, simple separation between the notice presentation component and its data source.
+
+Use a small, clearly identified mock data file for initial rendering and visual testing if necessary.
+
+Keep the mock data separate from the component markup so it can later be replaced by a Sanity query without rewriting the UI.
+
+If useful, define a straightforward data shape or TypeScript type for a notice, based only on fields required by the current design and explicitly identified requirements.
+
+### What not to configure yet
+
+Do not:
+
+- Create or connect a Sanity project.
+- Invent project IDs or dataset names.
+- Configure production credentials.
+- Install Sanity dependencies unless there is a compelling reason for a necessary architectural preparation.
+- Create or deploy CMS schemas.
+- Claim that mock notices are being retrieved from Sanity.
+- Implement a complicated abstraction layer solely for the future CMS integration.
+
+Document the precise files and integration points that will need to change when Sanity is connected.
+
+Do not add fake CMS functionality merely to make the UI appear dynamic.
+
+---
+
+## 9. Contact and admission forms: prepare for Sanity and Resend
+
+The homepage contains contact or inquiry forms.
+
+The eventual requirement is that submissions must:
+
+1. Be validated.
+2. Be saved into Sanity.
+3. Trigger an email to the client's designated email address using Resend.
+4. Provide clear feedback to the user.
+
+The live integrations will be configured later.
+
+### Implement now
+
+Build the forms to match the screenshots, including the correct visible fields, labels, spacing, button styles and responsive behaviour.
+
+Implement appropriate front-end validation for required fields, email addresses and any other clearly required inputs.
+
+Provide appropriate pending, success and failure UI states.
+
+Make the form structure easy to adapt to a later server-side handler.
+
+Avoid duplicating large amounts of form markup when a small, practical shared component or field pattern would clearly simplify the implementation.
+
+However, do not force visually different forms into a generic abstraction that makes the code harder to maintain.
+
+### Integration boundaries
+
+Do not configure live Sanity or Resend credentials.
+
+Do not send real emails.
+
+Do not claim that a form submission has succeeded when no server-side submission has occurred.
+
+Do not permanently simulate successful submission in a way that could be mistaken for a working production form.
+
+Do not expose Resend API keys, Sanity credentials or other secrets in client-side code.
+
+If an actual submission backend is not being implemented in this phase, clearly label the integration as pending and ensure the UI communicates the limitation honestly.
+
+Document what the eventual server-side handler will need to do, including server-side validation, Sanity persistence and Resend email delivery.
+
+Keep the implementation simple and compatible with the selected framework's normal server-side capabilities.
+
+---
+
+## 10. Responsive implementation
+
+Both desktop and mobile screenshots are required references.
+
+Treat responsive design as a first-class requirement.
+
+For every homepage section:
+
+- Compare the desktop screenshot with the desktop implementation.
+- Compare the mobile screenshot with the mobile implementation.
+- Match the intended content order, alignment, spacing, image proportions and visibility.
+- Reproduce mobile-specific layout changes where visible.
+- Ensure navigation works on touch devices if it collapses into a menu.
+- Ensure buttons, links and form fields are usable on narrow screens.
+- Prevent horizontal overflow.
+- Check that Hindi and English text wrap correctly.
+- Avoid fixed widths and heights that break with different text lengths.
+- Use fluid layouts where appropriate and fixed dimensions only when justified by the reference design.
+
+Do not simply hide large portions of the homepage on mobile unless the screenshots indicate that behaviour.
+
+Use the actual supplied PNGs as the comparison reference throughout implementation.
+
+---
+
+## 11. Performance: a primary acceptance criterion
+
+Performance is one of the highest priorities.
+
+The target is a Lighthouse Performance score above 90, especially on mobile, under a representative production-like test.
+
+This is a target that must be measured, not a score to claim without evidence.
+
+Build for performance from the beginning.
+
+### Required approach
+
+- Prefer static HTML generation for content that does not need to be dynamic.
+- Minimize client-side JavaScript.
+- Avoid shipping unnecessary frontend frameworks or hydration.
+- Avoid unnecessary animation libraries, carousel packages and UI dependencies.
+- Keep the initial JavaScript bundle small.
+- Use local images and fonts.
+- Avoid remote image, icon, font and other third-party asset dependencies.
+- Use responsive image sizes where appropriate.
+- Set image dimensions or aspect ratios to reduce cumulative layout shift.
+- Optimize the hero section and above-the-fold rendering.
+- Avoid layout shifts caused by late-loading images, fonts or content.
+- Avoid heavy background videos and complex effects unless required by the screenshots.
+- Use semantic HTML and avoid expensive rendering patterns.
+- Ensure that the notice section does not block the rendering of unrelated static homepage content.
+
+Do not sacrifice the visual fidelity of the supplied design unnecessarily in pursuit of performance. Instead, choose an efficient implementation strategy.
+
+If the chosen framework or architecture introduces avoidable performance overhead, reconsider it.
+
+### Validation
+
+Where tools are available, run the production build and measure Lighthouse Performance for mobile and desktop.
+
+Report the actual results and the test conditions.
+
+If you cannot run Lighthouse, state that clearly and identify any performance risks that remain unverified.
+
+Do not fabricate scores.
+
+---
+
+## 12. SEO, accessibility and maintainability
+
+Implement the essentials without building an elaborate SEO or accessibility framework.
+
+Include:
+
+- A meaningful page title and meta description.
+- Semantic heading hierarchy.
+- Appropriate HTML landmarks.
+- Descriptive image alt text where images convey meaning.
+- Empty alt text for purely decorative images where appropriate.
+- Accessible navigation and keyboard focus.
+- Form labels and understandable validation messages.
+- Visible focus states.
+- Sufficient text/background contrast.
+- Responsive layouts and readable text.
+- Sensible canonical URL handling when the production domain is known.
+- A straightforward route structure suitable for adding pages later.
+
+Do not invent official accreditation, affiliation, contact details, legal claims or other institutional facts.
+
+Use placeholders for information I must supply.
+
+---
+
+## 13. Code structure and implementation philosophy
+
+Choose a structure appropriate to the selected framework.
+
+I do not require you to copy the architecture or coding conventions of a previous website.
+
+I want the simplest implementation that is clear, fast and practical to debug.
+
+Follow these principles:
+
+- Prefer straightforward, readable code.
+- Reuse components when doing so clearly reduces duplication.
+- Do not create a component for every tiny markup fragment.
+- Do not overengineer state management.
+- Do not introduce a frontend framework solely for convenience.
+- Avoid unnecessary dependencies.
+- Keep design tokens centralized.
+- Keep local asset paths easy to change.
+- Keep static content separate from presentation when it materially improves editability.
+- Separate future integration points from UI components.
+- Avoid large, monolithic files when a small separation improves clarity.
+- Do not refactor unrelated code.
+- Do not generate unnecessary architecture documentation or scaffolding.
+
+The result must be a conventional codebase that another developer or coding agent can understand without access to this AI Studio conversation.
+
+Use standard package scripts and keep the project exportable.
+
+Do not make the website dependent on a proprietary AI Studio runtime or an undeclared external service.
+
+---
+
+## 14. Implementation sequence
+
+Follow this order.
+
+### Phase 1: Inspect and plan
+
+1. Read the two supplied DOCX reference documents.
+2. Inspect both desktop and mobile Figma PNGs.
+3. Identify the main sections, responsive differences, repeated visual patterns and interactions.
+4. Select the framework and Tailwind version.
+5. Define the initial design tokens.
+6. Establish the minimal project structure.
+
+Briefly communicate the decisions before moving into implementation.
+
+### Phase 2: Build the foundation
+
+1. Create the project structure.
+2. Configure Tailwind using the selected version's supported approach.
+3. Define the design tokens and typography integration points.
+4. Establish global layout conventions and local asset paths.
+5. Add the local placeholder image and icon placeholders.
+6. Set up routing or page structure appropriate to the chosen framework.
+
+Do not spend excessive time building infrastructure that is not needed by the homepage.
+
+### Phase 3: Implement the homepage
+
+Implement the sections in the order shown in the screenshots.
+
+Prioritize:
+
+1. Accurate desktop layout.
+2. Accurate mobile layout.
+3. Correct section ordering and spacing.
+4. Consistent typography and colours.
+5. Correct image sizing and cropping.
+6. Functional navigation, links and UI interactions.
+7. Editable static content.
+8. Notice and form UI with clearly separated future integration points.
+
+Do not start implementing the remaining pages until I provide their designs.
+
+### Phase 4: Verify and refine
+
+1. Run the available build and type-check commands.
+2. Fix compilation errors and console errors.
+3. Test responsive behaviour at the supplied reference sizes and nearby viewport widths.
+4. Compare the rendered homepage against both PNGs.
+5. Correct major differences in layout, typography, colour, spacing and image proportions.
+6. Check horizontal overflow, form validation and navigation behaviour.
+7. Review loading behaviour and image/font layout shifts.
+8. Measure performance where tools permit.
+9. Remove dead code and dependencies that are not needed.
+
+Do not consider the task complete merely because the build succeeds.
+
+---
+
+## 15. Final deliverables
+
+When the implementation is complete, provide:
+
+1. The complete, exportable project source code.
+2. A working local development command.
+3. A production build command.
+4. A concise README explaining how to install, run, build and export the project.
+5. A clear explanation of where design tokens are defined and how I can update them.
+6. A list of where to replace the placeholder images and icons.
+7. An explanation of how to add or change local fonts, including Hindi font integration.
+8. A list of the files and integration points that will later need Sanity configuration.
+9. A list of the files and integration points that will later need Resend configuration.
+10. A concise summary of the framework selected and why.
+11. A summary of validation performed, actual build results and any Lighthouse results that were measured.
+12. A list of remaining manual steps and unresolved requirements.
+
+Do not claim that Sanity, Resend, production deployment or performance testing has been completed if it has not.
+
+## 16. Definition of done
+
+The initial phase is complete when:
+
+- The homepage is implemented from the supplied desktop and mobile screenshots.
+- The layout is responsive and does not overflow on common screen sizes.
+- The design uses a centralized Tailwind-based design system.
+- The site uses local placeholder images and replaceable local icon references.
+- Text content is easy to edit.
+- Hindi and English typography can be controlled centrally, with a clear path to adding a suitable Devanagari font.
+- The notice UI renders from clearly separated placeholder data and is prepared for future Sanity integration.
+- The forms have the intended UI, validation and honest submission states, with a clear path to future Sanity and Resend integration.
+- No live Sanity project or Resend credentials have been configured.
+- No remote image or icon URLs are required for the website to render.
+- The production build succeeds.
+- The source code is exportable and practical to debug with other AI coding agents.
+- Performance has been measured where possible, with remaining risks reported honestly.
+
+Start by reviewing the supplied reference documents and screenshots. Then state your technical decisions and proceed with the homepage implementation.

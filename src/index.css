@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  /* Exact Figma Variables from Desktop & Mobile Specifications */
+  --color-brand: #1F2A3C;          /* Navy/900: Dark backgrounds and primary headings */
+  --color-navy-900: #1F2A3C;
+  --color-navy-800: #2E3B4E;      /* Navy/800: Dark secondary text / course titles */
+  --color-navy-500: #5B6B80;      /* Navy/500: Body and secondary text */
+  --color-navy-200: #AEB8C6;      /* Navy/200: Muted text */
+  --color-accent: #F2B418;        /* Yellow/500: Primary CTA / highlight */
+  --color-yellow-500: #F2B418;
+  --color-yellow-600: #D99A00;    /* Yellow/600: Deeper yellow accent */
+  --color-yellow-700: #8A6100;    /* Yellow/700: Dark yellow text accent */
+  --color-surface: #FFFFFF;       /* Neutral/0: White surfaces */
+  --color-page: #F4F5F7;          /* Neutral/50: Light neutral background */
+  --color-neutral-200: #DDE1E7;   /* Neutral/200: Light text on dark background */
+  --color-neutral-950: #14171C;   /* Neutral/950: Near-black text / CTA label */
+  --color-sage: #AAB48C;          /* Sage/S400: Muted green accent */
+  --color-border: #DDE1E7;
+
+  /* Typography */
+  --font-heading: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Montserrat", "Hind", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-hindi: "Hind", "Noto Sans Devanagari", system-ui, -apple-system, sans-serif;
+
+  --breakpoint-xs: 360px;
+  --breakpoint-sm: 430px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1520px;
+}
+
+:root {
+  --section-space: 4rem;
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-page, #F4F5F7);
+  color: var(--color-navy-900, #1F2A3C);
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #F2B418;
+  color: #14171C;
+}
