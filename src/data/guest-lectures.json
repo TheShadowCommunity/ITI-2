@@ -1,0 +1,154 @@
+[
+  {
+    "id": "positive-thinking-personality-development",
+    "title": "Positive Thinking & Personality Development",
+    "duration": "Duration of 2 : 50 Hrs",
+    "speaker": {
+      "name": "Mr Surya",
+      "designation": "Motivational Speaker",
+      "avatar": "/images/speaker-avatar.svg"
+    },
+    "image": "/images/guest-lecture-abhivyakti.jpg",
+    "imageAlt": "Guest lecture on positive thinking and personality development at New Lucknow City Private ITI",
+    "topics": [
+      "How to identify negetive thinking and common negetive thoughts and patterns.",
+      "The link between thinking and actions.",
+      "Understanding the impact of negative thinking has on ones performance.",
+      "Visualization techniques to transform business situations.",
+      "The role of language we use."
+    ]
+  },
+  {
+    "id": "develope-employbility-skill-1",
+    "title": "Develope Employbility Skill",
+    "duration": "Duration of 2 : 50 Hrs",
+    "speaker": {
+      "name": "Mr Surya",
+      "designation": "Motivational Speaker",
+      "avatar": "/images/speaker-avatar.svg"
+    },
+    "image": "/images/guest-lecture-abhivyakti.jpg",
+    "imageAlt": "Guest lecture on developing employability skill",
+    "topics": [
+      "How to identify negetive thinking and common negetive thoughts and patterns.",
+      "The link between thinking and actions.",
+      "Understanding the impact of negative thinking has on ones performance.",
+      "Visualization techniques to transform business situations.",
+      "The role of language we use."
+    ]
+  },
+  {
+    "id": "training-on-lead-acid-battery-1",
+    "title": "Training on Lead Acid Battery",
+    "duration": "Duration of 2 : 50 Hrs",
+    "speaker": {
+      "name": "Mr Surya",
+      "designation": "Motivational Speaker",
+      "avatar": "/images/speaker-avatar.svg"
+    },
+    "image": "/images/guest-lecture-abhivyakti.jpg",
+    "imageAlt": "Guest lecture technical training on lead acid battery",
+    "topics": [
+      "How to identify negetive thinking and common negetive thoughts and patterns.",
+      "The link between thinking and actions.",
+      "Understanding the impact of negative thinking has on ones performance.",
+      "Visualization techniques to transform business situations.",
+      "The role of language we use."
+    ]
+  },
+  {
+    "id": "develope-employbility-skill-2",
+    "title": "Develope Employbility Skill",
+    "duration": "Duration of 2 : 50 Hrs",
+    "speaker": {
+      "name": "Mr Surya",
+      "designation": "Motivational Speaker",
+      "avatar": "/images/speaker-avatar.svg"
+    },
+    "image": "/images/guest-lecture-abhivyakti.jpg",
+    "imageAlt": "Guest lecture on developing employability skill",
+    "topics": [
+      "How to identify negetive thinking and common negetive thoughts and patterns.",
+      "The link between thinking and actions.",
+      "Understanding the impact of negative thinking has on ones performance.",
+      "Visualization techniques to transform business situations.",
+      "The role of language we use."
+    ]
+  },
+  {
+    "id": "training-on-lead-acid-battery-2",
+    "title": "Training on Lead Acid Battery",
+    "duration": "Duration of 2 : 50 Hrs",
+    "speaker": {
+      "name": "Mr Surya",
+      "designation": "Motivational Speaker",
+      "avatar": "/images/speaker-avatar.svg"
+    },
+    "image": "/images/guest-lecture-abhivyakti.jpg",
+    "imageAlt": "Technical workshop on lead acid battery maintenance",
+    "topics": [
+      "How to identify negetive thinking and common negetive thoughts and patterns.",
+      "The link between thinking and actions.",
+      "Understanding the impact of negative thinking has on ones performance.",
+      "Visualization techniques to transform business situations.",
+      "The role of language we use."
+    ]
+  },
+  {
+    "id": "develope-employbility-skill-3",
+    "title": "Develope Employbility Skill",
+    "duration": "Duration of 2 : 50 Hrs",
+    "speaker": {
+      "name": "Mr Surya",
+      "designation": "Motivational Speaker",
+      "avatar": "/images/speaker-avatar.svg"
+    },
+    "image": "/images/guest-lecture-abhivyakti.jpg",
+    "imageAlt": "Guest lecture on career readiness and interview skills",
+    "topics": [
+      "How to identify negetive thinking and common negetive thoughts and patterns.",
+      "The link between thinking and actions.",
+      "Understanding the impact of negative thinking has on ones performance.",
+      "Visualization techniques to transform business situations.",
+      "The role of language we use."
+    ]
+  },
+  {
+    "id": "training-on-lead-acid-battery-3",
+    "title": "Training on Lead Acid Battery",
+    "duration": "Duration of 2 : 50 Hrs",
+    "speaker": {
+      "name": "Mr Surya",
+      "designation": "Motivational Speaker",
+      "avatar": "/images/speaker-avatar.svg"
+    },
+    "image": "/images/guest-lecture-abhivyakti.jpg",
+    "imageAlt": "Practical workshop training on lead acid battery systems",
+    "topics": [
+      "How to identify negetive thinking and common negetive thoughts and patterns.",
+      "The link between thinking and actions.",
+      "Understanding the impact of negative thinking has on ones performance.",
+      "Visualization techniques to transform business situations.",
+      "The role of language we use."
+    ]
+  },
+  {
+    "id": "develope-employbility-skill-4",
+    "title": "Develope Employbility Skill",
+    "duration": "Duration of 2 : 50 Hrs",
+    "speaker": {
+      "name": "Mr Surya",
+      "designation": "Motivational Speaker",
+      "avatar": "/images/speaker-avatar.svg"
+    },
+    "image": "/images/guest-lecture-abhivyakti.jpg",
+    "imageAlt": "Employability and soft skill development seminar",
+    "topics": [
+      "How to identify negetive thinking and common negetive thoughts and patterns.",
+      "The link between thinking and actions.",
+      "Understanding the impact of negative thinking has on ones performance.",
+      "Visualization techniques to transform business situations.",
+      "The role of language we use."
+    ]
+  }
+]

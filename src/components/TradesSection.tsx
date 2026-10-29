@@ -4,7 +4,7 @@ import { tradesData } from '../data/trades';
 export const TradesSection: React.FC = () => {
   return (
     <section id="trades" className="py-16 lg:py-24 bg-[#1F2A3C] text-white">
-      <div className="max-w-[1392px] mx-auto px-4 lg:px-0">
+      <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
         {/* Section Heading with Active Indicator */}
         <div className="mb-10 lg:mb-14 text-left">
           <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-bold text-white tracking-tight font-hindi leading-tight">

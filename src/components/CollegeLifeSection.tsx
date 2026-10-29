@@ -4,7 +4,7 @@ import { siteImages } from '../data/assets';
 export const CollegeLifeSection: React.FC = () => {
   return (
     <section id="gallery" className="py-14 lg:py-20 bg-[#F4F5F7]">
-      <div className="max-w-[1392px] mx-auto px-4 lg:px-0">
+      <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
         {/* Header with Title and View More Link */}
         <div className="flex items-end justify-between mb-8 sm:mb-10">
           <div>

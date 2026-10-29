@@ -14,7 +14,9 @@
   --color-surface: #FFFFFF;       /* Neutral/0: White surfaces */
   --color-page: #F4F5F7;          /* Neutral/50: Light neutral background */
   --color-neutral-200: #DDE1E7;   /* Neutral/200: Light text on dark background */
+  --color-neutral-400: #708E91;   /* Neutrals/N400: Duration/meta text */
   --color-neutral-950: #14171C;   /* Neutral/950: Near-black text / CTA label */
+  --color-lecture-title: #151D1E; /* Neutrals/N950: Main lecture title */
   --color-sage: #AAB48C;          /* Sage/S400: Muted green accent */
   --color-border: #DDE1E7;
 
