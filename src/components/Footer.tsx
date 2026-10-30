@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
             <div>
               <h4 className="text-[14px] font-bold text-[#1F2A3C] mb-3 font-heading">Home</h4>
               <ul className="space-y-2 text-[13px] text-[#5B6B80]">
-                <li><a href="/#about" onClick={(e) => handleLinkClick(e, '/#about')} className="hover:text-[#1F2A3C] transition-colors">About Us</a></li>
+                <li><a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="hover:text-[#1F2A3C] transition-colors">About Us</a></li>
                 <li><a href="/contact" onClick={(e) => handleLinkClick(e, '/contact')} className="hover:text-[#1F2A3C] transition-colors">Contact us</a></li>
                 <li><a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="hover:text-[#1F2A3C] transition-colors">Career</a></li>
               </ul>

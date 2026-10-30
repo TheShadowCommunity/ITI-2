@@ -4,14 +4,23 @@ import { GuestLecturesPage } from './components/GuestLecturesPage';
 import { ContactPage } from './components/ContactPage';
 import { NoticePage } from './components/NoticePage';
 import { FeeStructurePage } from './components/FeeStructurePage';
+import { AboutUsPage } from './components/AboutUsPage';
 
 function getRoutePath(): string {
   if (typeof window === 'undefined') return '/';
   const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+  if (pathname === '/about' || pathname === '/about-us') return '/about';
   if (pathname === '/guest-lectures') return '/guest-lectures';
   if (pathname === '/contact') return '/contact';
   if (pathname === '/notice') return '/notice';
   if (pathname === '/fee-structure' || pathname === '/fees-structure') return '/fee-structure';
+  if (
+    window.location.hash.startsWith('#/about') ||
+    window.location.hash.startsWith('#/about-us') ||
+    window.location.hash === '#about-page'
+  ) {
+    return '/about';
+  }
   if (window.location.hash.startsWith('#/guest-lectures') || window.location.hash.startsWith('#guest-lectures')) {
     return '/guest-lectures';
   }
@@ -51,6 +60,10 @@ export default function App() {
     };
   }, []);
 
+  if (currentPath === '/about' || currentPath === '/about-us') {
+    return <AboutUsPage />;
+  }
+
   if (currentPath === '/guest-lectures') {
     return <GuestLecturesPage />;
   }
@@ -69,4 +82,5 @@ export default function App() {
 
   return <HomePage />;
 }
+
 

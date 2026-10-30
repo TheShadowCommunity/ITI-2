@@ -97,7 +97,7 @@ export const Header: React.FC = () => {
           <div className="flex items-center h-full">
             {/* First four neutral links */}
             <div className="flex items-center space-x-6 text-[#DDE1E7] font-medium mr-4">
-              <a href="/#about" onClick={(e) => handleLinkClick(e, '/#about')} className="hover:text-[#F2B418] transition-colors">About Us</a>
+              <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="hover:text-[#F2B418] transition-colors">About Us</a>
               <a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="hover:text-[#F2B418] transition-colors">Careers</a>
               <a href="/#gallery" onClick={(e) => handleLinkClick(e, '/#gallery')} className="hover:text-[#F2B418] transition-colors">Events</a>
               <a href="/notice" onClick={(e) => handleLinkClick(e, '/notice')} className="hover:text-[#F2B418] transition-colors">Notice</a>
@@ -195,10 +195,11 @@ export const Header: React.FC = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-[#DDE1E7] px-4 pt-3 pb-6 space-y-2 shadow-xl animate-in fade-in slide-in-from-top-2 duration-150">
           <div className="grid grid-cols-3 gap-2 pb-3 mb-2 border-b border-[#DDE1E7] text-xs">
-            <a href="/#about" onClick={(e) => handleLinkClick(e, '/#about')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">About Us</a>
+            <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">About Us</a>
             <a href="/contact" onClick={(e) => handleLinkClick(e, '/contact')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">Contact Us</a>
             <a href="/notice" onClick={(e) => handleLinkClick(e, '/notice')} className="px-2 py-2 text-center bg-[#F2B418]/20 rounded text-[#14171C] font-bold">Notice</a>
-            <a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium col-span-3">Guest Lectures</a>
+            <a href="/fee-structure" onClick={(e) => handleLinkClick(e, '/fee-structure')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium col-span-1">Fee Structure</a>
+            <a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium col-span-2">Guest Lectures</a>
           </div>
 
           {navItems.map((item) => (
