@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NoticeItem } from '../types/notice';
 import { fetchNotices } from '../services/noticeService';
+import { navigateTo } from '../utils/navigation';
 
 export const NoticeSection: React.FC = () => {
   const [notices, setNotices] = useState<NoticeItem[]>([]);
@@ -12,7 +13,7 @@ export const NoticeSection: React.FC = () => {
     fetchNotices()
       .then((data) => {
         if (isMounted) {
-          setNotices(data);
+          setNotices(data.slice(0, 4));
           setIsLoading(false);
         }
       })
@@ -109,7 +110,11 @@ export const NoticeSection: React.FC = () => {
           {/* View More Button */}
           <div className="mt-8 text-center">
             <a
-              href="#notices"
+              href="/notice"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo('/notice');
+              }}
               className="inline-flex items-center text-[13px] font-bold text-[#8A6100] hover:text-[#1F2A3C] transition-colors gap-1.5"
             >
               View More <span aria-hidden="true">&gt;</span>

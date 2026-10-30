@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <radialGradient id="warmLight" cx="40%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFFDF7" />
+      <stop offset="30%" stop-color="#FDF6E2" />
+      <stop offset="70%" stop-color="#E2D4B7" />
+      <stop offset="100%" stop-color="#A89270" />
+    </radialGradient>
+    <linearGradient id="machineMetal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="40%" stop-color="#CBD5E1" />
+      <stop offset="100%" stop-color="#64748B" />
+    </linearGradient>
+    <linearGradient id="goldBrass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FEF08A" />
+      <stop offset="50%" stop-color="#EAB308" />
+      <stop offset="100%" stop-color="#854D0E" />
+    </linearGradient>
+    <linearGradient id="greenSpool" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A3E635" />
+      <stop offset="50%" stop-color="#84CC16" />
+      <stop offset="100%" stop-color="#4D7C0F" />
+    </linearGradient>
+    <linearGradient id="yellowSpool" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="50%" stop-color="#EAB308" />
+      <stop offset="100%" stop-color="#A16207" />
+    </linearGradient>
+    <linearGradient id="tapeYellow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEF9C3" />
+      <stop offset="100%" stop-color="#FACC15" />
+    </linearGradient>
+    <linearGradient id="cardOverlay" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.1" />
+      <stop offset="50%" stop-color="#000000" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.9" />
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" />
+    </filter>
+  </defs>
+
+  <!-- Warm Sunlit Studio Background -->
+  <rect width="600" height="450" fill="url(#warmLight)" />
+
+  <!-- Out-of-focus background spools and fabric rolls -->
+  <ellipse cx="140" cy="180" rx="40" ry="90" fill="#E5E7EB" opacity="0.6" />
+  <rect x="100" y="160" width="80" height="140" rx="10" fill="#CBD5E1" opacity="0.5" />
+
+  <!-- Industrial Sewing Machine Body (Left/Center Angle) -->
+  <path d="M180,80 L420,110 C440,115 450,135 440,165 L410,240 C390,260 360,260 340,240 L310,210 L250,210 L230,280 L180,280 Z" fill="url(#machineMetal)" stroke="#475569" stroke-width="3" />
+  <circle cx="340" cy="170" r="28" fill="#E2E8F0" stroke="#94A3B8" stroke-width="4" />
+  <circle cx="340" cy="170" r="14" fill="#64748B" />
+
+  <!-- Tension Knob & Chrome dials -->
+  <circle cx="300" cy="235" r="12" fill="url(#goldBrass)" stroke="#78350F" stroke-width="1.5" />
+  <rect x="235" y="270" width="8" height="40" rx="2" fill="#E2E8F0" stroke="#64748B" stroke-width="1.5" />
+  <polygon points="233,310 245,310 239,325" fill="#475569" />
+
+  <!-- Needle Bar & Presser Foot -->
+  <rect x="235" y="290" width="6" height="55" fill="#F1F5F9" stroke="#64748B" stroke-width="1" />
+  <path d="M230,340 L250,340 L248,348 L228,348 Z" fill="#94A3B8" stroke="#334155" stroke-width="1" />
+  <line x1="239" y1="330" x2="239" y2="355" stroke="#E2E8F0" stroke-width="2" />
+
+  <!-- Stitch Plate & Throat -->
+  <ellipse cx="240" cy="355" rx="50" ry="12" fill="#CBD5E1" stroke="#64748B" stroke-width="2" />
+  <circle cx="240" cy="355" r="4" fill="#1E293B" />
+
+  <!-- Large Thread Spools (Green & Gold) in Foreground/Midground -->
+  <!-- Lime Green Spool (Right) -->
+  <g transform="translate(430, 160)">
+    <!-- Base spool core -->
+    <ellipse cx="50" cy="20" rx="45" ry="14" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2" />
+    <ellipse cx="50" cy="20" rx="14" ry="5" fill="#475569" />
+    <!-- Spool thread body -->
+    <path d="M5,20 L15,160 C25,175 75,175 85,160 L95,20 Z" fill="url(#greenSpool)" />
+    <!-- Thread winding lines -->
+    <line x1="10" y1="60" x2="90" y2="60" stroke="#BEF264" stroke-width="1.5" opacity="0.6" />
+    <line x1="12" y1="100" x2="88" y2="100" stroke="#BEF264" stroke-width="1.5" opacity="0.6" />
+    <line x1="14" y1="140" x2="86" y2="140" stroke="#BEF264" stroke-width="1.5" opacity="0.6" />
+    <!-- Bottom Rim -->
+    <ellipse cx="50" cy="162" rx="42" ry="12" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2" />
+  </g>
+
+  <!-- Yellow / Mustard Thread Spool (Behind/Adjacent) -->
+  <g transform="translate(370, 210) scale(0.85)">
+    <ellipse cx="40" cy="15" rx="35" ry="10" fill="#FEF08A" />
+    <path d="M5,15 L12,120 C20,130 60,130 68,120 L75,15 Z" fill="url(#yellowSpool)" />
+    <ellipse cx="40" cy="120" rx="32" ry="9" fill="#EAB308" />
+  </g>
+
+  <!-- Fine thread line pulling from spool towards needle -->
+  <path d="M470,165 C380,120 280,140 240,290" stroke="#BEF264" stroke-width="1.5" fill="none" opacity="0.8" />
+
+  <!-- Curled Measuring Tape in Foreground with Tick Marks -->
+  <g transform="translate(180, 310)">
+    <!-- Yellow Ribbon Tape Curve -->
+    <path d="M0,70 C50,20 120,40 180,30 C230,20 280,60 340,50 C380,45 400,60 410,75 L395,95 C370,80 340,70 300,80 C240,90 200,60 140,70 C90,80 40,110 -15,100 Z" fill="url(#tapeYellow)" stroke="#CA8A04" stroke-width="2" />
+    
+    <!-- Measuring Inch/CM Black Ticks and Numbers -->
+    <g stroke="#1E293B" stroke-width="1.5" opacity="0.85">
+      <line x1="30" y1="70" x2="30" y2="82" />
+      <line x1="45" y1="65" x2="45" y2="75" />
+      <line x1="60" y1="60" x2="60" y2="74" />
+      <line x1="75" y1="58" x2="75" y2="70" />
+      <line x1="90" y1="57" x2="90" y2="72" />
+      <line x1="110" y1="58" x2="110" y2="73" />
+      <line x1="130" y1="60" x2="130" y2="75" />
+      <line x1="160" y1="54" x2="160" y2="69" />
+      <line x1="190" y1="48" x2="190" y2="64" />
+      <line x1="220" y1="50" x2="220" y2="66" />
+      <line x1="250" y1="62" x2="250" y2="77" />
+      <line x1="280" y1="70" x2="280" y2="85" />
+      <line x1="310" y1="72" x2="310" y2="88" />
+      <line x1="340" y1="66" x2="340" y2="82" />
+    </g>
+    <!-- Numbers on Tape: 29, 72, 89, 99 (mirroring the reference) -->
+    <text x="65" y="85" font-family="sans-serif" font-size="12" font-weight="900" fill="#1E293B" transform="rotate(-10 65 85)">72</text>
+    <text x="175" y="75" font-family="sans-serif" font-size="13" font-weight="900" fill="#1E293B">29</text>
+    <text x="270" y="88" font-family="sans-serif" font-size="13" font-weight="900" fill="#1E293B">89</text>
+    <text x="330" y="85" font-family="sans-serif" font-size="14" font-weight="900" fill="#1E293B">99</text>
+  </g>
+
+  <!-- Bottom Vignette Gradient for clear high-contrast white text overlay -->
+  <rect width="600" height="450" fill="url(#cardOverlay)" />
+</svg>

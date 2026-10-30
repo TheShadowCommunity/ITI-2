@@ -5,7 +5,11 @@ export interface NoticeItem {
   title: string;
   category?: string;
   downloadUrl?: string;
+  attachmentUrl?: string;
+  attachmentLabel?: string;
+  href?: string;
   fileSize?: string;
+  isoDate?: string;
 }
 
 export interface NoticeState {
@@ -13,3 +17,4 @@ export interface NoticeState {
   isLoading: boolean;
   error: string | null;
 }
+

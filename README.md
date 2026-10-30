@@ -139,4 +139,21 @@ To ensure balanced proportions, readability, and zero horizontal clipping across
    - Section titles scale cleanly from 28px on laptops to 36px on wide displays.
    - Navigation links adapt from `px-2.5 text-[14px]` at 1024px to `px-3 text-[15px]` at 1280px+.
 
+---
+
+## 7. Contact Us Page (`/contact`)
+
+- **Route**: Accessible directly at `/contact` (or `#/contact`) and through the shared Footer (`Contact us` link) and Header mobile navigation.
+- **Visual Source of Truth**: Faithfully implemented from Figma frame `127:1287` and reference image `Contact_Us_08497f2c.png`.
+- **Form Reuse**:
+  - Directly reuses the exact `<EnquiryForm idPrefix="contact-page-enquiry" />` component from `src/components/EnquiryForm.tsx`.
+  - Preserves all client-side validation (Name, Email, 10-digit mobile, Comment), radio categories (Admission, Career, Complain, Other), submitting loading state, and user feedback states without duplicating code or affecting the homepage.
+- **Structure & Layout**:
+  - **Page Title Band**: Large "Contact Us" heading with the signature gold/neutral gradient accent line (`h-[5px]` to `h-[8px]`).
+  - **Contact Information Row**: 3 prominent blocks (Address, Email with mailto link, Mobile numbers) with yellow circular icon accents.
+  - **Interactive Center Grid**: Side-by-side arrangement of the Enquiry Form and the Campus Location Map visual (`siteImages.mapLocation`), scaling gracefully on laptops (`lg:grid-cols-[1.4fr_1fr] 2xl:grid-cols-[809px_551px]`).
+  - **Institutional Overview**: Side-by-side layout with Hindi introductory copy, accreditation tags (2019 में स्थापित, भारत सरकार NCVT द्वारा मान्यता प्राप्त), and campus architecture photography (`siteImages.aboutCampus`).
+  - **Shared Header & Footer**: Seamless site-wide navigation.
+
+
 
