@@ -188,13 +188,13 @@ export const NoticePage: React.FC = () => {
 
               {/* Card 2: Fees Structure */}
               <div
-                onClick={() => navigateTo('/#enquiry')}
+                onClick={() => navigateTo('/fee-structure')}
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    navigateTo('/#enquiry');
+                    navigateTo('/fee-structure');
                   }
                 }}
                 className="group relative h-[260px] sm:h-[300px] lg:h-[330px] rounded-[16px] overflow-hidden cursor-pointer shadow-xs border border-[#DDE1E7] transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 focus:outline-hidden focus:ring-2 focus:ring-[#F2B418]"

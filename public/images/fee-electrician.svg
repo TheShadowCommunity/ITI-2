@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="wallBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C5B8A5" />
+      <stop offset="50%" stop-color="#9C8D7B" />
+      <stop offset="100%" stop-color="#736453" />
+    </linearGradient>
+    <linearGradient id="panelBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4B5563" />
+      <stop offset="100%" stop-color="#1F2937" />
+    </linearGradient>
+    <linearGradient id="innerPanel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E5E7EB" />
+      <stop offset="100%" stop-color="#9CA3AF" />
+    </linearGradient>
+    <linearGradient id="conduitMetal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#CBD5E1" />
+      <stop offset="50%" stop-color="#94A3B8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+    <linearGradient id="cardOverlay" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.1" />
+      <stop offset="50%" stop-color="#000000" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.9" />
+    </linearGradient>
+    <pattern id="spiralConduit" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="6" height="12" fill="#94A3B8" />
+      <rect x="6" width="6" height="12" fill="#64748B" />
+    </pattern>
+  </defs>
+
+  <!-- Background Workshop Wall / Cardboard boxes -->
+  <rect width="600" height="450" fill="url(#wallBg)" />
+  
+  <!-- Left Side Storage Boxes & Workshop Elements -->
+  <rect x="20" y="160" width="140" height="180" rx="4" fill="#BFA382" stroke="#8C6E4E" stroke-width="2" />
+  <line x1="20" y1="210" x2="160" y2="210" stroke="#8C6E4E" stroke-width="2" stroke-dasharray="4 4" />
+  <rect x="40" y="240" width="80" height="25" fill="#EF4444" opacity="0.85" rx="3" />
+  <circle cx="95" cy="252" r="14" fill="#FCA5A5" />
+
+  <!-- Flexible Ribbed Metal Conduits arching into panel -->
+  <path d="M70,120 C100,50 180,60 230,140" stroke="url(#spiralConduit)" stroke-width="18" fill="none" stroke-linecap="round" />
+  <path d="M110,130 C130,70 190,80 240,150" stroke="url(#spiralConduit)" stroke-width="14" fill="none" stroke-linecap="round" />
+  <path d="M150,150 C170,90 220,95 250,170" stroke="url(#spiralConduit)" stroke-width="12" fill="none" stroke-linecap="round" />
+
+  <!-- Colorful wire strands extending from conduit -->
+  <path d="M230,140 C240,170 250,180 260,200" stroke="#EF4444" stroke-width="4" fill="none" />
+  <path d="M235,145 C242,175 255,185 265,200" stroke="#3B82F6" stroke-width="4" fill="none" />
+  <path d="M240,145 C245,170 258,190 270,200" stroke="#EAB308" stroke-width="4" fill="none" />
+  <path d="M245,148 C250,175 260,195 275,200" stroke="#10B981" stroke-width="4" fill="none" />
+
+  <!-- Main Electrical Breaker Box (Metal Enclosure) -->
+  <rect x="210" y="120" width="190" height="280" rx="8" fill="url(#panelBody)" stroke="#374151" stroke-width="4" />
+  <rect x="220" y="130" width="170" height="260" rx="4" fill="url(#innerPanel)" />
+
+  <!-- Panel Door Hinge & Frame Detail -->
+  <rect x="204" y="145" width="8" height="25" rx="2" fill="#9CA3AF" />
+  <rect x="204" y="340" width="8" height="25" rx="2" fill="#9CA3AF" />
+
+  <!-- Upper Inscription "A21 MC" hand-labeled on panel -->
+  <text x="305" y="165" font-family="monospace, sans-serif" font-size="18" font-weight="900" fill="#1F2937" text-anchor="middle" letter-spacing="2">A21 MC</text>
+  <line x1="250" y1="175" x2="360" y2="175" stroke="#6B7280" stroke-width="1.5" />
+
+  <!-- Circuit Breakers Grid (Two main vertical columns of MCBs) -->
+  <g transform="translate(240, 190)">
+    <!-- Main Switch Master -->
+    <rect x="0" y="0" width="130" height="24" rx="2" fill="#1F2937" />
+    <rect x="50" y="3" width="30" height="18" rx="2" fill="#DC2626" />
+    <circle cx="65" cy="12" r="3" fill="#FFFFFF" />
+
+    <!-- Breaker Row 1 -->
+    <rect x="0" y="32" width="60" height="22" rx="2" fill="#374151" />
+    <rect x="15" y="36" width="14" height="14" rx="1" fill="#F59E0B" />
+    <rect x="70" y="32" width="60" height="22" rx="2" fill="#374151" />
+    <rect x="85" y="36" width="14" height="14" rx="1" fill="#10B981" />
+
+    <!-- Breaker Row 2 -->
+    <rect x="0" y="60" width="60" height="22" rx="2" fill="#374151" />
+    <rect x="15" y="64" width="14" height="14" rx="1" fill="#10B981" />
+    <rect x="70" y="60" width="60" height="22" rx="2" fill="#374151" />
+    <rect x="85" y="64" width="14" height="14" rx="1" fill="#F59E0B" />
+
+    <!-- Breaker Row 3 -->
+    <rect x="0" y="88" width="60" height="22" rx="2" fill="#374151" />
+    <rect x="15" y="92" width="14" height="14" rx="1" fill="#10B981" />
+    <rect x="70" y="88" width="60" height="22" rx="2" fill="#374151" />
+    <rect x="85" y="92" width="14" height="14" rx="1" fill="#10B981" />
+
+    <!-- Breaker Row 4 -->
+    <rect x="0" y="116" width="60" height="22" rx="2" fill="#374151" />
+    <rect x="15" y="120" width="14" height="14" rx="1" fill="#DC2626" />
+    <rect x="70" y="116" width="60" height="22" rx="2" fill="#374151" />
+    <rect x="85" y="120" width="14" height="14" rx="1" fill="#F59E0B" />
+
+    <!-- Breaker Row 5 -->
+    <rect x="0" y="144" width="60" height="22" rx="2" fill="#374151" />
+    <rect x="15" y="148" width="14" height="14" rx="1" fill="#10B981" />
+    <rect x="70" y="144" width="60" height="22" rx="2" fill="#374151" />
+    <rect x="85" y="148" width="14" height="14" rx="1" fill="#10B981" />
+
+    <!-- Breaker Row 6 -->
+    <rect x="0" y="172" width="60" height="20" rx="2" fill="#1F2937" />
+    <rect x="70" y="172" width="60" height="20" rx="2" fill="#1F2937" />
+  </g>
+
+  <!-- Right Side Conduit Pipes & Background Workshop Depth -->
+  <path d="M380,130 C420,80 480,90 530,170" stroke="url(#spiralConduit)" stroke-width="14" fill="none" stroke-linecap="round" />
+  <rect x="440" y="180" width="140" height="220" rx="4" fill="#A38F79" stroke="#7A6550" stroke-width="2" />
+  <rect x="460" y="220" width="100" height="40" fill="#E2E8F0" rx="2" opacity="0.8" />
+  <line x1="470" y1="235" x2="550" y2="235" stroke="#94A3B8" stroke-width="3" />
+  <line x1="470" y1="245" x2="530" y2="245" stroke="#94A3B8" stroke-width="2" />
+
+  <!-- Bottom Vignette Gradient for clean high-contrast text overlay -->
+  <rect width="600" height="450" fill="url(#cardOverlay)" />
+</svg>

@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
       items: [
         { label: 'Admission Process', href: '/#enquiry' },
         { label: 'Eligibility Criteria', href: '/#enquiry' },
-        { label: 'Fee Structure', href: '/#enquiry' },
+        { label: 'Fee Structure', href: '/fee-structure' },
         { label: 'Apply Online', href: '/#enquiry' }
       ]
     },

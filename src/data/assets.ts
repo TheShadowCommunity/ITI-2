@@ -57,5 +57,12 @@ export const siteImages = {
     fees: '/images/notice-fees.svg',
     contact: '/images/notice-contact.svg',
   },
+
+  // Fee Structure page 3 feature cards below the policy section
+  feeFeatures: {
+    electrician: '/images/fee-electrician.svg',
+    sewing: '/images/fee-sewing.svg',
+    contact: '/images/notice-contact.svg',
+  },
 };
 

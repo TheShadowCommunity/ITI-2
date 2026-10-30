@@ -3,6 +3,7 @@ import { HomePage } from './components/HomePage';
 import { GuestLecturesPage } from './components/GuestLecturesPage';
 import { ContactPage } from './components/ContactPage';
 import { NoticePage } from './components/NoticePage';
+import { FeeStructurePage } from './components/FeeStructurePage';
 
 function getRoutePath(): string {
   if (typeof window === 'undefined') return '/';
@@ -10,6 +11,7 @@ function getRoutePath(): string {
   if (pathname === '/guest-lectures') return '/guest-lectures';
   if (pathname === '/contact') return '/contact';
   if (pathname === '/notice') return '/notice';
+  if (pathname === '/fee-structure' || pathname === '/fees-structure') return '/fee-structure';
   if (window.location.hash.startsWith('#/guest-lectures') || window.location.hash.startsWith('#guest-lectures')) {
     return '/guest-lectures';
   }
@@ -18,6 +20,14 @@ function getRoutePath(): string {
   }
   if (window.location.hash.startsWith('#/notice') || window.location.hash === '#notice-page') {
     return '/notice';
+  }
+  if (
+    window.location.hash.startsWith('#/fee-structure') ||
+    window.location.hash.startsWith('#/fees-structure') ||
+    window.location.hash === '#fee-structure' ||
+    window.location.hash === '#fees-structure'
+  ) {
+    return '/fee-structure';
   }
   return pathname;
 }
@@ -53,5 +63,10 @@ export default function App() {
     return <NoticePage />;
   }
 
+  if (currentPath === '/fee-structure' || currentPath === '/fees-structure') {
+    return <FeeStructurePage />;
+  }
+
   return <HomePage />;
 }
+
