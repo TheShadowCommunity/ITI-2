@@ -6,16 +6,38 @@ import { NoticePage } from './components/NoticePage';
 import { FeeStructurePage } from './components/FeeStructurePage';
 import { AboutUsPage } from './components/AboutUsPage';
 import { FeedbackPage } from './components/FeedbackPage';
+import { RulesAndRegulationsPage } from './components/RulesAndRegulationsPage';
 
 function getRoutePath(): string {
   if (typeof window === 'undefined') return '/';
   const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+  if (
+    pathname === '/rules' ||
+    pathname === '/rules-and-regulations' ||
+    pathname === '/rules-regulations' ||
+    pathname === '/code-of-conduct' ||
+    pathname === '/policy'
+  ) {
+    return '/rules-and-regulations';
+  }
   if (pathname === '/feedback' || pathname === '/feedbacks' || pathname === '/infrastructure') return '/feedback';
   if (pathname === '/about' || pathname === '/about-us') return '/about';
   if (pathname === '/guest-lectures') return '/guest-lectures';
   if (pathname === '/contact') return '/contact';
   if (pathname === '/notice') return '/notice';
   if (pathname === '/fee-structure' || pathname === '/fees-structure') return '/fee-structure';
+  if (
+    window.location.hash.startsWith('#/rules') ||
+    window.location.hash.startsWith('#/rules-and-regulations') ||
+    window.location.hash.startsWith('#/code-of-conduct') ||
+    window.location.hash.startsWith('#/policy') ||
+    window.location.hash === '#rules' ||
+    window.location.hash === '#rules-and-regulations' ||
+    window.location.hash === '#code-of-conduct' ||
+    window.location.hash === '#policy'
+  ) {
+    return '/rules-and-regulations';
+  }
   if (
     window.location.hash.startsWith('#/feedback') ||
     window.location.hash.startsWith('#/feedbacks') ||
@@ -71,6 +93,16 @@ export default function App() {
       window.removeEventListener('applet-navigate', handleRouteChange);
     };
   }, []);
+
+  if (
+    currentPath === '/rules' ||
+    currentPath === '/rules-and-regulations' ||
+    currentPath === '/rules-regulations' ||
+    currentPath === '/code-of-conduct' ||
+    currentPath === '/policy'
+  ) {
+    return <RulesAndRegulationsPage />;
+  }
 
   if (currentPath === '/feedback' || currentPath === '/feedbacks' || currentPath === '/infrastructure') {
     return <FeedbackPage />;

@@ -45,8 +45,8 @@ export const Footer: React.FC = () => {
                 <li><a href="/#trades" onClick={(e) => handleLinkClick(e, '/#trades')} className="hover:text-[#1F2A3C] transition-colors">Courses</a></li>
                 <li><a href="/#about" onClick={(e) => handleLinkClick(e, '/#about')} className="hover:text-[#1F2A3C] transition-colors">Faculties</a></li>
                 <li><a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="font-semibold text-[#8A6100] hover:text-[#1F2A3C] transition-colors">Guest Lectures</a></li>
-                <li><a href="#" className="hover:text-[#1F2A3C] transition-colors">Code of Conduct</a></li>
-                <li><a href="#" className="hover:text-[#1F2A3C] transition-colors">Policy</a></li>
+                <li><a href="/rules-and-regulations" onClick={(e) => handleLinkClick(e, '/rules-and-regulations')} className="hover:text-[#1F2A3C] transition-colors">Code of Conduct</a></li>
+                <li><a href="/rules-and-regulations" onClick={(e) => handleLinkClick(e, '/rules-and-regulations')} className="hover:text-[#1F2A3C] transition-colors">Policy</a></li>
               </ul>
             </div>
 
@@ -57,8 +57,8 @@ export const Footer: React.FC = () => {
                 <li><a href="/#trades" onClick={(e) => handleLinkClick(e, '/#trades')} className="hover:text-[#1F2A3C] transition-colors">Courses</a></li>
                 <li><a href="/#about" onClick={(e) => handleLinkClick(e, '/#about')} className="hover:text-[#1F2A3C] transition-colors">Faculties</a></li>
                 <li><a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="font-semibold text-[#8A6100] hover:text-[#1F2A3C] transition-colors">Guest Lectures</a></li>
-                <li><a href="#" className="hover:text-[#1F2A3C] transition-colors">Code of Conduct</a></li>
-                <li><a href="#" className="hover:text-[#1F2A3C] transition-colors">Policy</a></li>
+                <li><a href="/rules-and-regulations" onClick={(e) => handleLinkClick(e, '/rules-and-regulations')} className="hover:text-[#1F2A3C] transition-colors">Code of Conduct</a></li>
+                <li><a href="/rules-and-regulations" onClick={(e) => handleLinkClick(e, '/rules-and-regulations')} className="hover:text-[#1F2A3C] transition-colors">Policy</a></li>
               </ul>
             </div>
 

@@ -50,7 +50,7 @@ export const Header: React.FC = () => {
       items: [
         { label: 'Trust Board', href: '/#about' },
         { label: 'Principal Desk', href: '/#about' },
-        { label: 'Managing Committee', href: '/#about' },
+        { label: 'Rules & Regulations', href: '/rules-and-regulations' },
         { label: 'NCVT Affiliation', href: '/#about' }
       ]
     },
