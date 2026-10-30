@@ -50,4 +50,12 @@ export const siteImages = {
     DEFAULT_PLACEHOLDER, // Column 4 - Tile 1 (330 x 300)
     DEFAULT_PLACEHOLDER, // Column 4 - Tile 2 (330 x 625)
   ],
+
+  // Notice page 3 feature cards below the table
+  noticeFeatures: {
+    achievements: '/images/notice-achievements.svg',
+    fees: '/images/notice-fees.svg',
+    contact: '/images/notice-contact.svg',
+  },
 };
+

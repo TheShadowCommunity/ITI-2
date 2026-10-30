@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <radialGradient id="moodBg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="60%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#05080E" />
+    </radialGradient>
+    <linearGradient id="coinGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="50%" stop-color="#CA8A04" />
+      <stop offset="100%" stop-color="#854D0E" />
+    </linearGradient>
+    <linearGradient id="coinBronze" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDBA74" />
+      <stop offset="50%" stop-color="#C2410C" />
+      <stop offset="100%" stop-color="#7C2D12" />
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#86EFAC" />
+      <stop offset="40%" stop-color="#22C55E" />
+      <stop offset="100%" stop-color="#15803D" />
+    </linearGradient>
+    <linearGradient id="leafGrad2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A7F3D0" />
+      <stop offset="50%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <radialGradient id="glowPlant" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#86EFAC" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="cardOverlay" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.1" />
+      <stop offset="50%" stop-color="#000000" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.85" />
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="25" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="450" fill="url(#moodBg)" />
+
+  <!-- Soft light behind plant -->
+  <circle cx="340" cy="220" r="160" fill="url(#glowPlant)" filter="url(#softGlow)" />
+
+  <!-- Table / Ground plane reflection -->
+  <ellipse cx="300" cy="380" rx="280" ry="60" fill="#090D16" opacity="0.9" />
+
+  <!-- Coins Mound / Stacks Base -->
+  <g id="coins">
+    <!-- Background coin stacks -->
+    <ellipse cx="230" cy="340" rx="45" ry="12" fill="url(#coinBronze)" opacity="0.8" />
+    <ellipse cx="390" cy="335" rx="55" ry="14" fill="url(#coinGold)" opacity="0.85" />
+    <ellipse cx="170" cy="355" rx="50" ry="13" fill="url(#coinGold)" opacity="0.75" />
+    <ellipse cx="440" cy="350" rx="48" ry="13" fill="url(#coinBronze)" opacity="0.75" />
+
+    <!-- Stacks around center -->
+    <ellipse cx="270" cy="350" rx="50" ry="14" fill="url(#coinGold)" />
+    <rect x="220" y="350" width="100" height="15" fill="#A16207" />
+    <ellipse cx="270" cy="365" rx="50" ry="14" fill="url(#coinBronze)" />
+
+    <ellipse cx="350" cy="345" rx="52" ry="14" fill="url(#coinBronze)" />
+    <rect x="298" y="345" width="104" height="16" fill="#78350F" />
+    <ellipse cx="350" cy="361" rx="52" ry="14" fill="url(#coinGold)" />
+
+    <!-- Foreground overlapping coin piles -->
+    <ellipse cx="310" cy="360" rx="60" ry="15" fill="url(#coinGold)" />
+    <rect x="250" y="360" width="120" height="18" fill="#854D0E" />
+    <ellipse cx="310" cy="378" rx="60" ry="15" fill="url(#coinGold)" />
+    <ellipse cx="230" cy="375" rx="50" ry="13" fill="url(#coinBronze)" />
+    <ellipse cx="390" cy="372" rx="55" ry="14" fill="url(#coinGold)" />
+    
+    <!-- Scattered loose coins -->
+    <ellipse cx="160" cy="385" rx="40" ry="11" fill="url(#coinBronze)" opacity="0.7" />
+    <ellipse cx="450" cy="380" rx="42" ry="11" fill="url(#coinGold)" opacity="0.7" />
+    <ellipse cx="320" cy="395" rx="48" ry="12" fill="url(#coinBronze)" opacity="0.9" />
+  </g>
+
+  <!-- Growing Plant / Sprout emerging from center of coins -->
+  <!-- Stem -->
+  <path d="M320,360 Q325,290 335,230 Q342,180 345,130" stroke="#4ADE80" stroke-width="7" stroke-linecap="round" fill="none" />
+  <path d="M320,360 Q324,290 334,230 Q340,180 343,130" stroke="#16A34A" stroke-width="3" stroke-linecap="round" fill="none" />
+
+  <!-- Lower Left Leaf -->
+  <path d="M333,260 C290,250 240,265 220,300 C250,315 295,295 330,270 Z" fill="url(#leafGrad)" />
+  <path d="M330,268 Q280,275 230,298" stroke="#BBF7D0" stroke-width="1.5" fill="none" opacity="0.7" />
+
+  <!-- Lower Right Leaf -->
+  <path d="M338,245 C380,230 430,240 460,270 C430,290 380,275 336,252 Z" fill="url(#leafGrad2)" />
+  <path d="M338,248 Q390,250 445,268" stroke="#BBF7D0" stroke-width="1.5" fill="none" opacity="0.7" />
+
+  <!-- Middle Leaf (Right) -->
+  <path d="M342,190 C390,170 440,175 470,200 C435,220 385,210 340,195 Z" fill="url(#leafGrad)" />
+  <path d="M342,192 Q400,188 455,198" stroke="#BBF7D0" stroke-width="1.5" fill="none" opacity="0.7" />
+
+  <!-- Middle Leaf (Left) -->
+  <path d="M340,175 C300,150 250,155 230,185 C260,205 305,195 338,180 Z" fill="url(#leafGrad2)" />
+  <path d="M340,177 Q290,170 245,183" stroke="#BBF7D0" stroke-width="1.5" fill="none" opacity="0.7" />
+
+  <!-- Top Tender Budding Leaves -->
+  <path d="M345,130 C330,95 310,75 305,55 C335,65 355,95 345,130 Z" fill="url(#leafGrad2)" />
+  <path d="M345,130 C360,95 380,75 390,60 C370,75 355,100 345,130 Z" fill="url(#leafGrad)" />
+
+  <!-- Dark gradient overlay for bottom text contrast -->
+  <rect width="600" height="450" fill="url(#cardOverlay)" />
+</svg>
