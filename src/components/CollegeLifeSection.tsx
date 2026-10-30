@@ -22,11 +22,11 @@ export const CollegeLifeSection: React.FC = () => {
           </a>
         </div>
 
-        {/* ===================== DESKTOP 4-COLUMN ASYMMETRIC MASONRY (Figma 57:1111) ===================== */}
-        <div className="hidden lg:grid grid-cols-4 gap-[24px] w-full">
-          {/* Column 1: 330 x 625.33 and 330 x 300.67 */}
-          <div className="flex flex-col gap-[24px] w-[330px]">
-            <div className="w-[330px] h-[625px] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
+        {/* ===================== DESKTOP 4-COLUMN ASYMMETRIC MASONRY ===================== */}
+        <div className="hidden lg:grid grid-cols-4 gap-4 xl:gap-[24px] w-full">
+          {/* Column 1: Tall then Short */}
+          <div className="flex flex-col gap-4 xl:gap-[24px] w-full">
+            <div className="w-full h-[clamp(320px,36vw,625px)] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
               <img
                 src={siteImages.gallery[0]}
                 alt="College Life 1"
@@ -36,7 +36,7 @@ export const CollegeLifeSection: React.FC = () => {
                 height={625}
               />
             </div>
-            <div className="w-[330px] h-[301px] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
+            <div className="w-full h-[clamp(160px,18vw,301px)] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
               <img
                 src={siteImages.gallery[1]}
                 alt="College Life 2"
@@ -48,9 +48,9 @@ export const CollegeLifeSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 2: 330 x 300.67 and 330 x 625.33 */}
-          <div className="flex flex-col gap-[24px] w-[330px]">
-            <div className="w-[330px] h-[301px] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
+          {/* Column 2: Short then Tall */}
+          <div className="flex flex-col gap-4 xl:gap-[24px] w-full">
+            <div className="w-full h-[clamp(160px,18vw,301px)] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
               <img
                 src={siteImages.gallery[2]}
                 alt="College Life 3"
@@ -60,7 +60,7 @@ export const CollegeLifeSection: React.FC = () => {
                 height={301}
               />
             </div>
-            <div className="w-[330px] h-[625px] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
+            <div className="w-full h-[clamp(320px,36vw,625px)] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
               <img
                 src={siteImages.gallery[3]}
                 alt="College Life 4"
@@ -72,9 +72,9 @@ export const CollegeLifeSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 3: 330 x 625.33 and 330 x 300.67 */}
-          <div className="flex flex-col gap-[24px] w-[330px]">
-            <div className="w-[330px] h-[625px] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
+          {/* Column 3: Tall then Short */}
+          <div className="flex flex-col gap-4 xl:gap-[24px] w-full">
+            <div className="w-full h-[clamp(320px,36vw,625px)] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
               <img
                 src={siteImages.gallery[4]}
                 alt="College Life 5"
@@ -84,7 +84,7 @@ export const CollegeLifeSection: React.FC = () => {
                 height={625}
               />
             </div>
-            <div className="w-[330px] h-[301px] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
+            <div className="w-full h-[clamp(160px,18vw,301px)] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
               <img
                 src={siteImages.gallery[5]}
                 alt="College Life 6"
@@ -96,9 +96,9 @@ export const CollegeLifeSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 4: 330 x 300.67 and 330 x 625.33 */}
-          <div className="flex flex-col gap-[24px] w-[330px]">
-            <div className="w-[330px] h-[301px] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
+          {/* Column 4: Short then Tall */}
+          <div className="flex flex-col gap-4 xl:gap-[24px] w-full">
+            <div className="w-full h-[clamp(160px,18vw,301px)] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
               <img
                 src={siteImages.gallery[6]}
                 alt="College Life 7"
@@ -108,7 +108,7 @@ export const CollegeLifeSection: React.FC = () => {
                 height={301}
               />
             </div>
-            <div className="w-[330px] h-[625px] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
+            <div className="w-full h-[clamp(320px,36vw,625px)] rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative group">
               <img
                 src={siteImages.gallery[7]}
                 alt="College Life 8"

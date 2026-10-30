@@ -3,41 +3,41 @@ import { siteImages } from '../data/assets';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative w-full bg-white overflow-hidden lg:h-[807px]">
-      {/* ===================== DESKTOP HERO (lg:flex, 1520 x 807 px) ===================== */}
-      <div className="hidden lg:flex w-full h-[807px] max-w-[1520px] mx-auto">
-        {/* Left text column: 638 x 807 px with 52px left inset */}
-        <div className="w-[638px] h-full flex-shrink-0 flex flex-col justify-center pl-[52px] pr-8 z-10">
-          <div className="w-[493px]">
+    <section className="relative w-full bg-white overflow-hidden">
+      {/* ===================== DESKTOP HERO (Fluid proportional layout, up to 1520 x 807 px) ===================== */}
+      <div className="hidden lg:flex w-full min-h-[500px] lg:h-[clamp(520px,64vh,780px)] 2xl:h-[807px] max-w-[1520px] mx-auto">
+        {/* Left text column: proportional width (46% on laptop -> 638px on 2xl) */}
+        <div className="w-[48%] xl:w-[44%] 2xl:w-[638px] h-full flex-shrink-0 flex flex-col justify-center px-6 lg:pl-8 xl:pl-[52px] lg:pr-6 z-10">
+          <div className="w-full max-w-[493px]">
             {/* 1. भविष्य को */}
-            <p className="text-[30px] leading-[38px] font-semibold text-[#5B6B80] font-hindi m-0">
+            <p className="text-[22px] lg:text-[clamp(22px,2vw,30px)] leading-[1.3] font-semibold text-[#5B6B80] font-hindi m-0">
               भविष्य को
             </p>
             {/* 2. आकार दे, */}
-            <h1 className="text-[56px] leading-[70px] font-semibold text-[#1F2A3C] font-hindi tracking-tight m-0">
+            <h1 className="text-[36px] sm:text-[44px] lg:text-[clamp(36px,3.5vw,56px)] leading-[1.2] font-semibold text-[#1F2A3C] font-hindi tracking-tight m-0">
               आकार दे,
             </h1>
             {/* 3. व्यावसायिक शिक्षा, */}
-            <h2 className="text-[56px] leading-[70px] font-semibold text-[#8A6100] font-hindi tracking-tight m-0">
+            <h2 className="text-[36px] sm:text-[44px] lg:text-[clamp(36px,3.5vw,56px)] leading-[1.2] font-semibold text-[#8A6100] font-hindi tracking-tight m-0">
               व्यावसायिक शिक्षा,
             </h2>
             {/* 4. के साथ l */}
-            <p className="text-[30px] leading-[38px] font-semibold text-[#1F2A3C] font-hindi m-0 mb-[40px]">
+            <p className="text-[22px] lg:text-[clamp(22px,2vw,30px)] leading-[1.3] font-semibold text-[#1F2A3C] font-hindi m-0 mb-6 xl:mb-[40px]">
               के साथ l
             </p>
 
-            {/* Primary CTA (212 x 56 px, 4px radius) */}
+            {/* Primary CTA */}
             <a
               href="#enquiry"
-              className="inline-flex items-center justify-center w-[212px] h-[56px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-semibold text-[15px] rounded-[4px] shadow-xs transition-colors duration-200"
+              className="inline-flex items-center justify-center w-[180px] xl:w-[212px] h-[48px] xl:h-[56px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-semibold text-[14px] xl:text-[15px] rounded-[4px] shadow-xs transition-colors duration-200"
             >
               Go To Enquiry
             </a>
           </div>
         </div>
 
-        {/* Right image column: 882 x 807 px with subtle dark navy gradient overlay (18% top to 46% bottom) */}
-        <div className="w-[882px] h-full relative overflow-hidden flex-shrink-0">
+        {/* Right image column: flex-1 to fill remainder seamlessly without clipping */}
+        <div className="flex-1 h-full relative overflow-hidden min-w-0">
           <img
             src={siteImages.heroCampus}
             alt="New Lucknow City Private ITI Campus Building"

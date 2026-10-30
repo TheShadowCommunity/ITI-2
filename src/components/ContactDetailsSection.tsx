@@ -66,15 +66,15 @@ export const ContactDetailsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* ===================== DESKTOP CONTACT CONTENT (Form 809px + Map 519px) ===================== */}
-        <div className="hidden lg:grid grid-cols-[809px_519px] gap-[64px] items-stretch">
-          {/* Form Column: 809 x 645 px */}
-          <div className="w-[809px]">
+        {/* ===================== DESKTOP CONTACT CONTENT (Form + Map) ===================== */}
+        <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[1.45fr_1fr] 2xl:grid-cols-[809px_519px] gap-6 xl:gap-10 2xl:gap-[64px] items-stretch">
+          {/* Form Column */}
+          <div className="w-full max-w-[809px]">
             <EnquiryForm idPrefix="contact-desktop-section" />
           </div>
 
-          {/* Map Column: 519 x 645 px */}
-          <div className="w-[519px] h-full min-h-[580px] rounded-[16px] overflow-hidden border border-[#DDE1E7] relative bg-slate-100">
+          {/* Map Column */}
+          <div className="w-full max-w-[519px] h-full min-h-[480px] xl:min-h-[580px] 2xl:min-h-[645px] rounded-[16px] overflow-hidden border border-[#DDE1E7] relative bg-slate-100">
             <img
               src={siteImages.mapLocation}
               alt="New Lucknow City Private ITI Campus Location Map"
