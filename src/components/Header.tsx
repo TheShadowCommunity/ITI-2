@@ -196,8 +196,8 @@ export const Header: React.FC = () => {
         <div className="lg:hidden bg-white border-t border-[#DDE1E7] px-4 pt-3 pb-6 space-y-2 shadow-xl animate-in fade-in slide-in-from-top-2 duration-150">
           <div className="grid grid-cols-2 gap-2 pb-3 mb-2 border-b border-[#DDE1E7] text-xs">
             <a href="/#about" onClick={(e) => handleLinkClick(e, '/#about')} className="px-3 py-2 bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">About Us</a>
+            <a href="/contact" onClick={(e) => handleLinkClick(e, '/contact')} className="px-3 py-2 bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">Contact Us</a>
             <a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="px-3 py-2 bg-[#F2B418]/20 rounded text-[#14171C] font-bold">Admissions</a>
-            <a href="/#notices" onClick={(e) => handleLinkClick(e, '/#notices')} className="px-3 py-2 bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">Notices</a>
             <a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="px-3 py-2 bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">Guest Lectures</a>
           </div>
 
