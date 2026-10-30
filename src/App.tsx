@@ -5,15 +5,27 @@ import { ContactPage } from './components/ContactPage';
 import { NoticePage } from './components/NoticePage';
 import { FeeStructurePage } from './components/FeeStructurePage';
 import { AboutUsPage } from './components/AboutUsPage';
+import { FeedbackPage } from './components/FeedbackPage';
 
 function getRoutePath(): string {
   if (typeof window === 'undefined') return '/';
   const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+  if (pathname === '/feedback' || pathname === '/feedbacks' || pathname === '/infrastructure') return '/feedback';
   if (pathname === '/about' || pathname === '/about-us') return '/about';
   if (pathname === '/guest-lectures') return '/guest-lectures';
   if (pathname === '/contact') return '/contact';
   if (pathname === '/notice') return '/notice';
   if (pathname === '/fee-structure' || pathname === '/fees-structure') return '/fee-structure';
+  if (
+    window.location.hash.startsWith('#/feedback') ||
+    window.location.hash.startsWith('#/feedbacks') ||
+    window.location.hash === '#feedback' ||
+    window.location.hash === '#feedbacks' ||
+    window.location.hash.startsWith('#/infrastructure') ||
+    window.location.hash === '#infrastructure-page'
+  ) {
+    return '/feedback';
+  }
   if (
     window.location.hash.startsWith('#/about') ||
     window.location.hash.startsWith('#/about-us') ||
@@ -59,6 +71,10 @@ export default function App() {
       window.removeEventListener('applet-navigate', handleRouteChange);
     };
   }, []);
+
+  if (currentPath === '/feedback' || currentPath === '/feedbacks' || currentPath === '/infrastructure') {
+    return <FeedbackPage />;
+  }
 
   if (currentPath === '/about' || currentPath === '/about-us') {
     return <AboutUsPage />;

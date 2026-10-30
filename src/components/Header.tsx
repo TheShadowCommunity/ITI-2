@@ -107,7 +107,7 @@ export const Header: React.FC = () => {
             <div className="bg-[#F2B418] text-[#14171C] font-semibold flex items-center h-full px-4 space-x-5">
               <a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="hover:opacity-80 transition-opacity">Admissions</a>
               <a href="#" className="hover:opacity-80 transition-opacity">Prospectus</a>
-              <a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="hover:opacity-80 transition-opacity">Feedbacks</a>
+              <a href="/feedback" onClick={(e) => handleLinkClick(e, '/feedback')} className="hover:opacity-80 transition-opacity">Feedbacks</a>
             </div>
           </div>
         </div>
