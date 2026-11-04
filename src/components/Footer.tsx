@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
               <h4 className="text-[14px] font-bold text-[#1F2A3C] mb-3 font-heading">Academics</h4>
               <ul className="space-y-2 text-[13px] text-[#5B6B80]">
                 <li><a href="/#trades" onClick={(e) => handleLinkClick(e, '/#trades')} className="hover:text-[#1F2A3C] transition-colors">Courses</a></li>
-                <li><a href="/#about" onClick={(e) => handleLinkClick(e, '/#about')} className="hover:text-[#1F2A3C] transition-colors">Faculties</a></li>
+                <li><a href="/faculty" onClick={(e) => handleLinkClick(e, '/faculty')} className="hover:text-[#1F2A3C] transition-colors">Faculties</a></li>
                 <li><a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="font-semibold text-[#8A6100] hover:text-[#1F2A3C] transition-colors">Guest Lectures</a></li>
                 <li><a href="/rules-and-regulations" onClick={(e) => handleLinkClick(e, '/rules-and-regulations')} className="hover:text-[#1F2A3C] transition-colors">Code of Conduct</a></li>
                 <li><a href="/rules-and-regulations" onClick={(e) => handleLinkClick(e, '/rules-and-regulations')} className="hover:text-[#1F2A3C] transition-colors">Policy</a></li>
@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
               <h4 className="text-[14px] font-bold text-[#1F2A3C] mb-3 font-heading">Academics</h4>
               <ul className="space-y-2 text-[13px] text-[#5B6B80]">
                 <li><a href="/#trades" onClick={(e) => handleLinkClick(e, '/#trades')} className="hover:text-[#1F2A3C] transition-colors">Courses</a></li>
-                <li><a href="/#about" onClick={(e) => handleLinkClick(e, '/#about')} className="hover:text-[#1F2A3C] transition-colors">Faculties</a></li>
+                <li><a href="/faculty" onClick={(e) => handleLinkClick(e, '/faculty')} className="hover:text-[#1F2A3C] transition-colors">Faculties</a></li>
                 <li><a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="font-semibold text-[#8A6100] hover:text-[#1F2A3C] transition-colors">Guest Lectures</a></li>
                 <li><a href="/rules-and-regulations" onClick={(e) => handleLinkClick(e, '/rules-and-regulations')} className="hover:text-[#1F2A3C] transition-colors">Code of Conduct</a></li>
                 <li><a href="/rules-and-regulations" onClick={(e) => handleLinkClick(e, '/rules-and-regulations')} className="hover:text-[#1F2A3C] transition-colors">Policy</a></li>
@@ -67,9 +67,9 @@ export const Footer: React.FC = () => {
               <h4 className="text-[14px] font-bold text-[#1F2A3C] mb-3 font-heading">Others</h4>
               <ul className="space-y-2 text-[13px] text-[#5B6B80]">
                 <li><a href="/#trades" onClick={(e) => handleLinkClick(e, '/#trades')} className="hover:text-[#1F2A3C] transition-colors">Trainings</a></li>
-                <li><a href="/#gallery" onClick={(e) => handleLinkClick(e, '/#gallery')} className="hover:text-[#1F2A3C] transition-colors">Infrastructure</a></li>
+                <li><a href="/gallery" onClick={(e) => handleLinkClick(e, '/gallery')} className="hover:text-[#1F2A3C] transition-colors">Infrastructure</a></li>
                 <li><a href="/feedback" onClick={(e) => handleLinkClick(e, '/feedback')} className="hover:text-[#1F2A3C] transition-colors">Feedbacks</a></li>
-                <li><a href="/#gallery" onClick={(e) => handleLinkClick(e, '/#gallery')} className="hover:text-[#1F2A3C] transition-colors">Events</a></li>
+                <li><a href="/gallery" onClick={(e) => handleLinkClick(e, '/gallery')} className="hover:text-[#1F2A3C] transition-colors">Events</a></li>
               </ul>
             </div>
           </div>

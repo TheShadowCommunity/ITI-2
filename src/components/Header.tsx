@@ -21,9 +21,10 @@ export const Header: React.FC = () => {
     },
     { 
       name: 'Academics', 
-      href: '/guest-lectures', 
+      href: '/faculty', 
       hasDropdown: true,
       items: [
+        { label: 'Faculties', href: '/faculty' },
         { label: 'Guest Lectures', href: '/guest-lectures' },
         { label: 'All Trades', href: '/#trades' },
         { label: 'Electrician', href: '/#trades' },
@@ -49,20 +50,21 @@ export const Header: React.FC = () => {
       hasDropdown: true,
       items: [
         { label: 'Trust Board', href: '/#about' },
-        { label: 'Principal Desk', href: '/#about' },
+        { label: 'Principal Desk', href: '/faculty' },
+        { label: 'Faculty & Instructors', href: '/faculty' },
         { label: 'Rules & Regulations', href: '/rules-and-regulations' },
         { label: 'NCVT Affiliation', href: '/#about' }
       ]
     },
     { 
       name: 'Infrastructure', 
-      href: '/#gallery', 
+      href: '/gallery', 
       hasDropdown: true,
       items: [
-        { label: 'Campus & Classrooms', href: '/#gallery' },
-        { label: 'Practical Labs', href: '/#gallery' },
-        { label: 'Library', href: '/#gallery' },
-        { label: 'Hostel Facilities', href: '/#gallery' }
+        { label: 'Campus & Classrooms', href: '/gallery' },
+        { label: 'Practical Labs', href: '/gallery' },
+        { label: 'Library', href: '/gallery' },
+        { label: 'Hostel Facilities', href: '/gallery' }
       ]
     },
     { 
@@ -99,7 +101,7 @@ export const Header: React.FC = () => {
             <div className="flex items-center space-x-6 text-[#DDE1E7] font-medium mr-4">
               <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="hover:text-[#F2B418] transition-colors">About Us</a>
               <a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="hover:text-[#F2B418] transition-colors">Careers</a>
-              <a href="/#gallery" onClick={(e) => handleLinkClick(e, '/#gallery')} className="hover:text-[#F2B418] transition-colors">Events</a>
+              <a href="/gallery" onClick={(e) => handleLinkClick(e, '/gallery')} className="hover:text-[#F2B418] transition-colors">Events</a>
               <a href="/notice" onClick={(e) => handleLinkClick(e, '/notice')} className="hover:text-[#F2B418] transition-colors">Notice</a>
             </div>
 

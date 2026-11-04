@@ -7,6 +7,8 @@ import { FeeStructurePage } from './components/FeeStructurePage';
 import { AboutUsPage } from './components/AboutUsPage';
 import { FeedbackPage } from './components/FeedbackPage';
 import { RulesAndRegulationsPage } from './components/RulesAndRegulationsPage';
+import { GalleryPage } from './components/GalleryPage';
+import { FacultyPage } from './components/FacultyPage';
 
 function getRoutePath(): string {
   if (typeof window === 'undefined') return '/';
@@ -26,6 +28,8 @@ function getRoutePath(): string {
   if (pathname === '/contact') return '/contact';
   if (pathname === '/notice') return '/notice';
   if (pathname === '/fee-structure' || pathname === '/fees-structure') return '/fee-structure';
+  if (pathname === '/gallery' || pathname === '/events') return '/gallery';
+  if (pathname === '/faculty' || pathname === '/faculties') return '/faculty';
   if (
     window.location.hash.startsWith('#/rules') ||
     window.location.hash.startsWith('#/rules-and-regulations') ||
@@ -71,6 +75,21 @@ function getRoutePath(): string {
     window.location.hash === '#fees-structure'
   ) {
     return '/fee-structure';
+  }
+  if (
+    window.location.hash.startsWith('#/gallery') ||
+    window.location.hash.startsWith('#/events') ||
+    window.location.hash === '#gallery-page'
+  ) {
+    return '/gallery';
+  }
+  if (
+    window.location.hash.startsWith('#/faculty') ||
+    window.location.hash.startsWith('#/faculties') ||
+    window.location.hash === '#faculty-page' ||
+    window.location.hash === '#faculties-page'
+  ) {
+    return '/faculty';
   }
   return pathname;
 }
@@ -126,6 +145,14 @@ export default function App() {
 
   if (currentPath === '/fee-structure' || currentPath === '/fees-structure') {
     return <FeeStructurePage />;
+  }
+
+  if (currentPath === '/gallery' || currentPath === '/events') {
+    return <GalleryPage />;
+  }
+
+  if (currentPath === '/faculty' || currentPath === '/faculties') {
+    return <FacultyPage />;
   }
 
   return <HomePage />;
