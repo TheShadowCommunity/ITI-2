@@ -9,6 +9,7 @@ import { FeedbackPage } from './components/FeedbackPage';
 import { RulesAndRegulationsPage } from './components/RulesAndRegulationsPage';
 import { GalleryPage } from './components/GalleryPage';
 import { FacultyPage } from './components/FacultyPage';
+import { CareerPage } from './components/CareerPage';
 
 function getRoutePath(): string {
   if (typeof window === 'undefined') return '/';
@@ -30,6 +31,7 @@ function getRoutePath(): string {
   if (pathname === '/fee-structure' || pathname === '/fees-structure') return '/fee-structure';
   if (pathname === '/gallery' || pathname === '/events') return '/gallery';
   if (pathname === '/faculty' || pathname === '/faculties') return '/faculty';
+  if (pathname === '/career' || pathname === '/careers') return '/career';
   if (
     window.location.hash.startsWith('#/rules') ||
     window.location.hash.startsWith('#/rules-and-regulations') ||
@@ -90,6 +92,14 @@ function getRoutePath(): string {
     window.location.hash === '#faculties-page'
   ) {
     return '/faculty';
+  }
+  if (
+    window.location.hash.startsWith('#/career') ||
+    window.location.hash.startsWith('#/careers') ||
+    window.location.hash === '#career-page' ||
+    window.location.hash === '#careers-page'
+  ) {
+    return '/career';
   }
   return pathname;
 }
@@ -153,6 +163,10 @@ export default function App() {
 
   if (currentPath === '/faculty' || currentPath === '/faculties') {
     return <FacultyPage />;
+  }
+
+  if (currentPath === '/career' || currentPath === '/careers') {
+    return <CareerPage />;
   }
 
   return <HomePage />;

@@ -100,7 +100,7 @@ export const Header: React.FC = () => {
             {/* First four neutral links */}
             <div className="flex items-center space-x-6 text-[#DDE1E7] font-medium mr-4">
               <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="hover:text-[#F2B418] transition-colors">About Us</a>
-              <a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="hover:text-[#F2B418] transition-colors">Careers</a>
+              <a href="/careers" onClick={(e) => handleLinkClick(e, '/careers')} className="hover:text-[#F2B418] transition-colors">Careers</a>
               <a href="/gallery" onClick={(e) => handleLinkClick(e, '/gallery')} className="hover:text-[#F2B418] transition-colors">Events</a>
               <a href="/notice" onClick={(e) => handleLinkClick(e, '/notice')} className="hover:text-[#F2B418] transition-colors">Notice</a>
             </div>
