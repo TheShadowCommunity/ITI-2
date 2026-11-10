@@ -6,16 +6,28 @@ import { ItiLogo } from './ItiLogo';
 interface EnquiryFormProps {
   idPrefix?: string;
   className?: string;
+  defaultCategory?: EnquiryCategory;
+  headerTitle?: string;
+  headerSubtitle?: string;
+  showUploadPicture?: boolean;
 }
 
-export const EnquiryForm: React.FC<EnquiryFormProps> = ({ idPrefix = 'form1', className = '' }) => {
+export const EnquiryForm: React.FC<EnquiryFormProps> = ({
+  idPrefix = 'form1',
+  className = '',
+  defaultCategory = 'admission',
+  headerTitle,
+  headerSubtitle,
+  showUploadPicture = false,
+}) => {
   const [formData, setFormData] = useState<EnquiryFormData>({
-    category: 'admission',
+    category: defaultCategory,
     name: '',
     email: '',
     mobile: '',
     comment: '',
   });
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
 
   const [errors, setErrors] = useState<Partial<Record<keyof EnquiryFormData, string>>>({});
   const [submissionState, setSubmissionState] = useState<EnquirySubmissionState>({
@@ -70,12 +82,13 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({ idPrefix = 'form1', cl
         serverPendingNote: 'नोट: क्लाइंट-साइड सत्यापन सफल रहा। सर्वर-साइड सानिध्य (Sanity) और ईमेल (Resend) बैकएंड क्रेडेंशियल कॉन्फ़िगरेशन के लिए स्टेज्ड है।',
       });
       setFormData({
-        category: 'admission',
+        category: defaultCategory,
         name: '',
         email: '',
         mobile: '',
         comment: '',
       });
+      setUploadedFile(null);
     } catch {
       setSubmissionState({
         status: 'error',
@@ -87,6 +100,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({ idPrefix = 'form1', cl
   const categories: { key: EnquiryCategory; labelHindi: string; labelEng: string }[] = [
     { key: 'admission', labelHindi: 'प्रवेश', labelEng: 'Admission' },
     { key: 'career', labelHindi: 'करियर', labelEng: 'Career' },
+    { key: 'feedback', labelHindi: 'फीडबैक', labelEng: 'Feedback' },
     { key: 'complain', labelHindi: 'शिकायत', labelEng: 'Complain' },
     { key: 'other', labelHindi: 'अन्य जानकारी', labelEng: 'Other' },
   ];
@@ -97,10 +111,10 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({ idPrefix = 'form1', cl
       <div className="bg-[#1F2A3C] text-white p-6 sm:p-8 flex items-start justify-between gap-4">
         <div className="max-w-[532px]">
           <h3 className="text-[24px] sm:text-[28px] font-bold font-hindi tracking-tight mb-2 text-white">
-            अपनी पूछताछ भेजें
+            {headerTitle || 'अपनी पूछताछ भेजें'}
           </h3>
-          <p className="text-[13px] sm:text-[14px] text-[#DDE1E7] font-hindi leading-relaxed">
-            अभ्यार्थी, करियर अवसर, शिकायत या अन्य किसी प्रकार की जानकारी हेतु इच्छुक व्यक्ति इस फॉर्म को भर सकते हैं।
+          <p className="text-[13px] sm:text-[14px] text-[#DDE1E7] font-hindi leading-relaxed whitespace-pre-line">
+            {headerSubtitle || 'अभ्यार्थी, करियर अवसर, शिकायत या अन्य किसी प्रकार की जानकारी हेतु इच्छुक व्यक्ति इस फॉर्म को भर सकते हैं।'}
           </p>
         </div>
         {/* Logo slot 33:854: 161 x 79 px */}
@@ -111,10 +125,10 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({ idPrefix = 'form1', cl
 
       {/* Form Content (Figma 33:856) */}
       <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-5" noValidate>
-        {/* Four radio choices: 44px high */}
+        {/* Radio choices */}
         <fieldset>
           <legend className="sr-only">पूछताछ का प्रकार (Enquiry Type)</legend>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
             {categories.map((cat) => {
               const isChecked = formData.category === cat.key;
               const inputId = `${idPrefix}-category-${cat.key}`;
@@ -233,6 +247,32 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({ idPrefix = 'form1', cl
         {submissionState.status === 'error' && (
           <div className="p-3 bg-red-50 border border-red-200 rounded-[4px]">
             <p className="text-xs font-bold text-red-800">{submissionState.message}</p>
+          </div>
+        )}
+
+        {/* Upload Picture Button (Feedback Page feature) */}
+        {showUploadPicture && (
+          <div>
+            <label className="inline-flex items-center gap-2.5 px-4 py-2.5 bg-[#F1F5F9] hover:bg-[#E2E8F0] border border-[#CBD5E1] rounded-[6px] text-[#5B6B80] text-sm font-medium cursor-pointer transition-colors shadow-2xs">
+              <svg className="w-4 h-4 text-[#5B6B80] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" strokeWidth="2" />
+                <path strokeWidth="2" d="M21 15l-5-5L5 21" />
+              </svg>
+              <span className="truncate max-w-[240px]">
+                {uploadedFile ? uploadedFile.name : 'Upload Your Picture'}
+              </span>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => {
+                  if (e.target.files && e.target.files[0]) {
+                    setUploadedFile(e.target.files[0]);
+                  }
+                }}
+                className="sr-only"
+              />
+            </label>
           </div>
         )}
 

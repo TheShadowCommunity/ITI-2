@@ -1,5 +1,6 @@
 import React from 'react';
 import { siteImages } from '../data/assets';
+import { navigateTo } from '../utils/navigation';
 
 export const CollegeLifeSection: React.FC = () => {
   return (
@@ -15,7 +16,11 @@ export const CollegeLifeSection: React.FC = () => {
           </div>
 
           <a
-            href="#gallery"
+            href="/gallery"
+            onClick={(e) => {
+              e.preventDefault();
+              navigateTo('/gallery');
+            }}
             className="w-[118px] h-[30px] inline-flex items-center justify-end text-[13px] font-bold text-[#8A6100] hover:text-[#1F2A3C] transition-colors gap-1"
           >
             View More <span aria-hidden="true">&gt;</span>

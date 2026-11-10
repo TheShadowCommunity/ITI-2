@@ -1,4 +1,4 @@
-export type EnquiryCategory = 'admission' | 'career' | 'complain' | 'other';
+export type EnquiryCategory = 'admission' | 'career' | 'feedback' | 'complain' | 'other';
 
 export interface EnquiryFormData {
   category: EnquiryCategory;

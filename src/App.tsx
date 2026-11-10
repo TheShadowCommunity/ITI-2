@@ -5,15 +5,55 @@ import { ContactPage } from './components/ContactPage';
 import { NoticePage } from './components/NoticePage';
 import { FeeStructurePage } from './components/FeeStructurePage';
 import { AboutUsPage } from './components/AboutUsPage';
+import { FeedbackPage } from './components/FeedbackPage';
+import { RulesAndRegulationsPage } from './components/RulesAndRegulationsPage';
+import { GalleryPage } from './components/GalleryPage';
+import { FacultyPage } from './components/FacultyPage';
+import { CareerPage } from './components/CareerPage';
 
 function getRoutePath(): string {
   if (typeof window === 'undefined') return '/';
   const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+  if (
+    pathname === '/rules' ||
+    pathname === '/rules-and-regulations' ||
+    pathname === '/rules-regulations' ||
+    pathname === '/code-of-conduct' ||
+    pathname === '/policy'
+  ) {
+    return '/rules-and-regulations';
+  }
+  if (pathname === '/feedback' || pathname === '/feedbacks' || pathname === '/infrastructure') return '/feedback';
   if (pathname === '/about' || pathname === '/about-us') return '/about';
   if (pathname === '/guest-lectures') return '/guest-lectures';
   if (pathname === '/contact') return '/contact';
   if (pathname === '/notice') return '/notice';
   if (pathname === '/fee-structure' || pathname === '/fees-structure') return '/fee-structure';
+  if (pathname === '/gallery' || pathname === '/events') return '/gallery';
+  if (pathname === '/faculty' || pathname === '/faculties') return '/faculty';
+  if (pathname === '/career' || pathname === '/careers') return '/career';
+  if (
+    window.location.hash.startsWith('#/rules') ||
+    window.location.hash.startsWith('#/rules-and-regulations') ||
+    window.location.hash.startsWith('#/code-of-conduct') ||
+    window.location.hash.startsWith('#/policy') ||
+    window.location.hash === '#rules' ||
+    window.location.hash === '#rules-and-regulations' ||
+    window.location.hash === '#code-of-conduct' ||
+    window.location.hash === '#policy'
+  ) {
+    return '/rules-and-regulations';
+  }
+  if (
+    window.location.hash.startsWith('#/feedback') ||
+    window.location.hash.startsWith('#/feedbacks') ||
+    window.location.hash === '#feedback' ||
+    window.location.hash === '#feedbacks' ||
+    window.location.hash.startsWith('#/infrastructure') ||
+    window.location.hash === '#infrastructure-page'
+  ) {
+    return '/feedback';
+  }
   if (
     window.location.hash.startsWith('#/about') ||
     window.location.hash.startsWith('#/about-us') ||
@@ -38,6 +78,29 @@ function getRoutePath(): string {
   ) {
     return '/fee-structure';
   }
+  if (
+    window.location.hash.startsWith('#/gallery') ||
+    window.location.hash.startsWith('#/events') ||
+    window.location.hash === '#gallery-page'
+  ) {
+    return '/gallery';
+  }
+  if (
+    window.location.hash.startsWith('#/faculty') ||
+    window.location.hash.startsWith('#/faculties') ||
+    window.location.hash === '#faculty-page' ||
+    window.location.hash === '#faculties-page'
+  ) {
+    return '/faculty';
+  }
+  if (
+    window.location.hash.startsWith('#/career') ||
+    window.location.hash.startsWith('#/careers') ||
+    window.location.hash === '#career-page' ||
+    window.location.hash === '#careers-page'
+  ) {
+    return '/career';
+  }
   return pathname;
 }
 
@@ -60,6 +123,20 @@ export default function App() {
     };
   }, []);
 
+  if (
+    currentPath === '/rules' ||
+    currentPath === '/rules-and-regulations' ||
+    currentPath === '/rules-regulations' ||
+    currentPath === '/code-of-conduct' ||
+    currentPath === '/policy'
+  ) {
+    return <RulesAndRegulationsPage />;
+  }
+
+  if (currentPath === '/feedback' || currentPath === '/feedbacks' || currentPath === '/infrastructure') {
+    return <FeedbackPage />;
+  }
+
   if (currentPath === '/about' || currentPath === '/about-us') {
     return <AboutUsPage />;
   }
@@ -78,6 +155,18 @@ export default function App() {
 
   if (currentPath === '/fee-structure' || currentPath === '/fees-structure') {
     return <FeeStructurePage />;
+  }
+
+  if (currentPath === '/gallery' || currentPath === '/events') {
+    return <GalleryPage />;
+  }
+
+  if (currentPath === '/faculty' || currentPath === '/faculties') {
+    return <FacultyPage />;
+  }
+
+  if (currentPath === '/career' || currentPath === '/careers') {
+    return <CareerPage />;
   }
 
   return <HomePage />;
