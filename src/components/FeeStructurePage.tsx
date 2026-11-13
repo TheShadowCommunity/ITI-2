@@ -13,7 +13,7 @@ export const FeeStructurePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#1F2A3C] selection:bg-[#F2B418] selection:text-[#14171C]">
+    <div className="min-h-screen flex flex-col bg-white text-navy-900 selection:bg-[#F2B418] selection:text-[#14171C]">
       {/* 1. Shared Global Header */}
       <Header />
 
@@ -23,7 +23,7 @@ export const FeeStructurePage: React.FC = () => {
           <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-6 lg:gap-8">
               {/* Heading: "Fees Structure" in #1F2A3C */}
-              <h1 className="text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] 2xl:text-[52px] leading-[1.2] font-semibold text-[#1F2A3C] font-heading tracking-tight flex-shrink-0 m-0">
+              <h1 className="text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] 2xl:text-[52px] leading-[1.2] font-semibold text-navy-900 font-heading tracking-tight flex-shrink-0 m-0">
                 Fees Structure
               </h1>
 
@@ -44,7 +44,7 @@ export const FeeStructurePage: React.FC = () => {
               <div className="overflow-x-auto scrollbar-thin">
                 <table className="w-full min-w-[560px] sm:min-w-[620px] border-collapse text-left" aria-label="Fee Structure Details">
                   <thead>
-                    <tr className="bg-[#1F2A3C] text-white">
+                    <tr className="bg-navy-900 text-white">
                       <th
                         scope="col"
                         className="py-3.5 sm:py-4 px-4 sm:px-6 text-[13px] sm:text-[14px] font-semibold tracking-wide w-[12%] sm:w-[10%] whitespace-nowrap"
@@ -71,22 +71,22 @@ export const FeeStructurePage: React.FC = () => {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#EDF0F4] text-[13px] sm:text-[14px] lg:text-[15px] text-[#1F2A3C]">
+                  <tbody className="divide-y divide-[#EDF0F4] text-[13px] sm:text-[14px] lg:text-[15px] text-navy-900">
                     {feeStructureData.map((row) => (
                       <tr
                         key={row.sNo}
                         className="bg-white hover:bg-[#F8FAFC] transition-colors"
                       >
-                        <td className="py-4 sm:py-4.5 px-4 sm:px-6 font-medium text-[#5B6B80] whitespace-nowrap">
+                        <td className="py-4 sm:py-4.5 px-4 sm:px-6 font-medium text-navy-500 whitespace-nowrap">
                           {row.sNo}
                         </td>
-                        <td className="py-4 sm:py-4.5 px-4 sm:px-6 font-medium text-[#1F2A3C]">
+                        <td className="py-4 sm:py-4.5 px-4 sm:px-6 font-medium text-navy-900">
                           {row.trades}
                         </td>
-                        <td className="py-4 sm:py-4.5 px-4 sm:px-6 text-[#5B6B80] whitespace-nowrap">
+                        <td className="py-4 sm:py-4.5 px-4 sm:px-6 text-navy-500 whitespace-nowrap">
                           {row.duration}
                         </td>
-                        <td className="py-4 sm:py-4.5 px-4 sm:px-6 font-semibold text-[#1F2A3C] whitespace-nowrap">
+                        <td className="py-4 sm:py-4.5 px-4 sm:px-6 font-semibold text-navy-900 whitespace-nowrap">
                           {row.fees}
                         </td>
                       </tr>
@@ -98,7 +98,7 @@ export const FeeStructurePage: React.FC = () => {
 
             {/* Subheading Banner: "शिक्षा शुल्क" (Slate Banner) */}
             <div className="mt-8 sm:mt-12 lg:mt-14 w-full">
-              <div className="bg-[#5B6B80] rounded-[6px] sm:rounded-[8px] py-3 sm:py-3.5 px-4 text-center shadow-xs">
+              <div className="bg-navy-500 rounded-[6px] sm:rounded-[8px] py-3 sm:py-3.5 px-4 text-center shadow-xs">
                 <h2 className="text-white text-[19px] sm:text-[23px] lg:text-[25px] font-bold font-hindi tracking-wide m-0">
                   शिक्षा शुल्क
                 </h2>
@@ -109,7 +109,7 @@ export const FeeStructurePage: React.FC = () => {
             <div className="mt-5 sm:mt-7 space-y-3 sm:space-y-3.5 text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.8] sm:leading-[1.85] text-navy-800 font-hindi">
               {feePolicyPoints.map((point) => (
                 <div key={point.id} className="flex items-start gap-2 sm:gap-2.5">
-                  <span className="font-semibold text-[#1F2A3C] flex-shrink-0 select-none">
+                  <span className="font-semibold text-navy-900 flex-shrink-0 select-none">
                     {point.id}.
                   </span>
                   <p className="m-0">

@@ -37,7 +37,7 @@ export const RulesAndRegulationsPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#1F2A3C] selection:bg-[#F2B418] selection:text-[#14171C]">
+    <div className="min-h-screen flex flex-col bg-white text-navy-900 selection:bg-[#F2B418] selection:text-[#14171C]">
       {/* 1. Global Navigation Header */}
       <Header />
 
@@ -48,10 +48,10 @@ export const RulesAndRegulationsPage: React.FC = () => {
             {/* Desktop Layout: Title & Subtitle with right-stretching active bar */}
             <div className="hidden md:flex flex-row items-center justify-between gap-6 lg:gap-10">
               <div className="flex-shrink-0">
-                <h1 className="text-[34px] md:text-[40px] lg:text-[48px] 2xl:text-[54px] leading-[1.15] font-bold text-[#1F2A3C] font-heading tracking-tight m-0">
+                <h1 className="text-[34px] md:text-[40px] lg:text-[48px] 2xl:text-[54px] leading-[1.15] font-bold text-navy-900 font-heading tracking-tight m-0">
                   Rules & Regulations
                 </h1>
-                <p className="font-hindi text-[18px] lg:text-[22px] font-medium text-[#1F2A3C] mt-1.5 sm:mt-2 mb-0">
+                <p className="font-hindi text-[18px] lg:text-[22px] font-medium text-navy-900 mt-1.5 sm:mt-2 mb-0">
                   संस्थान के नियम एवं शर्तें
                 </p>
               </div>
@@ -65,10 +65,10 @@ export const RulesAndRegulationsPage: React.FC = () => {
 
             {/* Mobile Layout: Stacked Title, Subtitle and Underline */}
             <div className="block md:hidden">
-              <h1 className="text-[28px] sm:text-[34px] leading-[1.2] font-bold text-[#1F2A3C] font-heading tracking-tight m-0">
+              <h1 className="text-[28px] sm:text-[34px] leading-[1.2] font-bold text-navy-900 font-heading tracking-tight m-0">
                 Rules & Regulations
               </h1>
-              <p className="font-hindi text-[17px] sm:text-[19px] font-medium text-[#1F2A3C] mt-2 mb-4">
+              <p className="font-hindi text-[17px] sm:text-[19px] font-medium text-navy-900 mt-2 mb-4">
                 संस्थान के नियम एवं शर्तें
               </p>
               <div
@@ -95,7 +95,7 @@ export const RulesAndRegulationsPage: React.FC = () => {
             <div className="mb-10 sm:mb-12 lg:mb-14">
               <div className="flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-6">
                 <DoubleChevronIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#E65100] flex-shrink-0" />
-                <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-bold text-[#1F2A3C] font-hindi tracking-tight m-0">
+                <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-bold text-navy-900 font-hindi tracking-tight m-0">
                   उपस्थिति
                 </h2>
               </div>
@@ -126,7 +126,7 @@ export const RulesAndRegulationsPage: React.FC = () => {
             <div className="mb-10 sm:mb-12 lg:mb-14">
               <div className="flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-6">
                 <DoubleChevronIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#E65100] flex-shrink-0" />
-                <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-bold text-[#1F2A3C] font-hindi tracking-tight m-0">
+                <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-bold text-navy-900 font-hindi tracking-tight m-0">
                   शिक्षा शुल्क
                 </h2>
               </div>
@@ -154,7 +154,7 @@ export const RulesAndRegulationsPage: React.FC = () => {
             <div className="mb-6 sm:mb-8">
               <div className="flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-6">
                 <DoubleChevronIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#E65100] flex-shrink-0" />
-                <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-bold text-[#1F2A3C] font-hindi tracking-tight m-0">
+                <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-bold text-navy-900 font-hindi tracking-tight m-0">
                   अनुशासन
                 </h2>
               </div>

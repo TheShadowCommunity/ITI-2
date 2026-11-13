@@ -91,7 +91,7 @@ export const AboutSection: React.FC = () => {
 
             <div className="space-y-2 mt-[8px] mb-[40px]">
               <div className="flex items-center gap-3">
-                <div className="w-5 h-5 flex items-center justify-center text-[#1F2A3C]">
+                <div className="w-5 h-5 flex items-center justify-center text-navy-900">
                  <div className="">
                       <img src="/assets/icons/year.svg" alt="" className="w-full h-full" />
                     </div>

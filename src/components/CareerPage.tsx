@@ -93,21 +93,24 @@ export const CareerPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F4F5F7] text-[#1F2A3C] selection:bg-[#F2B418] selection:text-[#14171C]">
+    <div className="min-h-screen flex flex-col bg-[#F4F5F7] text-navy-900 selection:bg-[#F2B418] selection:text-[#14171C]">
       {/* 1. Global Navigation Header */}
       <Header />
 
       <main className="flex-grow pb-14 sm:pb-16 lg:pb-24">
         {/* 2. Page Title Band with Gold Gradient Accent Line */}
-        <section className="w-full pt-6 pb-6 sm:pt-8 sm:pb-8 lg:pt-10 lg:pb-12">
-          <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
-            <div className="flex items-center gap-4 sm:gap-6 lg:gap-8">
-              <h1 className="text-[32px] sm:text-[40px] lg:text-[48px] 2xl:text-[52px] leading-tight font-bold text-[#1F2A3C] font-heading tracking-tight m-0 flex-shrink-0">
-                Career
+      
+        <section className="w-full bg-white py-[58px] px-[16px] lg:bg-[#F4F5F7] lg:px-[64px] lg:py-[65px]">
+          <div className="max-w-[1392px] mx-auto ">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-6 lg:gap-8">
+              {/* Heading: "About Us" */}
+              <h1 className="text-[36px] md:text-[38px] lg:text-[48px] xl:text-[56px] leading-[1.2] font-semibold text-navy-900 font-heading font-serat tracking-tight flex-shrink-0 m-0">
+                Careers
               </h1>
-              {/* Active Accent Gradient Line stretching to the right */}
+
+              {/* Active Accent Gradient Line */}
               <div
-                className="w-full max-w-[280px] sm:max-w-[500px] lg:max-w-[850px] h-[5px] sm:h-[6px] lg:h-[7px] rounded-full bg-gradient-to-r from-[#F2B418]/10 via-[#F2B418]/60 to-[#F2B418] flex-grow self-center"
+                className="w-full max-w-[850px] h-[5px] sm:h-[6px] lg:h-[7px] 2xl:h-[8px] rounded-full bg-gradient-to-r from-[#DDE1E7]/40 via-[#F2B418]/60 to-[#F2B418] flex-grow self-center"
                 aria-hidden="true"
               />
             </div>
@@ -115,8 +118,8 @@ export const CareerPage: React.FC = () => {
         </section>
 
         {/* 3. Main Careers Section: Form Card & Convocation Photo */}
-        <section className="w-full">
-          <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
+        <section className="w-full py-[80px] px-[64px]">
+          <div className="max-w-[1392px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-[1.28fr_1fr] 2xl:grid-cols-[748px_576px] gap-8 xl:gap-[48px] 2xl:gap-[68px] items-start">
               {/* Left Column: Join Our Team Form Card */}
               <div className="w-full max-w-[748px] bg-white rounded-[16px] shadow-sm border border-[#DDE1E7] overflow-hidden">
@@ -184,7 +187,7 @@ export const CareerPage: React.FC = () => {
                     <div>
                       <label
                         htmlFor="career-email"
-                        className="block text-[13px] sm:text-[14px] font-medium text-[#5B6B80] font-hindi mb-1"
+                        className="block text-[13px] sm:text-[14px] font-medium text-navy-500 font-hindi mb-1"
                       >
                         ईमेल (Email)
                       </label>
@@ -204,7 +207,7 @@ export const CareerPage: React.FC = () => {
                     <div>
                       <label
                         htmlFor="career-mobile"
-                        className="block text-[13px] sm:text-[14px] font-medium text-[#5B6B80] font-hindi mb-1"
+                        className="block text-[13px] sm:text-[14px] font-medium text-navy-500 font-hindi mb-1"
                       >
                         मोबाइल नंबर (Mobile Number)
                       </label>
@@ -235,7 +238,7 @@ export const CareerPage: React.FC = () => {
                       placeholder="Leave a comment"
                       className={`w-full p-3.5 text-sm sm:text-[15px] bg-white border ${
                         errors.comment ? 'border-red-500' : 'border-[#DDE1E7]'
-                      } rounded-[8px] focus:outline-none focus:border-[#F2B418] focus:ring-1 focus:ring-[#F2B418] placeholder-[#5B6B80] transition-colors resize-none`}
+                      } rounded-[8px] focus:outline-none focus:border-[#F2B418] focus:ring-1 focus:ring-[#F2B418] placeholder-navy-500 transition-colors resize-none`}
                     />
                     {errors.comment && <p className="text-xs text-red-600 mt-1">{errors.comment}</p>}
                   </div>

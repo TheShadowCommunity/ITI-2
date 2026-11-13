@@ -12,7 +12,7 @@ export const ContactPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#1F2A3C] selection:bg-[#F2B418] selection:text-[#14171C]">
+    <div className="min-h-screen flex flex-col bg-white text-navy-900 selection:bg-[#F2B418] selection:text-[#14171C]">
       {/* 1. Shared Site Header */}
       <Header />
 
@@ -22,7 +22,7 @@ export const ContactPage: React.FC = () => {
           <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-6 lg:gap-8">
               {/* Heading: responsive fluid font size matching Guest Lectures and Hero scale */}
-              <h1 className="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] 2xl:text-[56px] leading-[1.2] 2xl:leading-[70px] font-semibold text-[#1F2A3C] font-heading tracking-tight flex-shrink-0 m-0">
+              <h1 className="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] 2xl:text-[56px] leading-[1.2] 2xl:leading-[70px] font-semibold text-navy-900 font-heading tracking-tight flex-shrink-0 m-0">
                 Contact Us
               </h1>
 
@@ -47,10 +47,10 @@ export const ContactPage: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-[15px] sm:text-[16px] font-bold text-[#1F2A3C] font-heading">
+                  <h3 className="text-[15px] sm:text-[16px] font-bold text-navy-900 font-heading">
                     Address
                   </h3>
-                  <p className="text-[13px] sm:text-[14px] text-[#5B6B80] mt-1 leading-snug">
+                  <p className="text-[13px] sm:text-[14px] text-navy-500 mt-1 leading-snug">
                     Mohan Road, Maunda, Lucknow, 226004
                   </p>
                 </div>
@@ -64,12 +64,12 @@ export const ContactPage: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-[15px] sm:text-[16px] font-bold text-[#1F2A3C] font-heading">
+                  <h3 className="text-[15px] sm:text-[16px] font-bold text-navy-900 font-heading">
                     Email
                   </h3>
                   <a
                     href="mailto:newlucknowcitypvtiti@gmail.com"
-                    className="text-[13px] sm:text-[14px] text-[#5B6B80] hover:text-[#1F2A3C] transition-colors mt-1 block break-all leading-snug"
+                    className="text-[13px] sm:text-[14px] text-navy-500 hover:text-navy-900 transition-colors mt-1 block break-all leading-snug"
                   >
                     newlucknowcitypvtiti@gmail.com
                   </a>
@@ -84,10 +84,10 @@ export const ContactPage: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-[15px] sm:text-[16px] font-bold text-[#1F2A3C] font-heading">
+                  <h3 className="text-[15px] sm:text-[16px] font-bold text-navy-900 font-heading">
                     Mobile Number
                   </h3>
-                  <p className="text-[13px] sm:text-[14px] text-[#5B6B80] mt-1 leading-snug">
+                  <p className="text-[13px] sm:text-[14px] text-navy-500 mt-1 leading-snug">
                     8840012609, 9792361820, 9236013038,
                   </p>
                 </div>
@@ -136,7 +136,7 @@ export const ContactPage: React.FC = () => {
                 {/* Metadata Tags Row */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 text-sm pt-1 border-t border-[#DDE1E7]/50">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-5 h-5 flex items-center justify-center text-[#1F2A3C] flex-shrink-0">
+                    <div className="w-5 h-5 flex items-center justify-center text-navy-900 flex-shrink-0">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <rect x="3" y="4" width="18" height="18" rx="2" strokeWidth="1.75" />
                         <line x1="16" y1="2" x2="16" y2="6" strokeWidth="1.75" />
@@ -144,18 +144,18 @@ export const ContactPage: React.FC = () => {
                         <line x1="3" y1="10" x2="21" y2="10" strokeWidth="1.75" />
                       </svg>
                     </div>
-                    <span className="font-hindi text-[#1F2A3C] font-medium text-[14px]">
+                    <span className="font-hindi text-navy-900 font-medium text-[14px]">
                       2019 में स्थापित
                     </span>
                   </div>
 
                   <div className="flex items-center gap-2.5">
-                    <div className="w-5 h-5 flex items-center justify-center text-[#1F2A3C] flex-shrink-0">
+                    <div className="w-5 h-5 flex items-center justify-center text-navy-900 flex-shrink-0">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeWidth="1.75" d="M3 21h18M3 10h18M5 10v11M9 10v11M15 10v11M19 10v11M12 3l9 7H3l9-7z" />
                       </svg>
                     </div>
-                    <span className="font-hindi text-[#1F2A3C] font-medium text-[14px]">
+                    <span className="font-hindi text-navy-900 font-medium text-[14px]">
                       भारत सरकार NCVT द्वारा मान्यता प्राप्त
                     </span>
                   </div>

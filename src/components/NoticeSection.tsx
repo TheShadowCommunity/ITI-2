@@ -33,7 +33,7 @@ export const NoticeSection: React.FC = () => {
     <section id="notices" className=" bg-white">
       <div className="max-w-[1392px]">
         {/* Dark Navy Header Banner with Megaphone Icon (Figma 57:1101) */}
-        <div className="bg-[#1F2A3C] py-[80px] px-[16px] lg:py-[72px] lg:px-[64px] flex items-center text-white">
+        <div className="bg-navy-900 py-[80px] px-[16px] lg:py-[72px] lg:px-[64px] flex items-center text-white">
         <div className="w-[100px]">
               <img src="/assets/icons/notice.svg" alt="" className="w-full h-full" />
             </div>
@@ -48,7 +48,7 @@ export const NoticeSection: React.FC = () => {
         {/* Notices Container */}
         <div className="py-[80px] px-[16px] lg:py-[100px] lg:px-[64px]">
           {isLoading ? (
-            <div className="py-12 text-center text-[#5B6B80] text-sm font-hindi">
+            <div className="py-12 text-center text-navy-500 text-sm font-hindi">
               सूचनाएं लोड हो रही हैं... (Loading notices...)
             </div>
           ) : error ? (
@@ -56,7 +56,7 @@ export const NoticeSection: React.FC = () => {
               {error}
             </div>
           ) : notices.length === 0 ? (
-            <div className="py-8 text-center text-[#5B6B80] text-sm font-hindi">
+            <div className="py-8 text-center text-navy-500 text-sm font-hindi">
               फिलहाल कोई नई सूचना उपलब्ध नहीं है। (No new notices available.)
             </div>
           ) : (
@@ -89,7 +89,7 @@ export const NoticeSection: React.FC = () => {
                       href={notice.downloadUrl || '#'}
                       download
                       aria-label="Download announcement document"
-                      className=" text-[#5B6B80]"
+                      className=" text-navy-500"
                     >
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -109,7 +109,7 @@ export const NoticeSection: React.FC = () => {
                 e.preventDefault();
                 navigateTo('/notice');
               }}
-              className="inline-flex items-center text-[13px] font-semibold text-yellow-700 hover:text-[#1F2A3C] transition-colors gap-1.5"
+              className="inline-flex items-center text-[13px] font-semibold text-yellow-700 hover:text-navy-900 transition-colors gap-1.5"
             >
               View More 
                <div className="">

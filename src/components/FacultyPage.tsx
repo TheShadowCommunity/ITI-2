@@ -53,7 +53,7 @@ export const FacultyPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F4F5F7] text-[#1F2A3C] selection:bg-[#F2B418] selection:text-[#14171C]">
+    <div className="min-h-screen flex flex-col bg-[#F4F5F7] text-navy-900 selection:bg-[#F2B418] selection:text-[#14171C]">
       {/* 1. Global Navigation Header */}
       <Header />
 
@@ -62,7 +62,7 @@ export const FacultyPage: React.FC = () => {
         <section className="w-full pt-6 pb-6 sm:pt-8 sm:pb-8 lg:pt-10 lg:pb-12">
           <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
             <div className="flex items-center gap-4 sm:gap-6 lg:gap-8">
-              <h1 className="text-[32px] sm:text-[40px] lg:text-[48px] 2xl:text-[52px] leading-tight font-bold text-[#1F2A3C] font-heading tracking-tight m-0 flex-shrink-0">
+              <h1 className="text-[32px] sm:text-[40px] lg:text-[48px] 2xl:text-[52px] leading-tight font-bold text-navy-900 font-heading tracking-tight m-0 flex-shrink-0">
                 Faculty
               </h1>
               {/* Active Accent Gradient Line stretching to the right */}
@@ -105,7 +105,7 @@ export const FacultyPage: React.FC = () => {
                       {faculty.name}
                     </h2>
 
-                    <div className="mt-1 sm:mt-1.5 text-[11px] sm:text-[13px] md:text-[14px] lg:text-[15px] text-[#5B6B80] font-normal leading-snug flex flex-col items-center justify-center">
+                    <div className="mt-1 sm:mt-1.5 text-[11px] sm:text-[13px] md:text-[14px] lg:text-[15px] text-navy-500 font-normal leading-snug flex flex-col items-center justify-center">
                       <span>{faculty.designation}</span>
                       {faculty.department && (
                         <span>{faculty.department}</span>

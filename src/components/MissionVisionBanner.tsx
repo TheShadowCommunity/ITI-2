@@ -2,7 +2,7 @@ import React from 'react';
 
 export const MissionVisionBanner: React.FC = () => {
   return (
-    <section className="bg-[#1F2A3C] text-white w-full py-7 lg:py-9 2xl:py-10 min-h-[180px] flex items-center border-t border-navy-800">
+    <section className="bg-navy-900 text-white w-full py-7 lg:py-9 2xl:py-10 min-h-[180px] flex items-center border-t border-navy-800">
       <div className="max-w-[1392px] w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0 flex items-center justify-between">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 xl:gap-12 w-full">
           {/* Mission Block */}

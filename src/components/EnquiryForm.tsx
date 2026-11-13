@@ -149,8 +149,8 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                     onChange={() => setFormData({ ...formData, category: cat.key })}
                     className="w-4 h-4 text-[#F2B418] accent-[#F2B418] cursor-pointer"
                   />
-                  <span className="font-hindi text-[#1F2A3C] truncate">
-                    {cat.labelHindi} <span className="text-[#5B6B80] text-[11px] font-sans">({cat.labelEng})</span>
+                  <span className="font-hindi text-navy-900 truncate">
+                    {cat.labelHindi} <span className="text-navy-500 text-[11px] font-sans">({cat.labelEng})</span>
                   </span>
                 </label>
               );
@@ -160,7 +160,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
 
         {/* Name Input: 713 x 58 px on desktop */}
         <div>
-          <label htmlFor={`${idPrefix}-name`} className="block text-xs font-semibold text-[#5B6B80] mb-1 font-hindi">
+          <label htmlFor={`${idPrefix}-name`} className="block text-xs font-semibold text-navy-500 mb-1 font-hindi">
             नाम (Name)
           </label>
           <input
@@ -179,7 +179,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         {/* Email & Mobile 2-column: each 348.5 x 54 px on desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor={`${idPrefix}-email`} className="block text-xs font-semibold text-[#5B6B80] mb-1 font-hindi">
+            <label htmlFor={`${idPrefix}-email`} className="block text-xs font-semibold text-navy-500 mb-1 font-hindi">
               ईमेल (Email)
             </label>
             <input
@@ -196,7 +196,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
           </div>
 
           <div>
-            <label htmlFor={`${idPrefix}-mobile`} className="block text-xs font-semibold text-[#5B6B80] mb-1 font-hindi">
+            <label htmlFor={`${idPrefix}-mobile`} className="block text-xs font-semibold text-navy-500 mb-1 font-hindi">
               मोबाइल नंबर (Mobile Number)
             </label>
             <input
@@ -216,7 +216,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
 
         {/* Comment Textarea: 713 x 92 px on desktop */}
         <div>
-          <label htmlFor={`${idPrefix}-comment`} className="block text-xs font-semibold text-[#5B6B80] mb-1 font-hindi">
+          <label htmlFor={`${idPrefix}-comment`} className="block text-xs font-semibold text-navy-500 mb-1 font-hindi">
             अपना अभिमत दें (Leave a comment)
           </label>
           <textarea
@@ -253,8 +253,8 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         {/* Upload Picture Button (Feedback Page feature) */}
         {showUploadPicture && (
           <div>
-            <label className="inline-flex items-center gap-2.5 px-4 py-2.5 bg-[#F1F5F9] hover:bg-[#E2E8F0] border border-[#CBD5E1] rounded-[6px] text-[#5B6B80] text-sm font-medium cursor-pointer transition-colors shadow-2xs">
-              <svg className="w-4 h-4 text-[#5B6B80] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <label className="inline-flex items-center gap-2.5 px-4 py-2.5 bg-[#F1F5F9] hover:bg-[#E2E8F0] border border-[#CBD5E1] rounded-[6px] text-navy-500 text-sm font-medium cursor-pointer transition-colors shadow-2xs">
+              <svg className="w-4 h-4 text-navy-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="2" />
                 <circle cx="8.5" cy="8.5" r="1.5" strokeWidth="2" />
                 <path strokeWidth="2" d="M21 15l-5-5L5 21" />

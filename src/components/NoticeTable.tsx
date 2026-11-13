@@ -11,7 +11,7 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
     return (
       <div className="w-full bg-white border border-[#DDE1E7] rounded-[12px] overflow-hidden p-12 text-center shadow-2xs">
         <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-[#DDE1E7] border-t-[#F2B418] mb-3" />
-        <p className="text-sm font-hindi text-[#5B6B80]">
+        <p className="text-sm font-hindi text-navy-500">
           सूचनाएं लोड हो रही हैं... (Loading notices...)
         </p>
       </div>
@@ -22,7 +22,7 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
     return (
       <div className="w-full bg-white border border-[#DDE1E7] rounded-[12px] overflow-hidden shadow-2xs">
         {/* Table Header even in empty state */}
-        <div className="bg-[#1F2A3C] text-white px-5 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between">
+        <div className="bg-navy-900 text-white px-5 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between">
           <div className="w-[100px] sm:w-[150px] lg:w-[180px] font-semibold text-xs sm:text-[14px] uppercase tracking-wider">
             Date
           </div>
@@ -33,7 +33,7 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
 
         {/* Designed Empty State Message */}
         <div className="p-10 sm:p-14 text-center">
-          <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-[#F4F5F7] border border-[#DDE1E7] flex items-center justify-center text-[#5B6B80]">
+          <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-[#F4F5F7] border border-[#DDE1E7] flex items-center justify-center text-navy-500">
             <svg
               className="w-7 h-7"
               fill="none"
@@ -49,10 +49,10 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
               />
             </svg>
           </div>
-          <h3 className="text-base sm:text-lg font-bold text-[#1F2A3C] font-heading">
+          <h3 className="text-base sm:text-lg font-bold text-navy-900 font-heading">
             No notices available right now.
           </h3>
-          <p className="text-xs sm:text-sm text-[#5B6B80] font-hindi mt-1">
+          <p className="text-xs sm:text-sm text-navy-500 font-hindi mt-1">
             वर्तमान में कोई नई सूचना उपलब्ध नहीं है। कृपया बाद में पुनः देखें।
           </p>
         </div>
@@ -66,7 +66,7 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
         <table className="w-full text-left border-collapse">
           {/* Table Header matching Figma: Dark Navy #1F2A3C */}
           <thead>
-            <tr className="bg-[#1F2A3C] text-white">
+            <tr className="bg-navy-900 text-white">
               <th
                 scope="col"
                 className="w-[105px] sm:w-[145px] lg:w-[180px] px-4 sm:px-6 md:px-8 py-3.5 sm:py-4 text-xs sm:text-[14px] font-semibold tracking-wide border-r border-navy-800"
@@ -95,11 +95,11 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
                   {/* Date Column: 2 lines with vertical divider border */}
                   <td className="w-[105px] sm:w-[145px] lg:w-[180px] px-4 sm:px-6 md:px-8 py-4 sm:py-5 align-top border-r border-[#DDE1E7]">
                     <div className="flex flex-col">
-                      <span className="text-[13px] sm:text-[14px] font-semibold text-[#1F2A3C] font-heading leading-tight whitespace-nowrap">
+                      <span className="text-[13px] sm:text-[14px] font-semibold text-navy-900 font-heading leading-tight whitespace-nowrap">
                         {notice.date}
                       </span>
                       {notice.time && (
-                        <span className="text-[11px] sm:text-[12px] text-[#5B6B80] font-medium mt-0.5 sm:mt-1 whitespace-nowrap">
+                        <span className="text-[11px] sm:text-[12px] text-navy-500 font-medium mt-0.5 sm:mt-1 whitespace-nowrap">
                           {notice.time}
                         </span>
                       )}
@@ -111,7 +111,7 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
                     <div className="flex items-start justify-between gap-4 sm:gap-6">
                       {/* Notice Title / Hindi text */}
                       <div className="flex-grow">
-                        <p className="text-[13px] sm:text-[14px] leading-relaxed text-[#1F2A3C] font-hindi">
+                        <p className="text-[13px] sm:text-[14px] leading-relaxed text-navy-900 font-hindi">
                           {notice.title}
                         </p>
                       </div>
@@ -122,7 +122,7 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
                           href={fileUrl}
                           download
                           aria-label={`Download notice: ${notice.title.slice(0, 30)}...`}
-                          className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-[#5B6B80] hover:text-[#1F2A3C] hover:bg-[#F4F5F7] focus:outline-hidden focus:ring-2 focus:ring-[#F2B418] transition-all"
+                          className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-navy-500 hover:text-navy-900 hover:bg-[#F4F5F7] focus:outline-hidden focus:ring-2 focus:ring-[#F2B418] transition-all"
                           title="Download Notice PDF / Circular"
                         >
                           <svg

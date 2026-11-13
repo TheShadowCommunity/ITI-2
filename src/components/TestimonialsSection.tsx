@@ -19,17 +19,17 @@ export const TestimonialsSection: React.FC = () => {
           {/* Left Column: Heading, Subtitle & Carousel Controls */}
           <div className="lg:col-span-5 flex flex-col items-start">
             {/* Quote Mark (approx 39 x 27 px) */}
-            <div className="text-[#1F2A3C] text-5xl font-serif font-black leading-none mb-3 select-none">
+            <div className="text-navy-900 text-5xl font-serif font-black leading-none mb-3 select-none">
               &ldquo;&ldquo;
             </div>
 
-            <h2 className="text-[28px] sm:text-[34px] lg:text-[36px] font-bold text-[#1F2A3C] tracking-tight font-hindi mb-3 leading-tight">
+            <h2 className="text-[28px] sm:text-[34px] lg:text-[36px] font-bold text-navy-900 tracking-tight font-hindi mb-3 leading-tight">
               हमारे छात्रों के अनुभव
             </h2>
 
-            <p className="text-[14px] text-[#5B6B80] font-hindi leading-relaxed mb-6 max-w-[380px]">
+            <p className="text-[14px] text-navy-500 font-hindi leading-relaxed mb-6 max-w-[380px]">
               आपकी कहानी किसी और के लिए प्रेरणा बन सकती है! अगर आप भी अपना अनुभव साझा करना चाहते हैं, तो नीचे दिए गए बटन पर{' '}
-              <a href="#enquiry" className="text-yellow-700 underline font-semibold hover:text-[#1F2A3C]">
+              <a href="#enquiry" className="text-yellow-700 underline font-semibold hover:text-navy-900">
                 क्लिक करें
               </a>
               ।
@@ -41,7 +41,7 @@ export const TestimonialsSection: React.FC = () => {
                 type="button"
                 onClick={prev}
                 aria-label="Previous testimonial"
-                className="w-[30px] h-[30px] sm:w-[36px] sm:h-[36px] rounded-full bg-white hover:bg-[#1F2A3C] text-[#1F2A3C] hover:text-white border border-[#DDE1E7] flex items-center justify-center transition-colors shadow-2xs cursor-pointer"
+                className="w-[30px] h-[30px] sm:w-[36px] sm:h-[36px] rounded-full bg-white hover:bg-navy-900 text-navy-900 hover:text-white border border-[#DDE1E7] flex items-center justify-center transition-colors shadow-2xs cursor-pointer"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
@@ -52,7 +52,7 @@ export const TestimonialsSection: React.FC = () => {
                 type="button"
                 onClick={next}
                 aria-label="Next testimonial"
-                className="w-[30px] h-[30px] sm:w-[36px] sm:h-[36px] rounded-full bg-white hover:bg-[#1F2A3C] text-[#1F2A3C] hover:text-white border border-[#DDE1E7] flex items-center justify-center transition-colors shadow-2xs cursor-pointer"
+                className="w-[30px] h-[30px] sm:w-[36px] sm:h-[36px] rounded-full bg-white hover:bg-navy-900 text-navy-900 hover:text-white border border-[#DDE1E7] flex items-center justify-center transition-colors shadow-2xs cursor-pointer"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -91,10 +91,10 @@ export const TestimonialsSection: React.FC = () => {
                           />
                         </div>
                         <div>
-                          <h4 className="text-[15px] font-bold text-[#1F2A3C] leading-tight font-heading">
+                          <h4 className="text-[15px] font-bold text-navy-900 leading-tight font-heading">
                             {item.name}
                           </h4>
-                          <span className="text-[12px] text-[#5B6B80] font-medium">
+                          <span className="text-[12px] text-navy-500 font-medium">
                             {item.role}
                           </span>
                         </div>

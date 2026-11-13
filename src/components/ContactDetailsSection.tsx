@@ -38,7 +38,7 @@ export const ContactDetailsSection: React.FC = () => {
               <h3 className="text-[16px] lg:text-[18px] font-medium text-navy-500">Email</h3>
               <a
                 href="mailto:newlucknowcitypvtiti@gmail.com"
-                className=" text-[12px] lg:text-[14px] text-navy-800 mt-0.5 leading-snug hover:text-[#1F2A3C] block break-all"
+                className=" text-[12px] lg:text-[14px] text-navy-800 mt-0.5 leading-snug hover:text-navy-900 block break-all"
               >
                 newlucknowcitypvtiti@gmail.com
               </a>
@@ -78,8 +78,8 @@ export const ContactDetailsSection: React.FC = () => {
             />
             <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-xs p-3.5 rounded-[12px] border border-[#DDE1E7] shadow-sm flex items-center justify-between">
               <div>
-                <h4 className="text-xs font-bold text-[#1F2A3C]">Campus Location</h4>
-                <p className="text-[11px] text-[#5B6B80]">Mohan Road, Maunda, Lucknow</p>
+                <h4 className="text-xs font-bold text-navy-900">Campus Location</h4>
+                <p className="text-[11px] text-navy-500">Mohan Road, Maunda, Lucknow</p>
               </div>
               <a
                 href="https://maps.google.com"
@@ -106,8 +106,8 @@ export const ContactDetailsSection: React.FC = () => {
             />
             <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-xs p-3 rounded-[10px] border border-[#DDE1E7] shadow-sm flex items-center justify-between">
               <div>
-                <h4 className="text-xs font-bold text-[#1F2A3C]">Campus Location</h4>
-                <p className="text-[10px] text-[#5B6B80]">Mohan Road, Maunda, Lucknow</p>
+                <h4 className="text-xs font-bold text-navy-900">Campus Location</h4>
+                <p className="text-[10px] text-navy-500">Mohan Road, Maunda, Lucknow</p>
               </div>
               <a
                 href="https://maps.google.com"

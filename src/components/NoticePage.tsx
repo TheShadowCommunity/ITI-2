@@ -66,7 +66,7 @@ export const NoticePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#1F2A3C] selection:bg-[#F2B418] selection:text-[#14171C]">
+    <div className="min-h-screen flex flex-col bg-white text-navy-900 selection:bg-[#F2B418] selection:text-[#14171C]">
       {/* 1. Shared Global Site Header */}
       <Header />
 
@@ -76,7 +76,7 @@ export const NoticePage: React.FC = () => {
           <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-6 lg:gap-8">
               {/* Heading: "All Notice" in #1F2A3C */}
-              <h1 className="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] 2xl:text-[56px] leading-[1.2] 2xl:leading-[70px] font-semibold text-[#1F2A3C] font-heading tracking-tight flex-shrink-0 m-0">
+              <h1 className="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] 2xl:text-[56px] leading-[1.2] 2xl:leading-[70px] font-semibold text-navy-900 font-heading tracking-tight flex-shrink-0 m-0">
                 All Notice
               </h1>
 
@@ -106,7 +106,7 @@ export const NoticePage: React.FC = () => {
             />
 
             {/* Development / QA Test Tool for Section 8 Validation */}
-            <div className="mt-8 pt-4 border-t border-dashed border-[#DDE1E7] flex flex-wrap items-center justify-between gap-2 text-xs text-[#5B6B80]">
+            <div className="mt-8 pt-4 border-t border-dashed border-[#DDE1E7] flex flex-wrap items-center justify-between gap-2 text-xs text-navy-500">
               <span className="font-mono">
                 Showing {paginatedResult.startIndex + (paginatedResult.totalCount > 0 ? 1 : 0)}-
                 {paginatedResult.endIndex} of {paginatedResult.totalCount} notices • Page{' '}
@@ -116,14 +116,14 @@ export const NoticePage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setShowFixtureSelector(!showFixtureSelector)}
-                className="text-[11px] font-medium text-yellow-700 hover:text-[#1F2A3C] underline cursor-pointer"
+                className="text-[11px] font-medium text-yellow-700 hover:text-navy-900 underline cursor-pointer"
               >
                 {showFixtureSelector ? 'Hide QA Fixture Switcher' : 'QA Fixture Switcher (0, 1, 5, 6, 10, 11)'}
               </button>
 
               {showFixtureSelector && (
                 <div className="w-full mt-2 p-3 bg-[#F4F5F7] rounded-lg border border-[#DDE1E7] flex flex-wrap items-center gap-2">
-                  <span className="font-semibold text-[#1F2A3C]">Test Fixture:</span>
+                  <span className="font-semibold text-navy-900">Test Fixture:</span>
                   {[
                     { label: 'Default (5)', key: 'default' },
                     { label: '0 Notices', key: 'fixture_0' },
@@ -139,8 +139,8 @@ export const NoticePage: React.FC = () => {
                       onClick={() => setActiveFixture(fix.key)}
                       className={`px-2.5 py-1 rounded text-[11px] font-medium transition-colors ${
                         activeFixture === fix.key
-                          ? 'bg-[#1F2A3C] text-white'
-                          : 'bg-white text-[#1F2A3C] border border-[#DDE1E7] hover:bg-slate-100'
+                          ? 'bg-navy-900 text-white'
+                          : 'bg-white text-navy-900 border border-[#DDE1E7] hover:bg-slate-100'
                       }`}
                     >
                       {fix.label}

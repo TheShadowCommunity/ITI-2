@@ -10,11 +10,11 @@ export const HeroSection: React.FC = () => {
         <div className="w-[40%] xl:w-[44%] 2xl:w-[638px] h-full flex-shrink-0 flex flex-col justify-center  lg:pl-8 xl:pl-[52px] lg:pr-6 z-10">
           <div className="w-full max-w-[493px]">
             {/* 1. भविष्य को */}
-            <p className="text-[22px] lg:text-[clamp(22px,2vw,30px)] leading-[1.3] font-semibold text-[#5B6B80] font-hindi m-0">
+            <p className="text-[22px] lg:text-[clamp(22px,2vw,30px)] leading-[1.3] font-semibold text-navy-500 font-hindi m-0">
               भविष्य को
             </p>
             {/* 2. आकार दे, */}
-            <h1 className="text-[36px] sm:text-[44px] lg:text-[clamp(36px,3.5vw,56px)] leading-[1.2] font-semibold text-[#1F2A3C] font-hindi tracking-tight m-0">
+            <h1 className="text-[36px] sm:text-[44px] lg:text-[clamp(36px,3.5vw,56px)] leading-[1.2] font-semibold text-navy-900 font-hindi tracking-tight m-0">
               आकार दे,
             </h1>
             {/* 3. व्यावसायिक शिक्षा, */}
@@ -22,7 +22,7 @@ export const HeroSection: React.FC = () => {
               व्यावसायिक शिक्षा,
             </h2>
             {/* 4. के साथ l */}
-            <p className="text-[22px] lg:text-[clamp(22px,2vw,30px)] leading-[1.3] font-semibold text-[#5B6B80] font-hindi m-0 mb-6 xl:mb-[40px]">
+            <p className="text-[22px] lg:text-[clamp(22px,2vw,30px)] leading-[1.3] font-semibold text-navy-500 font-hindi m-0 mb-6 xl:mb-[40px]">
               के साथ l
             </p>
 
@@ -48,7 +48,7 @@ export const HeroSection: React.FC = () => {
             height={807}
           />
           {/* Exact dark navy overlay gradient per spec */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1F2A3C]/18 to-[#1F2A3C]/46 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-900/18 to-navy-900/46 pointer-events-none" />
         </div>
       </div>
 
@@ -58,7 +58,7 @@ export const HeroSection: React.FC = () => {
         <div className="w-full px-[16px] py-[80px] flex flex-col justify-start">
           <div className="w-full max-w-[394px]">
             {/* Line 1 */}
-            <p className="text-[30px] leading-[38px] font-semibold text-[#5B6B80] font-hindi m-0">
+            <p className="text-[30px] leading-[38px] font-semibold text-navy-500 font-hindi m-0">
               भविष्य को
             </p>
             {/* Line 2 */}
@@ -70,7 +70,7 @@ export const HeroSection: React.FC = () => {
               व्यावसायिक शिक्षा,
             </h2>
             {/* Line 4 */}
-            <p className="text-[30px] leading-[38px] font-semibold text-[#5B6B80] font-hindi m-0 mb-[40px]">
+            <p className="text-[30px] leading-[38px] font-semibold text-navy-500 font-hindi m-0 mb-[40px]">
               के साथ l
             </p>
 
@@ -95,7 +95,7 @@ export const HeroSection: React.FC = () => {
             width={430}
             height={345}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1F2A3C]/18 to-[#1F2A3C]/46 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-900/18 to-navy-900/46 pointer-events-none" />
         </div>
       </div>
     </section>

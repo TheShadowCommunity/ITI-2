@@ -147,7 +147,7 @@ export const Header: React.FC = () => {
                 >
                   {item.name}
                   {item.hasDropdown && (
-                    <svg className="w-3.5 h-3.5 text-[#5B6B80]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5 text-navy-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   )}
@@ -161,7 +161,7 @@ export const Header: React.FC = () => {
                         key={subItem.label}
                         href={subItem.href}
                         onClick={(e) => handleLinkClick(e, subItem.href)}
-                        className="block px-4 py-2 text-xs text-[#1F2A3C] hover:bg-[#F4F5F7] hover:text-yellow-700 transition-colors"
+                        className="block px-4 py-2 text-xs text-navy-900 hover:bg-[#F4F5F7] hover:text-yellow-700 transition-colors"
                       >
                         {subItem.label}
                       </a>
@@ -197,11 +197,11 @@ export const Header: React.FC = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-[#DDE1E7] px-4 pt-3 pb-6 space-y-2 shadow-xl animate-in fade-in slide-in-from-top-2 duration-150">
           <div className="grid grid-cols-3 gap-2 pb-3 mb-2 border-b border-[#DDE1E7] text-xs">
-            <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">About Us</a>
-            <a href="/contact" onClick={(e) => handleLinkClick(e, '/contact')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">Contact Us</a>
+            <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-navy-900 font-medium">About Us</a>
+            <a href="/contact" onClick={(e) => handleLinkClick(e, '/contact')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-navy-900 font-medium">Contact Us</a>
             <a href="/notice" onClick={(e) => handleLinkClick(e, '/notice')} className="px-2 py-2 text-center bg-[#F2B418]/20 rounded text-[#14171C] font-bold">Notice</a>
-            <a href="/fee-structure" onClick={(e) => handleLinkClick(e, '/fee-structure')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium col-span-1">Fee Structure</a>
-            <a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium col-span-2">Guest Lectures</a>
+            <a href="/fee-structure" onClick={(e) => handleLinkClick(e, '/fee-structure')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-navy-900 font-medium col-span-1">Fee Structure</a>
+            <a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-navy-900 font-medium col-span-2">Guest Lectures</a>
           </div>
 
           {navItems.map((item) => (
@@ -209,11 +209,11 @@ export const Header: React.FC = () => {
               <a
                 href={item.href}
                 onClick={(e) => handleLinkClick(e, item.href)}
-                className="flex items-center justify-between py-2 text-sm font-semibold text-[#1F2A3C] hover:text-[#D99A00] transition-colors"
+                className="flex items-center justify-between py-2 text-sm font-semibold text-navy-900 hover:text-[#D99A00] transition-colors"
               >
                 <span>{item.name}</span>
                 {item.hasDropdown && (
-                  <span className="text-xs text-[#5B6B80]">▾</span>
+                  <span className="text-xs text-navy-500">▾</span>
                 )}
               </a>
               {item.hasDropdown && (
@@ -223,7 +223,7 @@ export const Header: React.FC = () => {
                       key={sub.label}
                       href={sub.href}
                       onClick={(e) => handleLinkClick(e, sub.href)}
-                      className="block py-1 text-xs text-[#5B6B80] hover:text-[#1F2A3C]"
+                      className="block py-1 text-xs text-navy-500 hover:text-navy-900"
                     >
                       • {sub.label}
                     </a>

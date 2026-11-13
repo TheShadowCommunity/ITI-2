@@ -11,7 +11,7 @@ export const FeedbackPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#1F2A3C] selection:bg-[#F2B418] selection:text-[#14171C]">
+    <div className="min-h-screen flex flex-col bg-white text-navy-900 selection:bg-[#F2B418] selection:text-[#14171C]">
       {/* 1. Global Navigation Header */}
       <Header />
 
@@ -21,7 +21,7 @@ export const FeedbackPage: React.FC = () => {
           <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-6 lg:gap-8">
               {/* Heading: Matches the Figma screenshot reference title */}
-              <h1 className="text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] 2xl:text-[52px] leading-[1.2] font-semibold text-[#1F2A3C] font-heading tracking-tight flex-shrink-0 m-0">
+              <h1 className="text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] 2xl:text-[52px] leading-[1.2] font-semibold text-navy-900 font-heading tracking-tight flex-shrink-0 m-0">
                 Infrastructure
               </h1>
 

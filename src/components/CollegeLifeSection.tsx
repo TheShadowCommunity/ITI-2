@@ -21,7 +21,7 @@ export const CollegeLifeSection: React.FC = () => {
               e.preventDefault();
               navigateTo('/gallery');
             }}
-            className="w-[118px] h-[30px] inline-flex items-center justify-end text-[13px] font-bold text-yellow-700 hover:text-[#1F2A3C] transition-colors gap-1"
+            className="w-[118px] h-[30px] inline-flex items-center justify-end text-[13px] font-bold text-yellow-700 hover:text-navy-900 transition-colors gap-1"
           >
             View More 
              <div className="">

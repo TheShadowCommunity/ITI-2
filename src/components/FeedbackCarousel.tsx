@@ -110,16 +110,16 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
             style={{ minHeight: '340px' }}
           >
             <div className="space-y-4">
-              <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-[#1F2A3C] tracking-tight font-hindi leading-tight">
+              <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-navy-900 tracking-tight font-hindi leading-tight">
                 हमारे छात्रों के अनुभव
               </h2>
 
-              <p className="text-[14px] sm:text-[15px] text-[#5B6B80] font-hindi leading-relaxed text-justify">
+              <p className="text-[14px] sm:text-[15px] text-navy-500 font-hindi leading-relaxed text-justify">
                 आपकी कहानी किसी और के लिए प्रेरणा बन सकती है!<br />
                 अगर आप भी अपना अनुभव साझा करना चाहते हैं, तो नीचे दिए गए बटन पर{' '}
                 <a
                   href="#feedback-form"
-                  className="text-yellow-700 underline font-semibold hover:text-[#1F2A3C] transition-colors"
+                  className="text-yellow-700 underline font-semibold hover:text-navy-900 transition-colors"
                 >
                   क्लिक करें
                 </a>
@@ -134,7 +134,7 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
                 onClick={handlePrev}
                 disabled={isAnimating}
                 aria-label="Previous testimonial"
-                className="w-10 h-10 rounded-full border border-[#CBD5E1] bg-white hover:bg-[#F8FAFC] text-[#5B6B80] hover:text-[#1F2A3C] flex items-center justify-center transition-all shadow-xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F2B418] disabled:opacity-60"
+                className="w-10 h-10 rounded-full border border-[#CBD5E1] bg-white hover:bg-[#F8FAFC] text-navy-500 hover:text-navy-900 flex items-center justify-center transition-all shadow-xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F2B418] disabled:opacity-60"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M15 19l-7-7 7-7" />
@@ -146,14 +146,14 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
                 onClick={handleNext}
                 disabled={isAnimating}
                 aria-label="Next testimonial"
-                className="w-10 h-10 rounded-full border border-[#CBD5E1] bg-white hover:bg-[#F8FAFC] text-[#5B6B80] hover:text-[#1F2A3C] flex items-center justify-center transition-all shadow-xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F2B418] disabled:opacity-60"
+                className="w-10 h-10 rounded-full border border-[#CBD5E1] bg-white hover:bg-[#F8FAFC] text-navy-500 hover:text-navy-900 flex items-center justify-center transition-all shadow-xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F2B418] disabled:opacity-60"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
 
-              <span className="text-xs text-[#5B6B80] font-medium font-sans ml-2 select-none">
+              <span className="text-xs text-navy-500 font-medium font-sans ml-2 select-none">
                 {currentIndex + 1} / {totalCards}
               </span>
             </div>
@@ -168,7 +168,7 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
              ========================================================================= */}
           <div className="relative z-10 flex-grow overflow-hidden w-full py-2">
             {/* Mobile dark backdrop when stacked */}
-            <div className="block lg:hidden absolute inset-0 bg-[#1F2A3C] rounded-[20px] -z-10" />
+            <div className="block lg:hidden absolute inset-0 bg-navy-900 rounded-[20px] -z-10" />
 
             <div
               className="flex flex-nowrap items-stretch transition-transform duration-500 ease-out motion-reduce:transition-none"
@@ -207,10 +207,10 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
                           />
                         </div>
                         <div className="overflow-hidden">
-                          <h3 className="text-[16px] sm:text-[17px] font-bold text-[#1F2A3C] leading-snug font-heading truncate">
+                          <h3 className="text-[16px] sm:text-[17px] font-bold text-navy-900 leading-snug font-heading truncate">
                             {item.name}
                           </h3>
-                          <span className="text-[12px] sm:text-[13px] text-[#5B6B80] font-medium block truncate">
+                          <span className="text-[12px] sm:text-[13px] text-navy-500 font-medium block truncate">
                             {item.role}
                           </span>
                         </div>

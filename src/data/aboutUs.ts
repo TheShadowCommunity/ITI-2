@@ -148,13 +148,15 @@ export const aboutUsData = {
     trades: [
       {
         id: "engineering",
-        title: "1. इंजीनियरिंग ट्रेड्स (Engineering Trades)",
+        title: "1. इंजीनियरिंग ट्रेड्स ",
+        subtitle:"(Engineering Trades)",
         desc: "यह ट्रेड्स पूरी तरह से तकनीकी (Technical) होते हैं। इन पाठ्यक्रमों में छात्रों को गणित, विज्ञान और विभिन्न तकनीकी विषयों का व्यावहारिक एवं सैद्धांतिक ज्ञान दिया जाता है।",
         image: "/images/about/trade-engineering.png"
       },
       {
         id: "non-engineering",
-        title: "2. नॉन-इंजीनियरिंग ट्रेड्स (Non- Engineering Trades)",
+        title: "2. नॉन-इंजीनियरिंग ट्रेड्स",
+         subtitle:"(Non-Engineering Trades)",
         desc: "इन ट्रेड्स में तकनीकी विषय शामिल नहीं होते हैं। यह पाठ्यक्रम विज्ञान या तकनीकी विषयों से कम या कोई संबंध नहीं रखते हैं। इनमें छात्रों को सामान्य व्यावसायिक कौशल जैसे कंप्यूटर, सिलाई, डाटा एंट्री, स्टेनोग्राफी आदि का प्रशिक्षण दिया जाता है।",
         image: "/images/about/trade-non-engineering.png"
       }

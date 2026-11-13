@@ -10,6 +10,8 @@ import { RulesAndRegulationsPage } from './components/RulesAndRegulationsPage';
 import { GalleryPage } from './components/GalleryPage';
 import { FacultyPage } from './components/FacultyPage';
 import { CareerPage } from './components/CareerPage';
+import {EventPage} from './components/EventPage';
+import {FacilitiesPage} from './components/FacilitiesPage';
 
 function getRoutePath(): string {
   if (typeof window === 'undefined') return '/';
@@ -28,8 +30,10 @@ function getRoutePath(): string {
   if (pathname === '/guest-lectures') return '/guest-lectures';
   if (pathname === '/contact') return '/contact';
   if (pathname === '/notice') return '/notice';
+  if (pathname === '/events') return '/events';
+  if (pathname === '/facilities') return '/facilities';
   if (pathname === '/fee-structure' || pathname === '/fees-structure') return '/fee-structure';
-  if (pathname === '/gallery' || pathname === '/events') return '/gallery';
+  if (pathname === '/gallery') return '/gallery';
   if (pathname === '/faculty' || pathname === '/faculties') return '/faculty';
   if (pathname === '/career' || pathname === '/careers') return '/career';
   if (
@@ -80,7 +84,6 @@ function getRoutePath(): string {
   }
   if (
     window.location.hash.startsWith('#/gallery') ||
-    window.location.hash.startsWith('#/events') ||
     window.location.hash === '#gallery-page'
   ) {
     return '/gallery';
@@ -157,8 +160,16 @@ export default function App() {
     return <FeeStructurePage />;
   }
 
-  if (currentPath === '/gallery' || currentPath === '/events') {
+  if (currentPath === '/gallery') {
     return <GalleryPage />;
+  }
+  
+  if (currentPath === '/events') {
+    return <EventPage />;
+  }
+
+  if (currentPath === '/facilities') {
+    return <FacilitiesPage />;
   }
 
   if (currentPath === '/faculty' || currentPath === '/faculties') {
