@@ -121,7 +121,7 @@ export const CareerPage: React.FC = () => {
               {/* Left Column: Join Our Team Form Card */}
               <div className="w-full max-w-[748px] bg-white rounded-[16px] shadow-sm border border-[#DDE1E7] overflow-hidden">
                 {/* Form Dark Navy Header (Figma 33:851 / Reference exact composition) */}
-                <div className="bg-[#2E3B4E] text-white p-6 sm:p-7 md:p-8 flex flex-row items-center gap-5 sm:gap-6">
+                <div className="bg-navy-800 text-white p-6 sm:p-7 md:p-8 flex flex-row items-center gap-5 sm:gap-6">
                   {/* Official ITI Emblem Badge */}
                   <div className="w-[135px] sm:w-[155px] md:w-[161px] h-[68px] sm:h-[74px] md:h-[79px] bg-white rounded-[8px] flex items-center justify-center p-2 flex-shrink-0 shadow-xs">
                     <img
@@ -162,7 +162,7 @@ export const CareerPage: React.FC = () => {
                   <div>
                     <label
                       htmlFor="career-name"
-                      className="block text-[13px] sm:text-[14px] font-semibold text-[#8A6100] font-hindi mb-1"
+                      className="block text-[13px] sm:text-[14px] font-semibold text-yellow-700 font-hindi mb-1"
                     >
                       नाम (Name)
                     </label>
@@ -252,13 +252,9 @@ export const CareerPage: React.FC = () => {
                       ) : (
                         <>
                           <span>Submit Enquiry</span>
-                          <svg
-                            className="w-4 h-4 text-[#14171C] fill-current"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                          >
-                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                          </svg>
+                          <div className="">
+                      <img src="/assets/icons/btn-arrow-right.svg" alt="" className="w-full h-full" />
+                    </div>
                         </>
                       )}
                     </button>

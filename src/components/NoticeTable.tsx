@@ -69,7 +69,7 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
             <tr className="bg-[#1F2A3C] text-white">
               <th
                 scope="col"
-                className="w-[105px] sm:w-[145px] lg:w-[180px] px-4 sm:px-6 md:px-8 py-3.5 sm:py-4 text-xs sm:text-[14px] font-semibold tracking-wide border-r border-[#2E3B4E]"
+                className="w-[105px] sm:w-[145px] lg:w-[180px] px-4 sm:px-6 md:px-8 py-3.5 sm:py-4 text-xs sm:text-[14px] font-semibold tracking-wide border-r border-navy-800"
               >
                 Date
               </th>

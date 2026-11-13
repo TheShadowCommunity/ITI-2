@@ -30,29 +30,23 @@ export const NoticeSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="notices" className="py-12 lg:py-16 bg-white">
-      <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
+    <section id="notices" className=" bg-white">
+      <div className="max-w-[1392px]">
         {/* Dark Navy Header Banner with Megaphone Icon (Figma 57:1101) */}
-        <div className="bg-[#1F2A3C] rounded-t-[16px] px-6 py-6 sm:px-8 sm:py-7 flex items-center gap-4 text-white">
-          <div className="text-[#F2B418] flex-shrink-0">
-            {/* Megaphone SVG */}
-            <svg className="w-8 h-8 sm:w-10 sm:h-10 text-[#F2B418]" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20 3H19C18.45 3 18 3.45 18 4V5H13C12.45 5 12 5.45 12 6V9H6C4.9 9 4 9.9 4 11V13C4 14.1 4.9 15 6 15H12V18C12 18.55 12.45 19 13 19H18V20C18 20.55 18.45 21 19 21H20C20.55 21 21 20.55 21 20V4C21 3.45 20.55 3 20 3ZM10 13H6V11H10V13ZM18 17H14V7H18V17Z" />
-              <path d="M7 16H9V21H7C5.9 21 5 20.1 5 19V18C5 16.9 5.9 16 7 16Z" opacity="0.6" />
-            </svg>
-          </div>
+        <div className="bg-[#1F2A3C] py-[80px] px-[16px] lg:py-[72px] lg:px-[64px] flex items-center text-white">
+        <div className="w-[100px]">
+              <img src="/assets/icons/notice.svg" alt="" className="w-full h-full" />
+            </div>
           <div>
-            <h2 className="text-[24px] sm:text-[28px] font-bold tracking-tight text-white font-sans">
+            <h2 className="font-medium ml-[16px] text-[36px] lg:text-[45px] lg:font-semibold tracking-tight text-neutral-200 font-serat">
               Notice & Announcement
             </h2>
-            <span className="text-[12px] text-[#DDE1E7] font-hindi">
-              संस्थान की नवीनतम सूचनाएं और परिपत्र
-            </span>
+  
           </div>
         </div>
 
         {/* Notices Container */}
-        <div className="bg-[#F4F5F7] border-x border-b border-[#DDE1E7] rounded-b-[16px] p-5 sm:p-8">
+        <div className="py-[80px] px-[16px] lg:py-[100px] lg:px-[64px]">
           {isLoading ? (
             <div className="py-12 text-center text-[#5B6B80] text-sm font-hindi">
               सूचनाएं लोड हो रही हैं... (Loading notices...)
@@ -66,25 +60,25 @@ export const NoticeSection: React.FC = () => {
               फिलहाल कोई नई सूचना उपलब्ध नहीं है। (No new notices available.)
             </div>
           ) : (
-            <div className="divide-y divide-[#DDE1E7]">
+            <div className="">
               {notices.map((notice) => (
                 <div
                   key={notice.id}
                   className="py-5 sm:py-6 flex items-start justify-between gap-4 sm:gap-6 group hover:bg-white/60 -mx-3 sm:-mx-4 px-3 sm:px-4 rounded-lg transition-colors"
                 >
                   {/* Left: Date & Time in 2 lines */}
-                  <div className="flex-shrink-0 text-left w-24 sm:w-28">
-                    <span className="block text-xs sm:text-[13px] font-bold text-[#1F2A3C]">
+                  <div className="flex-shrink-0 text-left max-md:pl-0 px-[12px] py-[8px] lg:px-[28px] border-r-1 border-navy-200 h-full">
+                    <span className="block text-[12px] sm:text-[14px] font-semibold text-navy-500">
                       {notice.date}
                     </span>
-                    <span className="block text-[11px] text-[#5B6B80] font-medium">
+                    <span className="block text-[12px] sm:text-[14px] text-navy-500 font-medium">
                       {notice.time}
                     </span>
                   </div>
 
                   {/* Center: Notice text */}
                   <div className="flex-grow">
-                    <p className="text-xs sm:text-[14px] text-[#1F2A3C] font-hindi leading-relaxed">
+                    <p className="text-xs sm:text-[14px] lg:text-[18px] text-navy-800 font-hindi leading-relaxed">
                       {notice.title}
                     </p>
                   </div>
@@ -95,9 +89,9 @@ export const NoticeSection: React.FC = () => {
                       href={notice.downloadUrl || '#'}
                       download
                       aria-label="Download announcement document"
-                      className="w-8 h-8 rounded-full border border-[#DDE1E7] bg-white flex items-center justify-center text-[#1F2A3C] hover:bg-[#1F2A3C] hover:text-white transition-colors"
+                      className=" text-[#5B6B80]"
                     >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                       </svg>
                     </a>
@@ -115,9 +109,12 @@ export const NoticeSection: React.FC = () => {
                 e.preventDefault();
                 navigateTo('/notice');
               }}
-              className="inline-flex items-center text-[13px] font-bold text-[#8A6100] hover:text-[#1F2A3C] transition-colors gap-1.5"
+              className="inline-flex items-center text-[13px] font-semibold text-yellow-700 hover:text-[#1F2A3C] transition-colors gap-1.5"
             >
-              View More <span aria-hidden="true">&gt;</span>
+              View More 
+               <div className="">
+                      <img src="/assets/icons/btn-arrow-right.svg" alt="" className="w-full h-full" />
+                    </div>
             </a>
           </div>
         </div>

@@ -29,7 +29,7 @@ export const TestimonialsSection: React.FC = () => {
 
             <p className="text-[14px] text-[#5B6B80] font-hindi leading-relaxed mb-6 max-w-[380px]">
               आपकी कहानी किसी और के लिए प्रेरणा बन सकती है! अगर आप भी अपना अनुभव साझा करना चाहते हैं, तो नीचे दिए गए बटन पर{' '}
-              <a href="#enquiry" className="text-[#8A6100] underline font-semibold hover:text-[#1F2A3C]">
+              <a href="#enquiry" className="text-yellow-700 underline font-semibold hover:text-[#1F2A3C]">
                 क्लिक करें
               </a>
               ।
@@ -101,7 +101,7 @@ export const TestimonialsSection: React.FC = () => {
                       </div>
 
                       {/* Quote Text */}
-                      <p className="text-[13px] leading-[22px] text-[#2E3B4E] font-hindi">
+                      <p className="text-[13px] leading-[22px] text-navy-800 font-hindi">
                         &ldquo;{item.quote}&rdquo;
                       </p>
                     </div>

@@ -21,7 +21,7 @@ const RecruiterLogoRenderer: React.FC<{ item: RecruiterItem }> = ({ item }) => {
     case 'lotte':
       return (
         <div className="flex flex-col items-center justify-center">
-          <div className="w-8 h-8 rounded-md bg-[#2E3B4E] rotate-45 flex items-center justify-center shadow-2xs mb-1.5">
+          <div className="w-8 h-8 rounded-md bg-navy-800 rotate-45 flex items-center justify-center shadow-2xs mb-1.5">
             <span className="-rotate-45 text-white font-serif italic font-bold text-sm leading-none">
               l
             </span>
@@ -391,14 +391,14 @@ export const RecruitersSection: React.FC = () => {
       className="w-full max-w-[551px] flex flex-col justify-start select-none"
     >
       {/* Header with active indicator (200px wide, #F2B418) and controls */}
-      <div className="mb-6 sm:mb-8">
+      <div className="mb-[48px]">
         <div className="flex items-center justify-between">
-          <h2 className="text-[28px] lg:text-[32px] font-bold text-[#1F2A3C] tracking-tight font-hindi leading-tight">
+          <h2 className="text-[36px] lg:text-[32px] font-semibold text-navy-900 tracking-tight font-hindi leading-tight">
             हमारे भर्ती कर्ता
           </h2>
 
           {/* Navigation and Play/Pause controls */}
-          <div className="flex items-center gap-1.5" aria-label="Recruiter carousel controls">
+          <div className="flex  items-center gap-1.5" aria-label="Recruiter carousel controls">
             <button
               type="button"
               onClick={handlePrev}
@@ -445,8 +445,8 @@ export const RecruitersSection: React.FC = () => {
         </div>
 
         {/* Active Indicator 200px wide */}
-        <div className="w-[200px] h-[4px] bg-[#F2B418] mt-2.5 rounded-full" />
-        <p className="text-[13px] sm:text-[14px] text-[#5B6B80] font-hindi leading-relaxed mt-4 max-w-[551px]">
+        <div className="w-[150px] lg:w-[200px] h-[8px] lg:h-[12px] bg-yellow-600 mt-[12px] rounded-full" />
+        <p className="text-[16px] text-navy-500 font-hindi leading-relaxed mt-[12px] max-w-[551px]">
           हमारे संस्थान में उद्योग-केंद्रित, प्रमाणित और व्यावहारिक व्यवसायिक ट्रेड्स संचालित किए जाते हैं, जो छात्रों को कुशल और रोजगारोन्मुखी बनाते हैं।
         </p>
       </div>

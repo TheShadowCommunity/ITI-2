@@ -108,12 +108,12 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
   return (
     <div className={`w-full max-w-[809px] bg-white rounded-[16px] shadow-sm border border-[#DDE1E7] overflow-hidden ${className}`}>
       {/* Dark Navy Form Header (Figma 33:851: 809 x 159 px) */}
-      <div className="bg-[#1F2A3C] text-white p-6 sm:p-8 flex items-start justify-between gap-4">
+      <div className="bg-navy-800 text-white py-[32px] px-[16px] lg:px-[48px] flex items-start justify-between gap-4">
         <div className="max-w-[532px]">
-          <h3 className="text-[24px] sm:text-[28px] font-bold font-hindi tracking-tight mb-2 text-white">
+          <h3 className="text-[18px] md:text-[24px] font-medium font-hindi tracking-tight mb-2 text-neutral-200">
             {headerTitle || 'अपनी पूछताछ भेजें'}
           </h3>
-          <p className="text-[13px] sm:text-[14px] text-[#DDE1E7] font-hindi leading-relaxed whitespace-pre-line">
+          <p className="text-[14px] md:text-[16px] text-navy-200 font-hindi leading-relaxed whitespace-pre-line">
             {headerSubtitle || 'अभ्यार्थी, करियर अवसर, शिकायत या अन्य किसी प्रकार की जानकारी हेतु इच्छुक व्यक्ति इस फॉर्म को भर सकते हैं।'}
           </p>
         </div>
@@ -281,16 +281,16 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
           <button
             type="submit"
             disabled={submissionState.status === 'submitting'}
-            className="w-full sm:w-[261px] h-[54px] sm:h-[62px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-semibold text-[15px] rounded-[4px] shadow-xs transition-colors inline-flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+            className="w-full sm:w-[261px] h-[54px] sm:h-[62px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-semibold text-[15px] rounded-[8px] shadow-xs transition-colors inline-flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
           >
             {submissionState.status === 'submitting' ? (
               <span>सबमिट हो रहा है...</span>
             ) : (
               <>
                 <span>Submit Enquiry</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+                <div className="">
+                      <img src="/assets/icons/send.svg" alt="" className="w-full h-full" />
+                    </div>
               </>
             )}
           </button>

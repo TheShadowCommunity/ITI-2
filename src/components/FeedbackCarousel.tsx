@@ -119,7 +119,7 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
                 अगर आप भी अपना अनुभव साझा करना चाहते हैं, तो नीचे दिए गए बटन पर{' '}
                 <a
                   href="#feedback-form"
-                  className="text-[#8A6100] underline font-semibold hover:text-[#1F2A3C] transition-colors"
+                  className="text-yellow-700 underline font-semibold hover:text-[#1F2A3C] transition-colors"
                 >
                   क्लिक करें
                 </a>
@@ -217,7 +217,7 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
                       </div>
 
                       {/* Quote Text */}
-                      <blockquote className="text-[13.5px] sm:text-[14px] leading-[23px] sm:leading-[25px] text-[#2E3B4E] font-hindi text-justify">
+                      <blockquote className="text-[13.5px] sm:text-[14px] leading-[23px] sm:leading-[25px] text-navy-800 font-hindi text-justify">
                         &ldquo;{item.quote}&rdquo;
                       </blockquote>
                     </div>

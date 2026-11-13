@@ -148,7 +148,7 @@ export const AboutUsPage: React.FC = () => {
                   />
                 </div>
 
-                <div className="font-hindi text-[14px] xl:text-[15px] leading-[24px] xl:leading-[26px] text-[#2E3B4E] space-y-4">
+                <div className="font-hindi text-[14px] xl:text-[15px] leading-[24px] xl:leading-[26px] text-navy-800 space-y-4">
                   {principalDesk.desktopHindiParagraphs.map((para, idx) => (
                     <p key={idx} className="text-justify">
                       {para}
@@ -160,7 +160,7 @@ export const AboutUsPage: React.FC = () => {
                   <a
                     href={principalDesk.ctaButton.href}
                     onClick={(e) => handleLinkClick(e, principalDesk.ctaButton.href)}
-                    className="inline-flex items-center justify-center px-7 py-3 bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-semibold text-[14px] xl:text-[15px] rounded-[4px] shadow-xs transition-colors"
+                    className="inline-flex items-center justify-center px-7 py-3 bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-semibold text-[14px] xl:text-[15px] rounded-[8px] shadow-xs transition-colors"
                   >
                     {principalDesk.ctaButton.label}
                   </a>
@@ -216,7 +216,7 @@ export const AboutUsPage: React.FC = () => {
               </div>
 
               {/* Hindi Introductory Text */}
-              <div className="font-hindi text-[14px] sm:text-[15px] leading-[24px] text-[#2E3B4E] space-y-3 text-justify">
+              <div className="font-hindi text-[14px] sm:text-[15px] leading-[24px] text-navy-800 space-y-3 text-justify">
                 {principalDesk.mobileHindiParagraphs.map((para, idx) => (
                   <p key={idx}>{para}</p>
                 ))}
@@ -227,7 +227,7 @@ export const AboutUsPage: React.FC = () => {
                 <a
                   href={principalDesk.ctaButton.href}
                   onClick={(e) => handleLinkClick(e, principalDesk.ctaButton.href)}
-                  className="w-full inline-flex items-center justify-center py-3 px-6 bg-[#6B1419] hover:bg-[#520F13] text-white font-semibold text-[15px] rounded-[4px] shadow-xs transition-colors"
+                  className="w-full inline-flex items-center justify-center py-3 px-6 bg-[#6B1419] hover:bg-[#520F13] text-white font-semibold text-[15px] rounded-[8px] shadow-xs transition-colors"
                 >
                   {principalDesk.ctaButton.label}
                 </a>
@@ -296,7 +296,7 @@ export const AboutUsPage: React.FC = () => {
                   </h2>
                 </div>
 
-                <div className="font-hindi text-[14px] xl:text-[15px] leading-[24px] xl:leading-[26px] text-[#2E3B4E] space-y-3 text-justify">
+                <div className="font-hindi text-[14px] xl:text-[15px] leading-[24px] xl:leading-[26px] text-navy-800 space-y-3 text-justify">
                   {itiDetails.paragraphs.map((p, idx) => (
                     <p key={idx}>{p}</p>
                   ))}
@@ -307,7 +307,7 @@ export const AboutUsPage: React.FC = () => {
                   {itiDetails.trainingTypesHeader}
                 </div>
 
-                <div className="font-hindi text-[14px] xl:text-[15px] leading-[24px] text-[#2E3B4E] space-y-4">
+                <div className="font-hindi text-[14px] xl:text-[15px] leading-[24px] text-navy-800 space-y-4">
                   <p className="font-medium text-[#1F2A3C]">{itiDetails.trainingTypesIntro}</p>
 
                   {itiDetails.trainingTypes.map((item) => (
@@ -332,7 +332,7 @@ export const AboutUsPage: React.FC = () => {
                 </h2>
               </div>
 
-              <div className="font-hindi text-[14px] leading-[24px] text-[#2E3B4E] space-y-3 text-justify">
+              <div className="font-hindi text-[14px] leading-[24px] text-navy-800 space-y-3 text-justify">
                 {itiDetails.paragraphs.map((p, idx) => (
                   <p key={idx}>{p}</p>
                 ))}
@@ -343,7 +343,7 @@ export const AboutUsPage: React.FC = () => {
                 {itiDetails.trainingTypesHeader}
               </div>
 
-              <div className="font-hindi text-[14px] leading-[24px] text-[#2E3B4E] space-y-3.5">
+              <div className="font-hindi text-[14px] leading-[24px] text-navy-800 space-y-3.5">
                 <p className="font-medium text-[#1F2A3C]">{itiDetails.trainingTypesIntro}</p>
 
                 {itiDetails.trainingTypes.map((item) => (
@@ -451,7 +451,7 @@ export const AboutUsPage: React.FC = () => {
               </h2>
             </div>
 
-            <p className="font-hindi text-[14px] sm:text-[15px] xl:text-[16px] leading-[25px] xl:leading-[28px] text-[#2E3B4E] text-justify">
+            <p className="font-hindi text-[14px] sm:text-[15px] xl:text-[16px] leading-[25px] xl:leading-[28px] text-navy-800 text-justify">
               {objectives.desc}
             </p>
           </div>

@@ -4,16 +4,16 @@ import { navigateTo } from '../utils/navigation';
 
 export const CollegeLifeSection: React.FC = () => {
   return (
-    <section id="gallery" className="py-14 lg:py-20 bg-[#F4F5F7]">
+    <section id="gallery" className="py-14 lg:py-20 bg-white">
       <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
         {/* Header with Title and View More Link */}
         <div className="flex items-end justify-between mb-8 sm:mb-10">
-          <div>
-            <h2 className="text-[28px] sm:text-[34px] lg:text-[36px] font-bold text-[#1F2A3C] tracking-tight">
-              College Life
-            </h2>
-            <div className="w-[150px] lg:w-[200px] h-[4px] bg-[#F2B418] mt-2.5 rounded-full" />
-          </div>
+            <div className="mb-[48px] lg:mb-[72px]">
+          <h2 className="text-[34px] lg:text-[56px] font-medium font-serat text-[#2E2E30] tracking-tight">
+            College Life
+          </h2>
+          <div className="w-[150px] h-[8px] lg:w-[200px] lg:h-[12px] bg-yellow-600 mt-[12px] rounded-full" />
+        </div>
 
           <a
             href="/gallery"
@@ -21,9 +21,12 @@ export const CollegeLifeSection: React.FC = () => {
               e.preventDefault();
               navigateTo('/gallery');
             }}
-            className="w-[118px] h-[30px] inline-flex items-center justify-end text-[13px] font-bold text-[#8A6100] hover:text-[#1F2A3C] transition-colors gap-1"
+            className="w-[118px] h-[30px] inline-flex items-center justify-end text-[13px] font-bold text-yellow-700 hover:text-[#1F2A3C] transition-colors gap-1"
           >
-            View More <span aria-hidden="true">&gt;</span>
+            View More 
+             <div className="">
+                      <img src="/assets/icons/btn-arrow-right.svg" alt="" className="w-full h-full" />
+                    </div>
           </a>
         </div>
 

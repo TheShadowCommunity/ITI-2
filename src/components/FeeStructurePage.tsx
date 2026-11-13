@@ -106,7 +106,7 @@ export const FeeStructurePage: React.FC = () => {
             </div>
 
             {/* Policy Guidelines Numbered List */}
-            <div className="mt-5 sm:mt-7 space-y-3 sm:space-y-3.5 text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.8] sm:leading-[1.85] text-[#2E3B4E] font-hindi">
+            <div className="mt-5 sm:mt-7 space-y-3 sm:space-y-3.5 text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.8] sm:leading-[1.85] text-navy-800 font-hindi">
               {feePolicyPoints.map((point) => (
                 <div key={point.id} className="flex items-start gap-2 sm:gap-2.5">
                   <span className="font-semibold text-[#1F2A3C] flex-shrink-0 select-none">

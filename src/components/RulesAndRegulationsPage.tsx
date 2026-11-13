@@ -84,7 +84,7 @@ export const RulesAndRegulationsPage: React.FC = () => {
           <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
             
             {/* Introductory Guidance Paragraph */}
-            <p className="font-hindi text-[15px] sm:text-[16px] xl:text-[16.5px] leading-[26px] sm:leading-[28px] text-[#2E3B4E] mb-10 sm:mb-12 max-w-[1260px] text-justify">
+            <p className="font-hindi text-[15px] sm:text-[16px] xl:text-[16.5px] leading-[26px] sm:leading-[28px] text-navy-800 mb-10 sm:mb-12 max-w-[1260px] text-justify">
               प्रशिक्षण के सुचारु संचालन, अनुशासित वातावरण तथा सभी प्रशिक्षणार्थियों के समुचित विकास हेतु कुछ नियम एवं शर्तों का पालन आवश्यक है। इन नियमों को ध्यान में रखते हुए प्रशिक्षण कार्यक्रम को प्रभावी व सुरक्षित बनाया गया है। सभी प्रशिक्षणार्थियों से अपेक्षा की जाती है कि वे इन नियमों का पालन ईमानदारी एवं जिम्मेदारी के साथ करें।
             </p>
 
@@ -100,12 +100,12 @@ export const RulesAndRegulationsPage: React.FC = () => {
                 </h2>
               </div>
 
-              <ol className="space-y-4 sm:space-y-4.5 font-hindi text-[14px] sm:text-[15px] xl:text-[15.5px] leading-[25px] sm:leading-[27px] text-[#2E3B4E] max-w-[1280px]">
+              <ol className="space-y-4 sm:space-y-4.5 font-hindi text-[14px] sm:text-[15px] xl:text-[15.5px] leading-[25px] sm:leading-[27px] text-navy-800 max-w-[1280px]">
                 <li className="text-justify">
-                  1. संस्थान का प्रशिक्षण सत्र <strong className="font-bold text-[#8A6100]">अगस्त से जुलाई</strong> तक प्रस्तावित है, जिसमें छात्रों को प्रत्येक दिन 7 घंटे का प्रशिक्षण प्रदान किया जाएगा।
+                  1. संस्थान का प्रशिक्षण सत्र <strong className="font-bold text-yellow-700">अगस्त से जुलाई</strong> तक प्रस्तावित है, जिसमें छात्रों को प्रत्येक दिन 7 घंटे का प्रशिक्षण प्रदान किया जाएगा।
                 </li>
                 <li className="text-justify">
-                  2. परीक्षा में बैठने के लिए <strong className="font-bold text-[#8A6100]">80 प्रतिशत</strong> उपस्थिति अनिवार्य है। अतः प्रशिक्षणार्थियों से अपेक्षा की जाती है कि वे नियमित रूप से कक्षा में उपस्थित रहें।
+                  2. परीक्षा में बैठने के लिए <strong className="font-bold text-yellow-700">80 प्रतिशत</strong> उपस्थिति अनिवार्य है। अतः प्रशिक्षणार्थियों से अपेक्षा की जाती है कि वे नियमित रूप से कक्षा में उपस्थित रहें।
                 </li>
                 <li className="text-justify">
                   3. सार्वजनिक अवकाशों के अतिरिक्त, वर्ष में प्रशिक्षणार्थी को 12 दिनों का अवकाश दिया जा सकता है।
@@ -131,9 +131,9 @@ export const RulesAndRegulationsPage: React.FC = () => {
                 </h2>
               </div>
 
-              <ol className="space-y-4 sm:space-y-4.5 font-hindi text-[14px] sm:text-[15px] xl:text-[15.5px] leading-[25px] sm:leading-[27px] text-[#2E3B4E] max-w-[1280px]">
+              <ol className="space-y-4 sm:space-y-4.5 font-hindi text-[14px] sm:text-[15px] xl:text-[15.5px] leading-[25px] sm:leading-[27px] text-navy-800 max-w-[1280px]">
                 <li className="text-justify">
-                  1. प्रत्येक प्रशिक्षणार्थी को प्रशिक्षण शुल्क संस्थान के कार्यालय में प्रत्येक माह की <strong className="font-bold text-[#8A6100]">10 तारीख</strong> तक नकद अथवा ऑनलाइन भुगतान के माध्यम से जमा करना अनिवार्य है।
+                  1. प्रत्येक प्रशिक्षणार्थी को प्रशिक्षण शुल्क संस्थान के कार्यालय में प्रत्येक माह की <strong className="font-bold text-yellow-700">10 तारीख</strong> तक नकद अथवा ऑनलाइन भुगतान के माध्यम से जमा करना अनिवार्य है।
                 </li>
                 <li className="text-justify">
                   2. एक बार संस्थान में शुल्क जमा करने के पश्चात् किसी भी स्थिति में न तो वह शुल्क लौटाया जाएगा और न ही स्थानांतरित किया जाएगा।
@@ -159,7 +159,7 @@ export const RulesAndRegulationsPage: React.FC = () => {
                 </h2>
               </div>
 
-              <ol className="space-y-4 sm:space-y-4.5 font-hindi text-[14px] sm:text-[15px] xl:text-[15.5px] leading-[25px] sm:leading-[27px] text-[#2E3B4E] max-w-[1280px]">
+              <ol className="space-y-4 sm:space-y-4.5 font-hindi text-[14px] sm:text-[15px] xl:text-[15.5px] leading-[25px] sm:leading-[27px] text-navy-800 max-w-[1280px]">
                 <li className="text-justify">
                   1. सम्पूर्ण सत्र के दौरान संस्थान में प्रवेश करते समय सभी प्रशिक्षणार्थियों को अपना परिचय पत्र अपने पास रखना अनिवार्य होगा, जिसे संस्थान के निदेशक/प्रमुखायचार्य/प्रमुखआचार्या/सहायक निदेशक अथवा कार्मिक के कहने पर प्रस्तुत करना आवश्यक होगा। परिचय पत्र न दिखा पाने की स्थिति में संस्थान को उसके विरुद्ध दण्डात्मक कार्रवाई करने का सम्पूर्ण अधिकार होगा।
                 </li>
@@ -194,7 +194,7 @@ export const RulesAndRegulationsPage: React.FC = () => {
                   11. प्रशिक्षणार्थी संस्थान में कार्यरत सभी लोगों का सम्मान करेंगे और किसी के भी साथ अभद्र व्यवहार नहीं करेंगे।
                 </li>
                 {/* Rule 12: Distinct full golden-brown bold emphasis as shown in design */}
-                <li className="text-justify font-bold text-[#8A6100]">
+                <li className="text-justify font-bold text-yellow-700">
                   12. प्रमुखआचार्य/प्रमुखआचार्या ऐसे किसी भी प्रशिक्षणार्थी को एक बार चेतावनी देने के पश्चात् संस्थान से निष्कासित कर सकते/सकती हैं, जिनका व्यवहार संस्थान अनुशासन के हित में न हो।
                 </li>
               </ol>

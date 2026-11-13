@@ -3,43 +3,46 @@ import { tradesData } from '../data/trades';
 
 export const TradesSection: React.FC = () => {
   return (
-    <section id="trades" className="py-16 lg:py-24 bg-[#1F2A3C] text-white">
+    <section id="trades" className="py-16 lg:py-24 bg-navy-900">
       <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
         {/* Section Heading with Active Indicator */}
-        <div className="mb-10 lg:mb-14 text-left">
-          <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-bold text-white tracking-tight font-hindi leading-tight">
-            संस्थान में उपलब्ध व्यवसायिक पाठ्यक्रम (Trades)
+             <div className="mb-[48px] lg:mb-[72px]">
+          <h2 className="text-[34px] lg:text-[56px] font-medium font-serat text-neutral-200 tracking-tight">
+             व्यवसायिक पाठ्यक्रम (Trades)
           </h2>
-          {/* Active indicator bar */}
-          <div className="w-[150px] lg:w-[200px] h-[4px] bg-[#F2B418] mt-3 rounded-full" />
+          <div className="w-[150px] h-[8px] lg:w-[200px] lg:h-[12px] bg-yellow-600 mt-[12px] rounded-full" />
         </div>
+       
 
         {/* ===================== DESKTOP 3x2 GRID (Hidden on mobile) ===================== */}
         <div className="hidden lg:grid grid-cols-3 gap-6 xl:gap-8">
           {tradesData.map((trade) => (
             <div
               key={trade.id}
-              className="bg-white text-[#2E3B4E] rounded-[16px] overflow-hidden shadow-md flex flex-col justify-between border border-white/10 group hover:shadow-xl transition-all duration-200"
+              className="bg-white text-navy-800 rounded-[16px] overflow-hidden shadow-md flex flex-col justify-between border border-white/10 group hover:shadow-xl transition-all duration-200"
             >
               {/* Content Panel */}
               <div className="p-5 xl:p-6 flex flex-col justify-between flex-grow">
                 <div>
-                  <h3 className="text-[18px] xl:text-[20px] font-bold text-[#1F2A3C] font-hindi leading-snug">
+                  <h3 className="text-[18px] xl:text-[20px] font-medium text-navy-800 font-hindi leading-snug">
                     {trade.titleHindi}
                   </h3>
-                  <span className="block text-[12px] xl:text-[13px] font-semibold text-[#5B6B80] mb-2.5 xl:mb-3 font-sans">
+                  <span className="block text-[12px] xl:text-[13px] text-navy-500 mb-2.5 xl:mb-3 font-sans">
                     {trade.titleEnglish}
                   </span>
-                  <p className="text-[12px] xl:text-[13px] leading-[20px] xl:leading-[22px] text-[#2E3B4E] font-hindi line-clamp-3">
+                  <p className="text-[12px] lg:text-[14px] xl:text-[16px] leading-[20px] xl:leading-[22px] text-navy-500 font-hindi line-clamp-3">
                     {trade.description}
                   </p>
                 </div>
                 <div className="mt-4 xl:mt-5 pt-1">
                   <a
                     href="#enquiry"
-                    className="inline-flex items-center text-[13px] font-bold text-[#8A6100] hover:text-[#1F2A3C] transition-colors gap-1"
+                    className="inline-flex items-center text-[13px] font-bold text-yellow-700 gap-1"
                   >
-                    Learn More <span aria-hidden="true">&gt;</span>
+                    Learn More 
+                    <div className="">
+                      <img src="/assets/icons/btn-arrow-right.svg" alt="" className="w-full h-full" />
+                    </div>
                   </a>
                 </div>
               </div>
@@ -67,7 +70,7 @@ export const TradesSection: React.FC = () => {
             return (
               <div
                 key={`mob-${trade.id}`}
-                className="w-full h-[176px] bg-white text-[#2E3B4E] rounded-[16px] overflow-hidden shadow-sm flex items-stretch border border-white/10"
+                className="w-full h-[176px] bg-white text-navy-800 rounded-[16px] overflow-hidden shadow-sm flex items-stretch border border-white/10"
               >
                 {/* When Image is on Left */}
                 {isImageLeft && (
@@ -86,22 +89,25 @@ export const TradesSection: React.FC = () => {
                 {/* Content Panel: 237 x 176 px */}
                 <div className="w-[237px] h-[176px] p-4 flex flex-col justify-between flex-grow">
                   <div>
-                    <h3 className="text-[16px] font-bold text-[#1F2A3C] font-hindi leading-snug truncate">
+                    <h3 className="text-[18px] font-medium text-navy-800 font-hindi leading-snug truncate">
                       {trade.titleHindi}
                     </h3>
-                    <span className="block text-[11px] font-medium text-[#5B6B80] mb-1 font-sans truncate">
+                    <span className="block text-[12px]  text-navy-500 mb-1 font-sans truncate">
                       {trade.titleEnglish}
                     </span>
-                    <p className="text-[11px] leading-[17px] text-[#2E3B4E] font-hindi line-clamp-2">
+                    <p className="text-[14px] leading-[17px] text-navy-500 font-hindi line-clamp-2">
                       {trade.description}
                     </p>
                   </div>
                   <div>
                     <a
                       href="#enquiry"
-                      className="inline-flex items-center text-[12px] font-bold text-[#8A6100] gap-1"
+                      className="inline-flex items-center text-[14px] font-medium text-yellow-700 gap-1"
                     >
-                      Learn More <span aria-hidden="true">&gt;</span>
+                      Learn More 
+                        <div className="">
+                      <img src="/assets/icons/btn-arrow-right.svg" alt="" className="w-full h-full" />
+                    </div>
                     </a>
                   </div>
                 </div>

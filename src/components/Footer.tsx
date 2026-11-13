@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-white border-t border-[#DDE1E7] pt-12 lg:pt-14 pb-8">
+    <footer className="bg-white pt-[72px] pb-[42px] lg:pt-14 pb-8">
       <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
         {/* Main Footer Links & Branding Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-[#DDE1E7]">
@@ -21,17 +21,15 @@ export const Footer: React.FC = () => {
             <a href="/" onClick={(e) => handleLinkClick(e, '/')} className="group">
               <ItiLogo variant="footer" className="mb-3" />
             </a>
-            <span className="block text-[12px] font-medium text-[#5B6B80] tracking-wide">
-              भारत सरकार NCVT द्वारा मान्यता प्राप्त
-            </span>
+       
           </div>
 
           {/* Links Grid: 4 columns (Home, Academics, Academics, Others) */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center">
             {/* Home Column (106 px) */}
             <div>
-              <h4 className="text-[14px] font-bold text-[#1F2A3C] mb-3 font-heading">Home</h4>
-              <ul className="space-y-2 text-[13px] text-[#5B6B80]">
+              <h4 className="text-[16px] lg:text-[18px] font-medium text-navy-800 mb-3 font-heading">Home</h4>
+              <ul className="space-y-[8px] text-[14px] text-navy-500">
                 <li><a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="hover:text-[#1F2A3C] transition-colors">About Us</a></li>
                 <li><a href="/contact" onClick={(e) => handleLinkClick(e, '/contact')} className="hover:text-[#1F2A3C] transition-colors">Contact us</a></li>
                 <li><a href="/careers" onClick={(e) => handleLinkClick(e, '/careers')} className="hover:text-[#1F2A3C] transition-colors">Career</a></li>
@@ -40,11 +38,11 @@ export const Footer: React.FC = () => {
 
             {/* Academics Column 1 (121 px) */}
             <div>
-              <h4 className="text-[14px] font-bold text-[#1F2A3C] mb-3 font-heading">Academics</h4>
-              <ul className="space-y-2 text-[13px] text-[#5B6B80]">
+              <h4 className="text-[16px] lg:text-[18px] font-medium text-navy-800 mb-3 font-heading">Academics</h4>
+              <ul className="space-y-[8px] text-[14px] text-navy-500">
                 <li><a href="/#trades" onClick={(e) => handleLinkClick(e, '/#trades')} className="hover:text-[#1F2A3C] transition-colors">Courses</a></li>
                 <li><a href="/faculty" onClick={(e) => handleLinkClick(e, '/faculty')} className="hover:text-[#1F2A3C] transition-colors">Faculties</a></li>
-                <li><a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="font-semibold text-[#8A6100] hover:text-[#1F2A3C] transition-colors">Guest Lectures</a></li>
+                <li><a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="font-semibold text-yellow-700 hover:text-[#1F2A3C] transition-colors">Guest Lectures</a></li>
                 <li><a href="/rules-and-regulations" onClick={(e) => handleLinkClick(e, '/rules-and-regulations')} className="hover:text-[#1F2A3C] transition-colors">Code of Conduct</a></li>
                 <li><a href="/rules-and-regulations" onClick={(e) => handleLinkClick(e, '/rules-and-regulations')} className="hover:text-[#1F2A3C] transition-colors">Policy</a></li>
               </ul>
@@ -52,11 +50,11 @@ export const Footer: React.FC = () => {
 
             {/* Academics Column 2 (121 px) */}
             <div>
-              <h4 className="text-[14px] font-bold text-[#1F2A3C] mb-3 font-heading">Academics</h4>
-              <ul className="space-y-2 text-[13px] text-[#5B6B80]">
+              <h4 className="text-[16px] lg:text-[18px] font-medium text-navy-800 mb-3 font-heading">Academics</h4>
+              <ul className="space-y-[8px] text-[14px] text-navy-500">
                 <li><a href="/#trades" onClick={(e) => handleLinkClick(e, '/#trades')} className="hover:text-[#1F2A3C] transition-colors">Courses</a></li>
                 <li><a href="/faculty" onClick={(e) => handleLinkClick(e, '/faculty')} className="hover:text-[#1F2A3C] transition-colors">Faculties</a></li>
-                <li><a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="font-semibold text-[#8A6100] hover:text-[#1F2A3C] transition-colors">Guest Lectures</a></li>
+                <li><a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="font-semibold text-yellow-700 hover:text-[#1F2A3C] transition-colors">Guest Lectures</a></li>
                 <li><a href="/rules-and-regulations" onClick={(e) => handleLinkClick(e, '/rules-and-regulations')} className="hover:text-[#1F2A3C] transition-colors">Code of Conduct</a></li>
                 <li><a href="/rules-and-regulations" onClick={(e) => handleLinkClick(e, '/rules-and-regulations')} className="hover:text-[#1F2A3C] transition-colors">Policy</a></li>
               </ul>
@@ -64,8 +62,8 @@ export const Footer: React.FC = () => {
 
             {/* Others Column (106 px) */}
             <div>
-              <h4 className="text-[14px] font-bold text-[#1F2A3C] mb-3 font-heading">Others</h4>
-              <ul className="space-y-2 text-[13px] text-[#5B6B80]">
+              <h4 className="text-[16px] lg:text-[18px] font-medium text-navy-800 mb-3 font-heading">Others</h4>
+              <ul className="space-y-[8px] text-[14px] text-navy-500">
                 <li><a href="/#trades" onClick={(e) => handleLinkClick(e, '/#trades')} className="hover:text-[#1F2A3C] transition-colors">Trainings</a></li>
                 <li><a href="/gallery" onClick={(e) => handleLinkClick(e, '/gallery')} className="hover:text-[#1F2A3C] transition-colors">Infrastructure</a></li>
                 <li><a href="/feedback" onClick={(e) => handleLinkClick(e, '/feedback')} className="hover:text-[#1F2A3C] transition-colors">Feedbacks</a></li>
@@ -76,10 +74,10 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Footer Base Row (Figma 10:775: 1392 x 46 px) */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[12px] text-[#5B6B80] gap-2">
+        <div className="pt-6 border-t-1 border-[#F4F5F7] flex flex-col sm:flex-row items-center justify-between text-[12px] text-navy-500 gap-2">
           <p>© 2025 New Lucknow City Private ITI. All Rights Reserved.</p>
-          <p className="font-medium text-[#1F2A3C]">
-            Made by Shadow Community
+          <p className="font-medium text-navy-500">
+            Made by Invia Creations
           </p>
         </div>
       </div>

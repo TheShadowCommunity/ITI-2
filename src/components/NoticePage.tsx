@@ -116,7 +116,7 @@ export const NoticePage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setShowFixtureSelector(!showFixtureSelector)}
-                className="text-[11px] font-medium text-[#8A6100] hover:text-[#1F2A3C] underline cursor-pointer"
+                className="text-[11px] font-medium text-yellow-700 hover:text-[#1F2A3C] underline cursor-pointer"
               >
                 {showFixtureSelector ? 'Hide QA Fixture Switcher' : 'QA Fixture Switcher (0, 1, 5, 6, 10, 11)'}
               </button>

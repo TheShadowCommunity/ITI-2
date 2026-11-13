@@ -9,7 +9,7 @@
   --color-navy-200: #AEB8C6;      /* Navy/200: Muted text */
   --color-accent: #F2B418;        /* Yellow/500: Primary CTA / highlight */
   --color-yellow-500: #F2B418;
-  --color-yellow-600: #D99A00;    /* Yellow/600: Deeper yellow accent */
+  --color-yellow-600: #D99A00;   /* Yellow/600: Deeper yellow accent */
   --color-yellow-700: #8A6100;    /* Yellow/700: Dark yellow text accent */
   --color-surface: #FFFFFF;       /* Neutral/0: White surfaces */
   --color-page: #F4F5F7;          /* Neutral/50: Light neutral background */
@@ -19,11 +19,11 @@
   --color-lecture-title: #151D1E; /* Neutrals/N950: Main lecture title */
   --color-sage: #AAB48C;          /* Sage/S400: Muted green accent */
   --color-border: #DDE1E7;
-
   /* Typography */
-  --font-heading: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serat: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: "Montserrat", "Hind", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-hindi: "Hind", "Noto Sans Devanagari", system-ui, -apple-system, sans-serif;
+  
 
   --breakpoint-xs: 360px;
   --breakpoint-sm: 430px;

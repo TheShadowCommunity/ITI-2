@@ -4,46 +4,41 @@ import { siteImages } from '../data/assets';
 
 export const ContactDetailsSection: React.FC = () => {
   return (
-    <section id="contact" className="py-14 lg:py-20 bg-white">
+    <section id="contact" className="py-14 lg:py-20 bg-[#F4F5F7]">
       <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
         {/* Section Heading with 200px Yellow Active Indicator (Figma 47:768) */}
-        <div className="mb-10 lg:mb-12">
-          <h2 className="text-[28px] sm:text-[34px] lg:text-[36px] font-bold text-[#1F2A3C] tracking-tight">
+        <div className="mb-[48px] lg:mb-[72px]">
+          <h2 className="text-[34px] lg:text-[56px] font-medium font-serat text-[#2E2E30] tracking-tight">
             Contact Details
           </h2>
-          <div className="w-[150px] lg:w-[200px] h-[4px] bg-[#F2B418] mt-2.5 rounded-full" />
+          <div className="w-[150px] h-[8px] lg:w-[200px] lg:h-[12px] bg-yellow-600 mt-[12px] rounded-full" />
         </div>
 
         {/* 3 Contact Blocks: 3 columns on desktop, stacked on mobile */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
           {/* 1. Address */}
-          <div className="flex items-start gap-4 p-4 lg:p-0 rounded-lg bg-[#F4F5F7] lg:bg-transparent">
-            <div className="w-[35px] h-[35px] rounded-full bg-[#F2B418]/20 text-[#8A6100] flex items-center justify-center flex-shrink-0">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
+          <div className="flex items-start gap-4 p-4 lg:p-0 rounded-lg">
+            <div className="w-8 h-8">
+                <img src="/assets/icons/location.svg" alt="" className="w-full h-full" />
             </div>
             <div>
-              <h3 className="text-[15px] font-bold text-[#1F2A3C]">Address</h3>
-              <p className="text-[13px] text-[#5B6B80] mt-0.5 leading-snug">
+              <h3 className="text-[16px] lg:text-[18px] font-medium text-navy-500">Address</h3>
+              <p className=" text-[12px] lg:text-[14px] text-navy-800 mt-0.5 leading-snug">
                 Mohan Road, Maunda, Lucknow, 226004
               </p>
             </div>
           </div>
 
           {/* 2. Email */}
-          <div className="flex items-start gap-4 p-4 lg:p-0 rounded-lg bg-[#F4F5F7] lg:bg-transparent">
-            <div className="w-[35px] h-[35px] rounded-full bg-[#F2B418]/20 text-[#8A6100] flex items-center justify-center flex-shrink-0">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
+          <div className="flex items-start gap-4 p-4 lg:p-0 rounded-lg">
+            <div className="w-8 h-8">
+                <img src="/assets/icons/email.svg" alt="" className="w-full h-full" />
             </div>
             <div>
-              <h3 className="text-[15px] font-bold text-[#1F2A3C]">Email</h3>
+              <h3 className="text-[16px] lg:text-[18px] font-medium text-navy-500">Email</h3>
               <a
                 href="mailto:newlucknowcitypvtiti@gmail.com"
-                className="text-[13px] text-[#5B6B80] mt-0.5 leading-snug hover:text-[#1F2A3C] block break-all"
+                className=" text-[12px] lg:text-[14px] text-navy-800 mt-0.5 leading-snug hover:text-[#1F2A3C] block break-all"
               >
                 newlucknowcitypvtiti@gmail.com
               </a>
@@ -51,15 +46,13 @@ export const ContactDetailsSection: React.FC = () => {
           </div>
 
           {/* 3. Mobile Number */}
-          <div className="flex items-start gap-4 p-4 lg:p-0 rounded-lg bg-[#F4F5F7] lg:bg-transparent">
-            <div className="w-[35px] h-[35px] rounded-full bg-[#F2B418]/20 text-[#8A6100] flex items-center justify-center flex-shrink-0">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
+          <div className="flex items-start gap-4 p-4 lg:p-0 rounded-lg">
+            <div className="w-8 h-8">
+                <img src="/assets/icons/Call.svg" alt="" className="w-full h-full" />
             </div>
             <div>
-              <h3 className="text-[15px] font-bold text-[#1F2A3C]">Mobile Number</h3>
-              <p className="text-[13px] text-[#5B6B80] mt-0.5 leading-snug">
+              <h3 className="text-[16px] lg:text-[18px] font-medium text-navy-500">Mobile Number</h3>
+              <p className=" text-[12px] lg:text-[14px] text-navy-800 mt-0.5 leading-snug">
                 8840012609, 9792361820, 9236013038,
               </p>
             </div>

@@ -101,7 +101,7 @@ export const FacultyPage: React.FC = () => {
 
                   {/* Faculty Details */}
                   <div className="flex-1 flex flex-col items-center justify-center text-center px-2.5 py-4 sm:px-4 sm:py-5 lg:px-5 lg:py-6">
-                    <h2 className="text-[14px] sm:text-[17px] md:text-[19px] lg:text-[22px] font-bold font-heading text-[#8A6100] tracking-tight leading-tight m-0">
+                    <h2 className="text-[14px] sm:text-[17px] md:text-[19px] lg:text-[22px] font-bold font-heading text-yellow-700 tracking-tight leading-tight m-0">
                       {faculty.name}
                     </h2>
 

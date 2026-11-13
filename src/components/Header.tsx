@@ -92,13 +92,13 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="w-full sticky top-0 z-50 bg-white shadow-xs">
+    <header className="w-full sticky top-0 z-50 bg-navy-900 md:bg-white shadow-xs">
       {/* 1. Desktop Top Navigation Strip (Figma node 10:442: 1520 x 46 px) */}
-      <div className="hidden lg:block bg-[#1F2A3C] text-white text-[12px] h-[46px] border-b border-white/10">
-        <div className="max-w-[1392px] mx-auto h-full px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0 flex justify-end items-center">
+      <div className="hidden lg:block bg-navy-900 text-[#F4F5F7] text-[12px] h-[46px] border-b border-white/10">
+        <div className="max-w-[1392px] mx-auto h-full flex justify-end items-center">
           <div className="flex items-center h-full">
             {/* First four neutral links */}
-            <div className="flex items-center space-x-6 text-[#DDE1E7] font-medium mr-4">
+            <div className="flex items-center space-x-6 text-[#F4F5F7] mr-4">
               <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="hover:text-[#F2B418] transition-colors">About Us</a>
               <a href="/careers" onClick={(e) => handleLinkClick(e, '/careers')} className="hover:text-[#F2B418] transition-colors">Careers</a>
               <a href="/gallery" onClick={(e) => handleLinkClick(e, '/gallery')} className="hover:text-[#F2B418] transition-colors">Events</a>
@@ -106,7 +106,7 @@ export const Header: React.FC = () => {
             </div>
 
             {/* Yellow-highlighted group 86:693 */}
-            <div className="bg-[#F2B418] text-[#14171C] font-semibold flex items-center h-full px-4 space-x-5">
+            <div className="bg-yellow-500 text-navy-900 flex items-center h-full pl-[12px] pr-[40px] space-x-5">
               <a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="hover:opacity-80 transition-opacity">Admissions</a>
               <a href="#" className="hover:opacity-80 transition-opacity">Prospectus</a>
               <a href="/feedback" onClick={(e) => handleLinkClick(e, '/feedback')} className="hover:opacity-80 transition-opacity">Feedbacks</a>
@@ -143,7 +143,7 @@ export const Header: React.FC = () => {
                 <a
                   href={item.href}
                   onClick={(e) => handleLinkClick(e, item.href)}
-                  className="px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-medium text-[#1F2A3C] hover:text-[#D99A00] transition-colors inline-flex items-center gap-1 rounded-md"
+                  className="px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] text-navy-500 hover:text-[#D99A00] transition-colors inline-flex items-center gap-1 rounded-md"
                 >
                   {item.name}
                   {item.hasDropdown && (
@@ -161,7 +161,7 @@ export const Header: React.FC = () => {
                         key={subItem.label}
                         href={subItem.href}
                         onClick={(e) => handleLinkClick(e, subItem.href)}
-                        className="block px-4 py-2 text-xs text-[#1F2A3C] hover:bg-[#F4F5F7] hover:text-[#8A6100] transition-colors"
+                        className="block px-4 py-2 text-xs text-[#1F2A3C] hover:bg-[#F4F5F7] hover:text-yellow-700 transition-colors"
                       >
                         {subItem.label}
                       </a>
@@ -177,7 +177,7 @@ export const Header: React.FC = () => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="w-[30px] h-[30px] flex items-center justify-center rounded text-[#1F2A3C] hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-[#F2B418]"
+              className="w-[30px] h-[30px] flex items-center justify-center rounded text-white hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-[#F2B418]"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -237,7 +237,7 @@ export const Header: React.FC = () => {
             <a
               href="/#enquiry"
               onClick={(e) => handleLinkClick(e, '/#enquiry')}
-              className="w-full flex items-center justify-center h-[46px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-bold text-sm rounded-[4px] shadow-xs transition-colors"
+              className="w-full flex items-center justify-center h-[46px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-bold text-sm rounded-[8px] shadow-xs transition-colors"
             >
               Go To Enquiry
             </a>
