@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { EnquiryCategory, EnquiryFormData, EnquirySubmissionState } from '../types/enquiry';
 import { submitEnquiryForm } from '../services/enquiryService';
-import { ItiLogo } from './ItiLogo';
 
-interface EnquiryFormProps {
+export interface EnquiryFormProps {
   idPrefix?: string;
   className?: string;
   defaultCategory?: EnquiryCategory;
   headerTitle?: string;
   headerSubtitle?: string;
   showUploadPicture?: boolean;
+}
+
+interface RadioOption {
+  value: EnquiryCategory;
+  labelHindi: string;
+  labelEng: string;
 }
 
 export const EnquiryForm: React.FC<EnquiryFormProps> = ({
@@ -35,6 +40,25 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
     message: null,
   });
 
+  // Preserve page context when Feedback/Complaint option is selected:
+  // On Feedback page (defaultCategory === 'feedback'), option 3 submits 'feedback'; otherwise 'complain'.
+  const feedbackOrComplainValue: EnquiryCategory =
+    defaultCategory === 'feedback' ? 'feedback' : 'complain';
+
+  const categories: RadioOption[] = [
+    { value: 'admission', labelHindi: 'प्रवेश', labelEng: 'Admission' },
+    { value: 'career', labelHindi: 'करियर', labelEng: 'Career' },
+    { value: feedbackOrComplainValue, labelHindi: 'शिकायत', labelEng: 'Complain' },
+    { value: 'other', labelHindi: 'अन्य जानकारी', labelEng: 'Other' },
+  ];
+
+  const isOptionChecked = (optionValue: EnquiryCategory): boolean => {
+    if (optionValue === 'feedback' || optionValue === 'complain') {
+      return formData.category === 'feedback' || formData.category === 'complain';
+    }
+    return formData.category === optionValue;
+  };
+
   const validate = (): boolean => {
     const newErrors: Partial<Record<keyof EnquiryFormData, string>> = {};
 
@@ -44,7 +68,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
 
     if (!formData.email.trim()) {
       newErrors.email = 'कृपया अपना ईमेल पता दर्ज करें (Email is required)';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
       newErrors.email = 'कृपया वैध ईमेल दर्ज करें (Valid email required)';
     }
 
@@ -79,7 +103,8 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
       setSubmissionState({
         status: 'success',
         message: res.message,
-        serverPendingNote: 'नोट: क्लाइंट-साइड सत्यापन सफल रहा। सर्वर-साइड सानिध्य (Sanity) और ईमेल (Resend) बैकएंड क्रेडेंशियल कॉन्फ़िगरेशन के लिए स्टेज्ड है।',
+        serverPendingNote:
+          'नोट: क्लाइंट-साइड सत्यापन सफल रहा। सर्वर-साइड सानिध्य (Sanity) और ईमेल (Resend) बैकएंड क्रेडेंशियल कॉन्फ़िगरेशन के लिए स्टेज्ड है।',
       });
       setFormData({
         category: defaultCategory,
@@ -88,6 +113,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         mobile: '',
         comment: '',
       });
+      setErrors({});
       setUploadedFile(null);
     } catch {
       setSubmissionState({
@@ -97,60 +123,77 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
     }
   };
 
-  const categories: { key: EnquiryCategory; labelHindi: string; labelEng: string }[] = [
-    { key: 'admission', labelHindi: 'प्रवेश', labelEng: 'Admission' },
-    { key: 'career', labelHindi: 'करियर', labelEng: 'Career' },
-    { key: 'feedback', labelHindi: 'फीडबैक', labelEng: 'Feedback' },
-    { key: 'complain', labelHindi: 'शिकायत', labelEng: 'Complain' },
-    { key: 'other', labelHindi: 'अन्य जानकारी', labelEng: 'Other' },
-  ];
-
   return (
-    <div className={`w-full max-w-[809px] bg-white rounded-[16px] shadow-sm border border-[#DDE1E7] overflow-hidden ${className}`}>
-      {/* Dark Navy Form Header (Figma 33:851: 809 x 159 px) */}
-      <div className="bg-navy-800 text-white py-[32px] px-[16px] lg:px-[48px] flex items-start justify-between gap-4">
-        <div className="max-w-[532px]">
-          <h3 className="text-[18px] md:text-[24px] font-medium font-hindi tracking-tight mb-2 text-neutral-200">
+    <div
+      className={`w-full max-w-[809px] bg-white rounded-[16px] shadow-[0_6px_28px_rgba(31,42,60,0.08)] border border-[#DDE1E7]/70 overflow-hidden ${className}`}
+    >
+      {/* Dark Navy Form Header (Figma 33:851) */}
+      <div className="bg-navy-800 text-white px-5 py-6 sm:px-8 sm:py-7 lg:px-[48px] lg:py-[32px] flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+        {/* Left: White ITI Badge Slot (161 x 79 px on desktop) */}
+        <div className="w-[135px] sm:w-[155px] md:w-[161px] h-[66px] sm:h-[74px] md:h-[79px] bg-white rounded-[2px] flex items-center justify-center p-2 flex-shrink-0 shadow-2xs">
+          <img
+            src="/images/career/iti-header-badge.png"
+            alt="Industrial Training Institute"
+            className="w-full h-full object-contain block"
+          />
+        </div>
+
+        {/* Right: Title & Subtitle */}
+        <div className="flex-1 max-w-[532px]">
+          <h3 className="text-[20px] md:text-[24px] font-medium font-hindi tracking-tight mb-1.5 text-white leading-snug">
             {headerTitle || 'अपनी पूछताछ भेजें'}
           </h3>
-          <p className="text-[14px] md:text-[16px] text-navy-200 font-hindi leading-relaxed whitespace-pre-line">
-            {headerSubtitle || 'अभ्यार्थी, करियर अवसर, शिकायत या अन्य किसी प्रकार की जानकारी हेतु इच्छुक व्यक्ति इस फॉर्म को भर सकते हैं।'}
+          <p className="text-[13px] md:text-[14px] text-[#AEB8C6] font-hindi leading-relaxed whitespace-pre-line">
+            {headerSubtitle ||
+              'अभ्यर्थन, करियर अवसर, शिकायत या अन्य किसी प्रकार की जानकारी हेतु इच्छुक व्यक्ति इस फॉर्म को भर सकते हैं।'}
           </p>
-        </div>
-        {/* Logo slot 33:854: 161 x 79 px */}
-        <div className="flex-shrink-0">
-          <ItiLogo variant="symbol-only" className="w-12 h-12" />
         </div>
       </div>
 
       {/* Form Content (Figma 33:856) */}
-      <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-5" noValidate>
-        {/* Radio choices */}
+      <form onSubmit={handleSubmit} className="p-5 sm:p-8 lg:px-[48px] lg:py-[36px] space-y-6" noValidate>
+        {/* 4 Radio choices matching Figma reference */}
         <fieldset>
           <legend className="sr-only">पूछताछ का प्रकार (Enquiry Type)</legend>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:flex sm:flex-wrap sm:items-center sm:justify-between gap-x-4 gap-y-3 py-1">
             {categories.map((cat) => {
-              const isChecked = formData.category === cat.key;
-              const inputId = `${idPrefix}-category-${cat.key}`;
+              const checked = isOptionChecked(cat.value);
+              const inputId = `${idPrefix}-category-${cat.value}`;
               return (
                 <label
-                  key={cat.key}
+                  key={cat.value}
                   htmlFor={inputId}
-                  className={`flex items-center gap-2 h-[44px] px-3 rounded-[6px] border text-xs sm:text-sm font-medium cursor-pointer transition-colors ${
-                    isChecked ? 'border-[#F2B418] bg-[#F4F5F7]' : 'border-[#DDE1E7] bg-white hover:bg-slate-50'
-                  }`}
+                  className="group inline-flex items-center gap-2.5 cursor-pointer select-none py-1"
                 >
                   <input
                     type="radio"
                     id={inputId}
                     name={`${idPrefix}-category`}
-                    value={cat.key}
-                    checked={isChecked}
-                    onChange={() => setFormData({ ...formData, category: cat.key })}
-                    className="w-4 h-4 text-[#F2B418] accent-[#F2B418] cursor-pointer"
+                    value={cat.value}
+                    checked={checked}
+                    onChange={() => setFormData((prev) => ({ ...prev, category: cat.value }))}
+                    className="sr-only peer"
                   />
-                  <span className="font-hindi text-navy-900 truncate">
-                    {cat.labelHindi} <span className="text-navy-500 text-[11px] font-sans">({cat.labelEng})</span>
+                  {/* Custom Radio Indicator matching Form screenshot */}
+                  <span
+                    aria-hidden="true"
+                    className={`w-[18px] h-[18px] rounded-full flex items-center justify-center flex-shrink-0 transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-[#F2B418] peer-focus-visible:ring-offset-2 ${
+                      checked
+                        ? 'border-[1.75px] border-[#D99A00] bg-white'
+                        : 'border-[1.75px] border-[#5B6B80] bg-white group-hover:border-[#1F2A3C]'
+                    }`}
+                  >
+                    {checked && <span className="w-[9px] h-[9px] rounded-full bg-[#D99A00]" />}
+                  </span>
+                  <span
+                    className={`text-[13px] sm:text-[14px] font-hindi transition-colors whitespace-nowrap ${
+                      checked
+                        ? 'text-[#D99A00] font-medium'
+                        : 'text-[#5B6B80] group-hover:text-[#1F2A3C]'
+                    }`}
+                  >
+                    {cat.labelHindi}{' '}
+                    <span className="font-sans">({cat.labelEng})</span>
                   </span>
                 </label>
               );
@@ -158,86 +201,95 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
           </div>
         </fieldset>
 
-        {/* Name Input: 713 x 58 px on desktop */}
+        {/* Name Input: Underline field matching Figma reference */}
         <div>
-          <label htmlFor={`${idPrefix}-name`} className="block text-xs font-semibold text-navy-500 mb-1 font-hindi">
+          <label
+            htmlFor={`${idPrefix}-name`}
+            className="block text-[11px] sm:text-[12px] font-medium text-[#D99A00] font-hindi mb-0.5"
+          >
             नाम (Name)
           </label>
           <input
             type="text"
             id={`${idPrefix}-name`}
             value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
             placeholder="Input"
-            className={`w-full h-[48px] px-3.5 text-sm bg-white border ${
-              errors.name ? 'border-red-500' : 'border-[#DDE1E7]'
-            } rounded-[4px] focus:outline-none focus:ring-2 focus:ring-[#F2B418] transition-all`}
+            className={`w-full bg-transparent border-0 border-b-2 ${
+              errors.name ? 'border-red-500' : 'border-[#D99A00] focus:border-[#B88000]'
+            } py-1.5 text-[14px] sm:text-[15px] text-[#14171C] placeholder-[#8C98A9] focus:outline-none transition-colors`}
           />
           {errors.name && <p className="text-xs text-red-600 mt-1">{errors.name}</p>}
         </div>
 
-        {/* Email & Mobile 2-column: each 348.5 x 54 px on desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* Email & Mobile 2-column underline inputs */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
           <div>
-            <label htmlFor={`${idPrefix}-email`} className="block text-xs font-semibold text-navy-500 mb-1 font-hindi">
+            <label
+              htmlFor={`${idPrefix}-email`}
+              className="block text-[12px] sm:text-[13px] font-normal text-[#5B6B80] font-hindi mb-0.5"
+            >
               ईमेल (Email)
             </label>
             <input
               type="email"
               id={`${idPrefix}-email`}
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              placeholder="example@mail.com"
-              className={`w-full h-[48px] px-3.5 text-sm bg-white border ${
-                errors.email ? 'border-red-500' : 'border-[#DDE1E7]'
-              } rounded-[4px] focus:outline-none focus:ring-2 focus:ring-[#F2B418] transition-all`}
+              onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
+              placeholder=""
+              className={`w-full bg-transparent border-0 border-b ${
+                errors.email ? 'border-red-500' : 'border-[#5B6B80]/60 focus:border-[#D99A00]'
+              } py-1.5 text-[14px] sm:text-[15px] text-[#14171C] placeholder-[#8C98A9] focus:outline-none transition-colors`}
             />
             {errors.email && <p className="text-xs text-red-600 mt-1">{errors.email}</p>}
           </div>
 
           <div>
-            <label htmlFor={`${idPrefix}-mobile`} className="block text-xs font-semibold text-navy-500 mb-1 font-hindi">
+            <label
+              htmlFor={`${idPrefix}-mobile`}
+              className="block text-[12px] sm:text-[13px] font-normal text-[#5B6B80] font-hindi mb-0.5"
+            >
               मोबाइल नंबर (Mobile Number)
             </label>
             <input
               type="tel"
               id={`${idPrefix}-mobile`}
               value={formData.mobile}
-              onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
-              placeholder="9876543210"
+              onChange={(e) => setFormData((prev) => ({ ...prev, mobile: e.target.value }))}
+              placeholder=""
               maxLength={10}
-              className={`w-full h-[48px] px-3.5 text-sm bg-white border ${
-                errors.mobile ? 'border-red-500' : 'border-[#DDE1E7]'
-              } rounded-[4px] focus:outline-none focus:ring-2 focus:ring-[#F2B418] transition-all`}
+              className={`w-full bg-transparent border-0 border-b ${
+                errors.mobile ? 'border-red-500' : 'border-[#5B6B80]/60 focus:border-[#D99A00]'
+              } py-1.5 text-[14px] sm:text-[15px] text-[#14171C] placeholder-[#8C98A9] focus:outline-none transition-colors`}
             />
             {errors.mobile && <p className="text-xs text-red-600 mt-1">{errors.mobile}</p>}
           </div>
         </div>
 
-        {/* Comment Textarea: 713 x 92 px on desktop */}
+        {/* Comment Textarea: Rounded border box */}
         <div>
-          <label htmlFor={`${idPrefix}-comment`} className="block text-xs font-semibold text-navy-500 mb-1 font-hindi">
+          <label htmlFor={`${idPrefix}-comment`} className="sr-only">
             अपना अभिमत दें (Leave a comment)
           </label>
           <textarea
             id={`${idPrefix}-comment`}
             rows={3}
             value={formData.comment}
-            onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-            placeholder="यहाँ अपना संदेश लिखें..."
-            className={`w-full p-3 text-sm bg-white border ${
-              errors.comment ? 'border-red-500' : 'border-[#DDE1E7]'
-            } rounded-[4px] focus:outline-none focus:ring-2 focus:ring-[#F2B418] transition-all`}
+            onChange={(e) => setFormData((prev) => ({ ...prev, comment: e.target.value }))}
+            placeholder="अपना अभिमत दें (Leave a comment)"
+            className={`w-full p-3.5 text-[13px] sm:text-[14px] bg-white border ${
+              errors.comment ? 'border-red-500' : 'border-[#94A3B8]/80 focus:border-[#D99A00]'
+            } rounded-[8px] placeholder-[#5B6B80] text-[#14171C] font-hindi focus:outline-none focus:ring-1 focus:ring-[#F2B418] transition-colors resize-none`}
           />
           {errors.comment && <p className="text-xs text-red-600 mt-1">{errors.comment}</p>}
         </div>
 
         {/* Feedback / Status */}
         {submissionState.status === 'success' && (
-          <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-[4px]">
-            <p className="text-xs font-bold text-emerald-800">{submissionState.message}</p>
+          <div className="p-3.5 bg-emerald-50 border border-emerald-200 rounded-[8px]">
+            <p className="text-xs sm:text-sm font-bold text-emerald-800">{submissionState.message}</p>
             {submissionState.serverPendingNote && (
-              <p className="text-[11px] text-emerald-700 mt-1 leading-normal">
+              <p className="text-[11px] sm:text-xs text-emerald-700 mt-1 leading-normal">
                 {submissionState.serverPendingNote}
               </p>
             )}
@@ -245,8 +297,8 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         )}
 
         {submissionState.status === 'error' && (
-          <div className="p-3 bg-red-50 border border-red-200 rounded-[4px]">
-            <p className="text-xs font-bold text-red-800">{submissionState.message}</p>
+          <div className="p-3.5 bg-red-50 border border-red-200 rounded-[8px]">
+            <p className="text-xs sm:text-sm font-bold text-red-800">{submissionState.message}</p>
           </div>
         )}
 
@@ -276,21 +328,19 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
           </div>
         )}
 
-        {/* Submit Button: 261 x 62 px on desktop, fill #F2B418, 4px radius */}
-        <div>
+        {/* Submit Button: 245 x 60 px on desktop, fill #F2B418, 8px radius */}
+        <div className="pt-1">
           <button
             type="submit"
             disabled={submissionState.status === 'submitting'}
-            className="w-full sm:w-[261px] h-[54px] sm:h-[62px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-semibold text-[15px] rounded-[8px] shadow-xs transition-colors inline-flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+            className="w-full sm:w-[245px] h-[54px] sm:h-[60px] bg-[#F2B418] hover:bg-[#D99A00] active:scale-[0.99] text-[#14171C] font-semibold text-[15px] rounded-[8px] shadow-xs transition-all inline-flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-50"
           >
             {submissionState.status === 'submitting' ? (
               <span>सबमिट हो रहा है...</span>
             ) : (
               <>
                 <span>Submit Enquiry</span>
-                <div className="">
-                      <img src="/assets/icons/send.svg" alt="" className="w-full h-full" />
-                    </div>
+                <img src="/assets/icons/send.svg" alt="" className="w-[17px] h-[15px] flex-shrink-0" />
               </>
             )}
           </button>

@@ -35,7 +35,7 @@ export const HomePage: React.FC = () => {
           <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
             <div className="grid grid-cols-1 lg:grid-cols-[1.38fr_1fr] 2xl:grid-cols-[809px_551px] gap-6 xl:gap-[32px] items-start">
               <div className="w-full max-w-[809px]">
-                <EnquiryForm idPrefix="desktop-mid-enquiry" />
+                <EnquiryForm idPrefix="desktop-mid-enquiry" defaultCategory="admission" />
               </div>
               <div className="w-full max-w-[551px] pl-0 lg:pl-2 xl:pl-6 flex flex-col justify-start">
                 <RecruitersSection />
@@ -63,7 +63,7 @@ export const HomePage: React.FC = () => {
         {/* 10. Mobile-specific Enquiry Form (Figma 69:788 - Appears between notices and contact on mobile) */}
         <div id="enquiry" className="block lg:hidden py-8 px-4 bg-[#F4F5F7]">
           <div className="max-w-[398px] mx-auto">
-            <EnquiryForm idPrefix="mobile-enquiry" />
+            <EnquiryForm idPrefix="mobile-enquiry" defaultCategory="admission" />
           </div>
         </div>
 
