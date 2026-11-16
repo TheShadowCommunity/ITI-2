@@ -10,13 +10,11 @@ export const Header: React.FC = () => {
     { name: 'Home', href: '/', hasDropdown: false },
     { 
       name: 'Admissions', 
-      href: '/#enquiry', 
+      href: '/admission-policy', 
       hasDropdown: true,
       items: [
-        { label: 'Admission Process', href: '/#enquiry' },
-        { label: 'Eligibility Criteria', href: '/#enquiry' },
+        { label: 'Admission Policy', href: '/admission-policy' },
         { label: 'Fee Structure', href: '/fee-structure' },
-        { label: 'Apply Online', href: '/#enquiry' }
       ]
     },
     { 
@@ -30,7 +28,6 @@ export const Header: React.FC = () => {
         { label: 'Electrician', href: '/#trades' },
         { label: 'Fitter', href: '/#trades' },
         { label: 'Fashion Designing', href: '/#trades' },
-        { label: 'Academic Calendar', href: '#' }
       ]
     },
     { 
@@ -50,10 +47,8 @@ export const Header: React.FC = () => {
       hasDropdown: true,
       items: [
         { label: 'Trust Board', href: '/#about' },
-        { label: 'Principal Desk', href: '/faculty' },
         { label: 'Faculty & Instructors', href: '/faculty' },
         { label: 'Rules & Regulations', href: '/rules-and-regulations' },
-        { label: 'NCVT Affiliation', href: '/#about' }
       ]
     },
     { 

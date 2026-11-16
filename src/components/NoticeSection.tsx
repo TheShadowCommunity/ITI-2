@@ -31,14 +31,14 @@ export const NoticeSection: React.FC = () => {
 
   return (
     <section id="notices" className=" bg-white">
-      <div className="max-w-[1392px]">
+      <div className="w-full">
         {/* Dark Navy Header Banner with Megaphone Icon (Figma 57:1101) */}
         <div className="bg-navy-900 py-[80px] px-[16px] lg:py-[72px] lg:px-[64px] flex items-center text-white">
         <div className="w-[100px]">
               <img src="/assets/icons/notice.svg" alt="" className="w-full h-full" />
             </div>
           <div>
-            <h2 className="font-medium ml-[16px] text-[36px] lg:text-[45px] lg:font-semibold tracking-tight text-neutral-200 font-serat">
+            <h2 className="font-medium ml-[16px] text-[36px] lg:text-[42px] xl:text-[56px] lg:font-semibold tracking-tight text-neutral-200 font-serat">
               Notice & Announcement
             </h2>
   

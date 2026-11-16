@@ -12,6 +12,7 @@ import { FacultyPage } from './components/FacultyPage';
 import { CareerPage } from './components/CareerPage';
 import {EventPage} from './components/EventPage';
 import {FacilitiesPage} from './components/FacilitiesPage';
+import { AdmissionPolicyPage } from './components/AdmissionPolicyPage';
 
 function getRoutePath(): string {
   if (typeof window === 'undefined') return '/';
@@ -179,7 +180,11 @@ export default function App() {
   if (currentPath === '/career' || currentPath === '/careers') {
     return <CareerPage />;
   }
+  
+  if(currentPath === '/admission-policy') {
 
+  return <AdmissionPolicyPage />;
+  }
   return <HomePage />;
 }
 

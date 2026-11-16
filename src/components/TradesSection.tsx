@@ -7,7 +7,7 @@ export const TradesSection: React.FC = () => {
       <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
         {/* Section Heading with Active Indicator */}
              <div className="mb-[48px] lg:mb-[72px]">
-          <h2 className="text-[34px] lg:text-[56px] font-medium font-serat text-neutral-200 tracking-tight">
+          <h2 className="text-[34px] lg:text-[42px] xl:text-[56px] font-medium font-serat text-neutral-200 tracking-tight">
              व्यवसायिक पाठ्यक्रम (Trades)
           </h2>
           <div className="w-[150px] h-[8px] lg:w-[200px] lg:h-[12px] bg-yellow-600 mt-[12px] rounded-full" />
