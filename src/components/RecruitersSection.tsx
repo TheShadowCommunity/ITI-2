@@ -21,7 +21,7 @@ const RecruiterLogoRenderer: React.FC<{ item: RecruiterItem }> = ({ item }) => {
     case 'lotte':
       return (
         <div className="flex flex-col items-center justify-center">
-          <div className="w-8 h-8 rounded-md bg-[#2E3B4E] rotate-45 flex items-center justify-center shadow-2xs mb-1.5">
+          <div className="w-8 h-8 rounded-md bg-navy-800 rotate-45 flex items-center justify-center shadow-2xs mb-1.5">
             <span className="-rotate-45 text-white font-serif italic font-bold text-sm leading-none">
               l
             </span>
@@ -53,7 +53,7 @@ const RecruiterLogoRenderer: React.FC<{ item: RecruiterItem }> = ({ item }) => {
             </svg>
             <span className="text-xs sm:text-sm font-black tracking-widest text-[#14171C]">TATA</span>
           </div>
-          <span className="text-[10px] tracking-widest text-[#5B6B80] font-bold uppercase">HOUSING</span>
+          <span className="text-[10px] tracking-widest text-navy-500 font-bold uppercase">HOUSING</span>
         </div>
       );
 
@@ -80,7 +80,7 @@ const RecruiterLogoRenderer: React.FC<{ item: RecruiterItem }> = ({ item }) => {
             </svg>
             <span className="text-xs sm:text-sm font-black tracking-widest text-[#14171C]">TATA</span>
           </div>
-          <span className="text-[10px] tracking-wider text-[#5B6B80] font-bold uppercase">MOTORS</span>
+          <span className="text-[10px] tracking-wider text-navy-500 font-bold uppercase">MOTORS</span>
         </div>
       );
 
@@ -94,7 +94,7 @@ const RecruiterLogoRenderer: React.FC<{ item: RecruiterItem }> = ({ item }) => {
           </div>
           <div className="flex flex-col leading-none text-left">
             <span className="text-[11px] font-black tracking-wider text-[#14171C]">MARUTI</span>
-            <span className="text-[10px] font-bold tracking-widest text-[#5B6B80]">SUZUKI</span>
+            <span className="text-[10px] font-bold tracking-widest text-navy-500">SUZUKI</span>
           </div>
         </div>
       );
@@ -106,7 +106,7 @@ const RecruiterLogoRenderer: React.FC<{ item: RecruiterItem }> = ({ item }) => {
             H
           </div>
           <span className="text-xs sm:text-sm font-black tracking-tight text-[#14171C] font-sans">
-            Hero <span className="font-semibold text-[#5B6B80]">MotoCorp</span>
+            Hero <span className="font-semibold text-navy-500">MotoCorp</span>
           </span>
         </div>
       );
@@ -151,12 +151,12 @@ const RecruiterLogoRenderer: React.FC<{ item: RecruiterItem }> = ({ item }) => {
     case 'lt':
       return (
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full border-2 border-[#1F2A3C] flex items-center justify-center text-[10px] font-black text-[#1F2A3C] tracking-tighter flex-shrink-0">
+          <div className="w-6 h-6 rounded-full border-2 border-navy-900 flex items-center justify-center text-[10px] font-black text-navy-900 tracking-tighter flex-shrink-0">
             L&T
           </div>
           <div className="flex flex-col leading-none text-left">
             <span className="text-[10px] font-black tracking-wider text-[#14171C]">LARSEN &</span>
-            <span className="text-[9px] font-bold tracking-wider text-[#5B6B80]">TOUBRO</span>
+            <span className="text-[9px] font-bold tracking-wider text-navy-500">TOUBRO</span>
           </div>
         </div>
       );
@@ -169,7 +169,7 @@ const RecruiterLogoRenderer: React.FC<{ item: RecruiterItem }> = ({ item }) => {
           </div>
           <div className="flex flex-col leading-none text-left">
             <span className="text-xs font-black tracking-widest text-[#14171C]">BHEL</span>
-            <span className="text-[8px] tracking-wider text-[#5B6B80] font-semibold">POWER SECTOR</span>
+            <span className="text-[8px] tracking-wider text-navy-500 font-semibold">POWER SECTOR</span>
           </div>
         </div>
       );
@@ -202,7 +202,7 @@ const RecruiterLogoRenderer: React.FC<{ item: RecruiterItem }> = ({ item }) => {
       return (
         <div className="flex flex-col items-center leading-none text-center">
           <span className="text-xs sm:text-sm font-black tracking-widest text-[#14171C]">VOLTAS</span>
-          <span className="text-[8.5px] tracking-wider text-[#5B6B80] font-semibold uppercase mt-0.5">
+          <span className="text-[8.5px] tracking-wider text-navy-500 font-semibold uppercase mt-0.5">
             A TATA Enterprise
           </span>
         </div>
@@ -391,19 +391,19 @@ export const RecruitersSection: React.FC = () => {
       className="w-full max-w-[551px] flex flex-col justify-start select-none"
     >
       {/* Header with active indicator (200px wide, #F2B418) and controls */}
-      <div className="mb-6 sm:mb-8">
+      <div className="mb-[48px]">
         <div className="flex items-center justify-between">
-          <h2 className="text-[28px] lg:text-[32px] font-bold text-[#1F2A3C] tracking-tight font-hindi leading-tight">
+          <h2 className="text-[36px] lg:text-[32px] font-semibold text-navy-900 tracking-tight font-hindi leading-tight">
             हमारे भर्ती कर्ता
           </h2>
 
           {/* Navigation and Play/Pause controls */}
-          <div className="flex items-center gap-1.5" aria-label="Recruiter carousel controls">
+          <div className="flex  items-center gap-1.5" aria-label="Recruiter carousel controls">
             <button
               type="button"
               onClick={handlePrev}
               aria-label="Previous recruiter group"
-              className="p-1 text-[#5B6B80] hover:text-[#1F2A3C] hover:bg-slate-100 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F2B418] cursor-pointer"
+              className="p-1 text-navy-500 hover:text-navy-900 hover:bg-slate-100 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F2B418] cursor-pointer"
               title="पिछला ग्रुप (Previous)"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -415,7 +415,7 @@ export const RecruitersSection: React.FC = () => {
               type="button"
               onClick={handleNext}
               aria-label="Next recruiter group"
-              className="p-1 text-[#5B6B80] hover:text-[#1F2A3C] hover:bg-slate-100 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F2B418] cursor-pointer"
+              className="p-1 text-navy-500 hover:text-navy-900 hover:bg-slate-100 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F2B418] cursor-pointer"
               title="अगला ग्रुप (Next)"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -428,7 +428,7 @@ export const RecruitersSection: React.FC = () => {
               onClick={() => setIsPaused((prev) => !prev)}
               aria-label={isPaused ? 'Resume automatic recruiter carousel' : 'Pause automatic recruiter carousel'}
               aria-pressed={isPaused}
-              className="p-1 text-[#5B6B80] hover:text-[#1F2A3C] hover:bg-slate-100 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F2B418] cursor-pointer ml-0.5"
+              className="p-1 text-navy-500 hover:text-navy-900 hover:bg-slate-100 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F2B418] cursor-pointer ml-0.5"
               title={isPaused ? 'चलाएं (Play)' : 'रोकें (Pause)'}
             >
               {isPaused ? (
@@ -445,8 +445,8 @@ export const RecruitersSection: React.FC = () => {
         </div>
 
         {/* Active Indicator 200px wide */}
-        <div className="w-[200px] h-[4px] bg-[#F2B418] mt-2.5 rounded-full" />
-        <p className="text-[13px] sm:text-[14px] text-[#5B6B80] font-hindi leading-relaxed mt-4 max-w-[551px]">
+        <div className="w-[150px] lg:w-[200px] h-[8px] lg:h-[12px] bg-yellow-600 mt-[12px] rounded-full" />
+        <p className="text-[16px] text-navy-500 font-hindi leading-relaxed mt-[12px] max-w-[551px]">
           हमारे संस्थान में उद्योग-केंद्रित, प्रमाणित और व्यावहारिक व्यवसायिक ट्रेड्स संचालित किए जाते हैं, जो छात्रों को कुशल और रोजगारोन्मुखी बनाते हैं।
         </p>
       </div>

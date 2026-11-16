@@ -14,7 +14,7 @@ import { Footer } from './Footer';
 
 export const HomePage: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F4F5F7] text-[#1F2A3C] selection:bg-[#F2B418] selection:text-[#14171C]">
+    <div className="min-h-screen flex flex-col bg-[#F4F5F7] text-navy-900 selection:bg-[#F2B418] selection:text-[#14171C]">
       {/* 1. Header & Navigation (Figma 10:440 / 10:782) */}
       <Header />
 

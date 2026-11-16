@@ -34,14 +34,14 @@ export const ItiLogo: React.FC<ItiLogoProps> = ({ variant = 'header-desktop', cl
 
       {variant !== 'symbol-only' && (
         <div className="flex flex-col leading-tight">
-          <span className="text-[12px] font-extrabold tracking-wider text-[#1F2A3C] uppercase font-heading">
+          <span className="text-[12px] font-extrabold tracking-wider text-navy-900 uppercase font-heading">
             Industrial Training
           </span>
-          <span className="text-[11px] font-semibold tracking-wide text-[#5B6B80]">
+          <span className="text-[11px] font-semibold tracking-wide text-navy-500">
             Institute
           </span>
           {variant === 'footer' && (
-            <span className="text-[13px] font-bold text-[#1F2A3C] mt-0.5">
+            <span className="text-[13px] font-bold text-navy-900 mt-0.5">
               New Lucknow City Private ITI
             </span>
           )}

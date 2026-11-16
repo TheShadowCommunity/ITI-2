@@ -10,13 +10,11 @@ export const Header: React.FC = () => {
     { name: 'Home', href: '/', hasDropdown: false },
     { 
       name: 'Admissions', 
-      href: '/#enquiry', 
+      href: '/admission-policy', 
       hasDropdown: true,
       items: [
-        { label: 'Admission Process', href: '/#enquiry' },
-        { label: 'Eligibility Criteria', href: '/#enquiry' },
+        { label: 'Admission Policy', href: '/admission-policy' },
         { label: 'Fee Structure', href: '/fee-structure' },
-        { label: 'Apply Online', href: '/#enquiry' }
       ]
     },
     { 
@@ -30,7 +28,6 @@ export const Header: React.FC = () => {
         { label: 'Electrician', href: '/#trades' },
         { label: 'Fitter', href: '/#trades' },
         { label: 'Fashion Designing', href: '/#trades' },
-        { label: 'Academic Calendar', href: '#' }
       ]
     },
     { 
@@ -50,10 +47,8 @@ export const Header: React.FC = () => {
       hasDropdown: true,
       items: [
         { label: 'Trust Board', href: '/#about' },
-        { label: 'Principal Desk', href: '/faculty' },
         { label: 'Faculty & Instructors', href: '/faculty' },
         { label: 'Rules & Regulations', href: '/rules-and-regulations' },
-        { label: 'NCVT Affiliation', href: '/#about' }
       ]
     },
     { 
@@ -92,13 +87,13 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="w-full sticky top-0 z-50 bg-white shadow-xs">
+    <header className="w-full sticky top-0 z-50 bg-navy-900 md:bg-white shadow-xs">
       {/* 1. Desktop Top Navigation Strip (Figma node 10:442: 1520 x 46 px) */}
-      <div className="hidden lg:block bg-[#1F2A3C] text-white text-[12px] h-[46px] border-b border-white/10">
-        <div className="max-w-[1392px] mx-auto h-full px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0 flex justify-end items-center">
+      <div className="hidden lg:block bg-navy-900 text-[#F4F5F7] text-[12px] h-[46px] border-b border-white/10">
+        <div className="max-w-[1392px] mx-auto h-full flex justify-end items-center">
           <div className="flex items-center h-full">
             {/* First four neutral links */}
-            <div className="flex items-center space-x-6 text-[#DDE1E7] font-medium mr-4">
+            <div className="flex items-center space-x-6 text-[#F4F5F7] mr-4">
               <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="hover:text-[#F2B418] transition-colors">About Us</a>
               <a href="/careers" onClick={(e) => handleLinkClick(e, '/careers')} className="hover:text-[#F2B418] transition-colors">Careers</a>
               <a href="/gallery" onClick={(e) => handleLinkClick(e, '/gallery')} className="hover:text-[#F2B418] transition-colors">Events</a>
@@ -106,7 +101,7 @@ export const Header: React.FC = () => {
             </div>
 
             {/* Yellow-highlighted group 86:693 */}
-            <div className="bg-[#F2B418] text-[#14171C] font-semibold flex items-center h-full px-4 space-x-5">
+            <div className="bg-yellow-500 text-navy-900 flex items-center h-full pl-[12px] pr-[40px] space-x-5">
               <a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="hover:opacity-80 transition-opacity">Admissions</a>
               <a href="#" className="hover:opacity-80 transition-opacity">Prospectus</a>
               <a href="/feedback" onClick={(e) => handleLinkClick(e, '/feedback')} className="hover:opacity-80 transition-opacity">Feedbacks</a>
@@ -143,11 +138,11 @@ export const Header: React.FC = () => {
                 <a
                   href={item.href}
                   onClick={(e) => handleLinkClick(e, item.href)}
-                  className="px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] font-medium text-[#1F2A3C] hover:text-[#D99A00] transition-colors inline-flex items-center gap-1 rounded-md"
+                  className="px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] text-navy-500 hover:text-[#D99A00] transition-colors inline-flex items-center gap-1 rounded-md"
                 >
                   {item.name}
                   {item.hasDropdown && (
-                    <svg className="w-3.5 h-3.5 text-[#5B6B80]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5 text-navy-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   )}
@@ -161,7 +156,7 @@ export const Header: React.FC = () => {
                         key={subItem.label}
                         href={subItem.href}
                         onClick={(e) => handleLinkClick(e, subItem.href)}
-                        className="block px-4 py-2 text-xs text-[#1F2A3C] hover:bg-[#F4F5F7] hover:text-[#8A6100] transition-colors"
+                        className="block px-4 py-2 text-xs text-navy-900 hover:bg-[#F4F5F7] hover:text-yellow-700 transition-colors"
                       >
                         {subItem.label}
                       </a>
@@ -177,7 +172,7 @@ export const Header: React.FC = () => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="w-[30px] h-[30px] flex items-center justify-center rounded text-[#1F2A3C] hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-[#F2B418]"
+              className="w-[30px] h-[30px] flex items-center justify-center rounded text-white hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-[#F2B418]"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -197,11 +192,11 @@ export const Header: React.FC = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-[#DDE1E7] px-4 pt-3 pb-6 space-y-2 shadow-xl animate-in fade-in slide-in-from-top-2 duration-150">
           <div className="grid grid-cols-3 gap-2 pb-3 mb-2 border-b border-[#DDE1E7] text-xs">
-            <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">About Us</a>
-            <a href="/contact" onClick={(e) => handleLinkClick(e, '/contact')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium">Contact Us</a>
+            <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-navy-900 font-medium">About Us</a>
+            <a href="/contact" onClick={(e) => handleLinkClick(e, '/contact')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-navy-900 font-medium">Contact Us</a>
             <a href="/notice" onClick={(e) => handleLinkClick(e, '/notice')} className="px-2 py-2 text-center bg-[#F2B418]/20 rounded text-[#14171C] font-bold">Notice</a>
-            <a href="/fee-structure" onClick={(e) => handleLinkClick(e, '/fee-structure')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium col-span-1">Fee Structure</a>
-            <a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-[#1F2A3C] font-medium col-span-2">Guest Lectures</a>
+            <a href="/fee-structure" onClick={(e) => handleLinkClick(e, '/fee-structure')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-navy-900 font-medium col-span-1">Fee Structure</a>
+            <a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="px-2 py-2 text-center bg-[#F4F5F7] rounded text-navy-900 font-medium col-span-2">Guest Lectures</a>
           </div>
 
           {navItems.map((item) => (
@@ -209,11 +204,11 @@ export const Header: React.FC = () => {
               <a
                 href={item.href}
                 onClick={(e) => handleLinkClick(e, item.href)}
-                className="flex items-center justify-between py-2 text-sm font-semibold text-[#1F2A3C] hover:text-[#D99A00] transition-colors"
+                className="flex items-center justify-between py-2 text-sm font-semibold text-navy-900 hover:text-[#D99A00] transition-colors"
               >
                 <span>{item.name}</span>
                 {item.hasDropdown && (
-                  <span className="text-xs text-[#5B6B80]">▾</span>
+                  <span className="text-xs text-navy-500">▾</span>
                 )}
               </a>
               {item.hasDropdown && (
@@ -223,7 +218,7 @@ export const Header: React.FC = () => {
                       key={sub.label}
                       href={sub.href}
                       onClick={(e) => handleLinkClick(e, sub.href)}
-                      className="block py-1 text-xs text-[#5B6B80] hover:text-[#1F2A3C]"
+                      className="block py-1 text-xs text-navy-500 hover:text-navy-900"
                     >
                       • {sub.label}
                     </a>
@@ -237,7 +232,7 @@ export const Header: React.FC = () => {
             <a
               href="/#enquiry"
               onClick={(e) => handleLinkClick(e, '/#enquiry')}
-              className="w-full flex items-center justify-center h-[46px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-bold text-sm rounded-[4px] shadow-xs transition-colors"
+              className="w-full flex items-center justify-center h-[46px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-bold text-sm rounded-[8px] shadow-xs transition-colors"
             >
               Go To Enquiry
             </a>

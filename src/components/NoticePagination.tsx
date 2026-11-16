@@ -71,7 +71,7 @@ export const NoticePagination: React.FC<NoticePaginationProps> = ({
         className={`inline-flex items-center justify-center gap-1 px-3 sm:px-3.5 h-[38px] sm:h-[42px] rounded-[8px] text-[13px] sm:text-[14px] font-medium border transition-colors ${
           isFirstPage
             ? 'opacity-40 cursor-not-allowed bg-[#F4F5F7] text-[#AEB8C6] border-[#DDE1E7]'
-            : 'bg-white text-[#1F2A3C] border-[#DDE1E7] hover:bg-[#F4F5F7] hover:border-[#1F2A3C]/30 focus:outline-hidden focus:ring-2 focus:ring-[#F2B418]'
+            : 'bg-white text-navy-900 border-[#DDE1E7] hover:bg-[#F4F5F7] hover:border-navy-900/30 focus:outline-hidden focus:ring-2 focus:ring-[#F2B418]'
         }`}
       >
         <svg
@@ -93,7 +93,7 @@ export const NoticePagination: React.FC<NoticePaginationProps> = ({
             return (
               <span
                 key={`ellipsis-${index}`}
-                className="w-[32px] sm:w-[38px] h-[38px] sm:h-[42px] flex items-center justify-center text-[#5B6B80] font-medium select-none"
+                className="w-[32px] sm:w-[38px] h-[38px] sm:h-[42px] flex items-center justify-center text-navy-500 font-medium select-none"
               >
                 …
               </span>
@@ -112,8 +112,8 @@ export const NoticePagination: React.FC<NoticePaginationProps> = ({
               aria-label={`Page ${pageNum}`}
               className={`min-w-[38px] sm:min-w-[42px] h-[38px] sm:h-[42px] px-2.5 sm:px-3 rounded-[8px] text-[13px] sm:text-[14px] font-medium flex items-center justify-center border transition-all ${
                 isActive
-                  ? 'bg-[#1F2A3C] text-white font-bold border-[#1F2A3C] shadow-2xs ring-1 ring-[#1F2A3C]'
-                  : 'bg-white text-[#5B6B80] border-[#DDE1E7] hover:text-[#1F2A3C] hover:bg-[#F4F5F7] hover:border-[#1F2A3C]/30 focus:outline-hidden focus:ring-2 focus:ring-[#F2B418]'
+                  ? 'bg-navy-900 text-white font-bold border-navy-900 shadow-2xs ring-1 ring-navy-900'
+                  : 'bg-white text-navy-500 border-[#DDE1E7] hover:text-navy-900 hover:bg-[#F4F5F7] hover:border-navy-900/30 focus:outline-hidden focus:ring-2 focus:ring-[#F2B418]'
               }`}
             >
               {pageNum}
@@ -132,7 +132,7 @@ export const NoticePagination: React.FC<NoticePaginationProps> = ({
         className={`inline-flex items-center justify-center gap-1 px-3 sm:px-3.5 h-[38px] sm:h-[42px] rounded-[8px] text-[13px] sm:text-[14px] font-medium border transition-colors ${
           isLastPage
             ? 'opacity-40 cursor-not-allowed bg-[#F4F5F7] text-[#AEB8C6] border-[#DDE1E7]'
-            : 'bg-white text-[#1F2A3C] border-[#DDE1E7] hover:bg-[#F4F5F7] hover:border-[#1F2A3C]/30 focus:outline-hidden focus:ring-2 focus:ring-[#F2B418]'
+            : 'bg-white text-navy-900 border-[#DDE1E7] hover:bg-[#F4F5F7] hover:border-navy-900/30 focus:outline-hidden focus:ring-2 focus:ring-[#F2B418]'
         }`}
       >
         <span className="hidden sm:inline">Next</span>
