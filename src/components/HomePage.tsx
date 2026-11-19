@@ -6,7 +6,7 @@ import { AboutSection } from './AboutSection';
 import { EnquiryForm } from './EnquiryForm';
 import { RecruitersSection } from './RecruitersSection';
 import { TradesSection } from './TradesSection';
-import { TestimonialsSection } from './TestimonialsSection';
+import { FeedbackCarousel } from './FeedbackCarousel';
 import { NoticeSection } from './NoticeSection';
 import { ContactDetailsSection } from './ContactDetailsSection';
 import { CollegeLifeSection } from './CollegeLifeSection';
@@ -48,7 +48,7 @@ export const HomePage: React.FC = () => {
         <TradesSection />
 
         {/* 7. Student Testimonials (Figma 50:1106 / 67:1115) */}
-        <TestimonialsSection />
+         <FeedbackCarousel />
 
         {/* 8. Mobile-specific Logo Banner (Figma 10:898 - Appears after testimonials on mobile) */}
         <div className="block lg:hidden py-12 bg-white px-4 border-b border-[#DDE1E7]">
