@@ -8,7 +8,6 @@ export interface EnquiryFormProps {
   defaultCategory?: EnquiryCategory;
   headerTitle?: string;
   headerSubtitle?: string;
-  showUploadPicture?: boolean;
 }
 
 interface RadioOption {
@@ -23,7 +22,6 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
   defaultCategory = 'admission',
   headerTitle,
   headerSubtitle,
-  showUploadPicture = false,
 }) => {
   const [formData, setFormData] = useState<EnquiryFormData>({
     category: defaultCategory,
@@ -32,7 +30,6 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
     mobile: '',
     comment: '',
   });
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
 
   const [errors, setErrors] = useState<Partial<Record<keyof EnquiryFormData, string>>>({});
   const [submissionState, setSubmissionState] = useState<EnquirySubmissionState>({
@@ -114,7 +111,6 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         comment: '',
       });
       setErrors({});
-      setUploadedFile(null);
     } catch {
       setSubmissionState({
         status: 'error',
@@ -299,32 +295,6 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         {submissionState.status === 'error' && (
           <div className="p-3.5 bg-red-50 border border-red-200 rounded-[8px]">
             <p className="text-xs sm:text-sm font-bold text-red-800">{submissionState.message}</p>
-          </div>
-        )}
-
-        {/* Upload Picture Button (Feedback Page feature) */}
-        {showUploadPicture && (
-          <div>
-            <label className="inline-flex items-center gap-2.5 px-4 py-2.5 bg-[#F1F5F9] hover:bg-[#E2E8F0] border border-[#CBD5E1] rounded-[6px] text-navy-500 text-sm font-medium cursor-pointer transition-colors shadow-2xs">
-              <svg className="w-4 h-4 text-navy-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" strokeWidth="2" />
-                <path strokeWidth="2" d="M21 15l-5-5L5 21" />
-              </svg>
-              <span className="truncate max-w-[240px]">
-                {uploadedFile ? uploadedFile.name : 'Upload Your Picture'}
-              </span>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => {
-                  if (e.target.files && e.target.files[0]) {
-                    setUploadedFile(e.target.files[0]);
-                  }
-                }}
-                className="sr-only"
-              />
-            </label>
           </div>
         )}
 
