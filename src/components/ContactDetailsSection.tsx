@@ -63,7 +63,7 @@ export const ContactDetailsSection: React.FC = () => {
         <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[1.45fr_1fr] 2xl:grid-cols-[809px_519px] gap-6 xl:gap-10 2xl:gap-[64px] items-stretch">
           {/* Form Column */}
           <div className="w-full max-w-[809px]">
-            <EnquiryForm idPrefix="contact-desktop-section" />
+            <EnquiryForm idPrefix="contact-desktop-section" defaultCategory="other" />
           </div>
 
           {/* Map Column */}

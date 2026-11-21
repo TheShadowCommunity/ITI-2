@@ -106,8 +106,8 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
               - Does NOT reflow, flicker, or shift on arrow clicks
              ========================================================================= */}
           <div
-            className="w-full lg:w-[380px] xl:w-[420px] lg:pr-8 xl:pr-10 flex-shrink-0 z-20 bg-white relative flex flex-col justify-between self-stretch"
-            style={{ minHeight: '340px' }}
+            className="w-full lg:w-[340px] xl:w-[380px] lg:h-[260px] xl:mr-[40px] lg:pr-8 xl:pr-10 flex-shrink-0 z-20  relative flex flex-col justify-between self-stretch"
+       
           >
             <div className="space-y-4">
               <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-navy-900 tracking-tight font-hindi leading-tight">

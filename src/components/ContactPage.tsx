@@ -102,7 +102,7 @@ export const ContactPage: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] 2xl:grid-cols-[809px_551px] gap-6 xl:gap-8 items-stretch">
               {/* Left Column: Direct reuse of the homepage EnquiryForm */}
               <div className="w-full max-w-[809px]">
-                <EnquiryForm idPrefix="contact-page-enquiry" />
+                <EnquiryForm idPrefix="contact-page-enquiry" defaultCategory="other" />
               </div>
 
               {/* Right Column: Campus Location Map Panel */}

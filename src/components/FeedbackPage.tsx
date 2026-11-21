@@ -45,7 +45,6 @@ export const FeedbackPage: React.FC = () => {
                   defaultCategory="feedback"
                   headerTitle="Feedback Form"
                   headerSubtitle={`दिए गए फॉर्म के माध्यम से अपना फीडबैक या साझा करें।\nहम आपकी राय का स्वागत करते हैं।`}
-                  showUploadPicture={true}
                   className="w-full shadow-md"
                 />
               </div>
