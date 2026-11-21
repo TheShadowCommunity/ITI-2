@@ -16,8 +16,8 @@ export const NoticePage: React.FC = () => {
   const [allNotices, setAllNotices] = useState<NoticeItem[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [activeFixture, setActiveFixture] = useState<string>('default');
-  const [showFixtureSelector, setShowFixtureSelector] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [retryCount, setRetryCount] = useState<number>(0);
 
   // Update SEO title and reset scroll position to top
   useEffect(() => {
@@ -25,22 +25,23 @@ export const NoticePage: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 
-  // Fetch notices when fixture changes or on mount
+  // Fetch published notices from Sanity CMS
   useEffect(() => {
     let isMounted = true;
     setIsLoading(true);
+    setError(null);
 
-    fetchNotices(activeFixture === 'default' ? undefined : activeFixture)
+    fetchNotices()
       .then((data) => {
         if (isMounted) {
           setAllNotices(data);
-          // Reset to page 1 whenever data source or fixture changes
           setCurrentPage(1);
           setIsLoading(false);
         }
       })
       .catch(() => {
         if (isMounted) {
+          setError('सूचनाएं लोड करने में असमर्थ। कृपया पुनः प्रयास करें। (Unable to load notices. Please try again.)');
           setIsLoading(false);
         }
       });
@@ -48,7 +49,7 @@ export const NoticePage: React.FC = () => {
     return () => {
       isMounted = false;
     };
-  }, [activeFixture]);
+  }, [retryCount]);
 
   // Compute paginated slice using single source of truth
   const paginatedResult = useMemo(() => {
@@ -95,60 +96,30 @@ export const NoticePage: React.FC = () => {
           className="w-full py-8 sm:py-12 lg:py-14 bg-white"
         >
           <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
-            {/* Table Component */}
-            <NoticeTable notices={paginatedResult.items} isLoading={isLoading} />
+            {error ? (
+              <div className="w-full bg-white border border-red-200 rounded-[12px] p-8 sm:p-10 text-center shadow-2xs">
+                <p className="text-sm sm:text-base text-red-700 font-hindi">{error}</p>
+                <button
+                  type="button"
+                  onClick={() => setRetryCount((c) => c + 1)}
+                  className="mt-4 inline-flex items-center justify-center px-5 py-2.5 bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] text-sm font-semibold rounded-[8px] transition-colors cursor-pointer"
+                >
+                  पुनः प्रयास करें (Retry)
+                </button>
+              </div>
+            ) : (
+              <>
+                {/* Table Component */}
+                <NoticeTable notices={paginatedResult.items} isLoading={isLoading} />
 
-            {/* Pagination Component - Always displayed directly beneath the table */}
-            <NoticePagination
-              currentPage={paginatedResult.currentPage}
-              totalPages={paginatedResult.totalPages}
-              onPageChange={handlePageChange}
-            />
-
-            {/* Development / QA Test Tool for Section 8 Validation */}
-            <div className="mt-8 pt-4 border-t border-dashed border-[#DDE1E7] flex flex-wrap items-center justify-between gap-2 text-xs text-navy-500">
-              <span className="font-mono">
-                Showing {paginatedResult.startIndex + (paginatedResult.totalCount > 0 ? 1 : 0)}-
-                {paginatedResult.endIndex} of {paginatedResult.totalCount} notices • Page{' '}
-                {paginatedResult.currentPage} of {paginatedResult.totalPages}
-              </span>
-
-              <button
-                type="button"
-                onClick={() => setShowFixtureSelector(!showFixtureSelector)}
-                className="text-[11px] font-medium text-yellow-700 hover:text-navy-900 underline cursor-pointer"
-              >
-                {showFixtureSelector ? 'Hide QA Fixture Switcher' : 'QA Fixture Switcher (0, 1, 5, 6, 10, 11)'}
-              </button>
-
-              {showFixtureSelector && (
-                <div className="w-full mt-2 p-3 bg-[#F4F5F7] rounded-lg border border-[#DDE1E7] flex flex-wrap items-center gap-2">
-                  <span className="font-semibold text-navy-900">Test Fixture:</span>
-                  {[
-                    { label: 'Default (5)', key: 'default' },
-                    { label: '0 Notices', key: 'fixture_0' },
-                    { label: '1 Notice', key: 'fixture_1' },
-                    { label: '5 Notices', key: 'fixture_5' },
-                    { label: '6 Notices', key: 'fixture_6' },
-                    { label: '10 Notices', key: 'fixture_10' },
-                    { label: '11 Notices', key: 'fixture_11' },
-                  ].map((fix) => (
-                    <button
-                      key={fix.key}
-                      type="button"
-                      onClick={() => setActiveFixture(fix.key)}
-                      className={`px-2.5 py-1 rounded text-[11px] font-medium transition-colors ${
-                        activeFixture === fix.key
-                          ? 'bg-navy-900 text-white'
-                          : 'bg-white text-navy-900 border border-[#DDE1E7] hover:bg-slate-100'
-                      }`}
-                    >
-                      {fix.label}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+                {/* Pagination Component - Always displayed directly beneath the table */}
+                <NoticePagination
+                  currentPage={paginatedResult.currentPage}
+                  totalPages={paginatedResult.totalPages}
+                  onPageChange={handlePageChange}
+                />
+              </>
+            )}
           </div>
         </section>
 

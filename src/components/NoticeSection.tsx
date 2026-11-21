@@ -61,43 +61,55 @@ export const NoticeSection: React.FC = () => {
             </div>
           ) : (
             <div className="">
-              {notices.map((notice) => (
-                <div
-                  key={notice.id}
-                  className="py-5 sm:py-6 flex items-start justify-between gap-4 sm:gap-6 group hover:bg-white/60 -mx-3 sm:-mx-4 px-3 sm:px-4 rounded-lg transition-colors"
-                >
-                  {/* Left: Date & Time in 2 lines */}
-                  <div className="flex-shrink-0 text-left max-md:pl-0 px-[12px] py-[8px] lg:px-[28px] border-r-1 border-navy-200 h-full">
-                    <span className="block text-[12px] sm:text-[14px] font-semibold text-navy-500">
-                      {notice.date}
-                    </span>
-                    <span className="block text-[12px] sm:text-[14px] text-navy-500 font-medium">
-                      {notice.time}
-                    </span>
-                  </div>
+              {notices.map((notice) => {
+                const rawUrl = notice.attachmentUrl || notice.downloadUrl || notice.href;
+                const fileUrl = rawUrl && rawUrl !== '#' ? rawUrl : undefined;
 
-                  {/* Center: Notice text */}
-                  <div className="flex-grow">
-                    <p className="text-xs sm:text-[14px] lg:text-[18px] text-navy-800 font-hindi leading-relaxed">
-                      {notice.title}
-                    </p>
-                  </div>
+                return (
+                  <div
+                    key={notice.id}
+                    className="py-5 sm:py-6 flex items-start justify-between gap-4 sm:gap-6 group hover:bg-white/60 -mx-3 sm:-mx-4 px-3 sm:px-4 rounded-lg transition-colors"
+                  >
+                    {/* Left: Date & Time in 2 lines */}
+                    <div className="flex-shrink-0 text-left max-md:pl-0 px-[12px] py-[8px] lg:px-[28px] border-r-1 border-navy-200 h-full">
+                      <span className="block text-[12px] sm:text-[14px] font-semibold text-navy-500">
+                        {notice.date}
+                      </span>
+                      {notice.time && (
+                        <span className="block text-[12px] sm:text-[14px] text-navy-500 font-medium">
+                          {notice.time}
+                        </span>
+                      )}
+                    </div>
 
-                  {/* Right: Download Icon Link */}
-                  <div className="flex-shrink-0 pt-0.5">
-                    <a
-                      href={notice.downloadUrl || '#'}
-                      download
-                      aria-label="Download announcement document"
-                      className=" text-navy-500"
-                    >
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                      </svg>
-                    </a>
+                    {/* Center: Notice text */}
+                    <div className="flex-grow">
+                      <p className="text-xs sm:text-[14px] lg:text-[18px] text-navy-800 font-hindi leading-relaxed">
+                        {notice.title}
+                      </p>
+                    </div>
+
+                    {/* Right: Download Icon Link (only rendered when attachment exists) */}
+                    {fileUrl && (
+                      <div className="flex-shrink-0 pt-0.5">
+                        <a
+                          href={fileUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          download={notice.attachmentLabel || true}
+                          aria-label={`Download attachment${notice.attachmentLabel ? `: ${notice.attachmentLabel}` : ''}`}
+                          title={notice.attachmentLabel || 'Download attachment'}
+                          className="text-navy-500 hover:text-navy-900 transition-colors inline-flex items-center justify-center"
+                        >
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                          </svg>
+                        </a>
+                      </div>
+                    )}
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
 

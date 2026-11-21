@@ -1,1 +1,3 @@
-/*    /index.html   200
+/api/enquiry   /.netlify/functions/submit-enquiry   200
+/api/notices   /.netlify/functions/manage-notice    200
+/*             /index.html                          200
