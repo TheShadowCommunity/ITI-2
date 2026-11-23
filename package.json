@@ -35,5 +35,9 @@
     "tsx": "^4.21.0",
     "typescript": "^7.0.2",
     "@types/express": "^4.17.21"
+  },
+  "overrides": {
+    "@aws-sdk/client-lambda": "3.1174.0",
+    "@aws-sdk/credential-provider-node": "3.972.97"
   }
 }
