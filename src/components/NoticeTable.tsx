@@ -97,7 +97,7 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
                   <td className="w-[105px] sm:w-[145px] lg:w-[180px] px-4 sm:px-6 md:px-8 py-4 sm:py-5 align-top border-r border-[#DDE1E7]">
                     <div className="flex flex-col">
                       <span className="text-[13px] sm:text-[14px] font-semibold text-navy-900 font-heading leading-tight whitespace-nowrap">
-                        {notice.date}
+                        {notice.date || '—'}
                       </span>
                       {notice.time && (
                         <span className="text-[11px] sm:text-[12px] text-navy-500 font-medium mt-0.5 sm:mt-1 whitespace-nowrap">
@@ -113,7 +113,7 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
                       {/* Notice Title / Hindi text */}
                       <div className="flex-grow">
                         <p className="text-[13px] sm:text-[14px] leading-relaxed text-navy-900 font-hindi">
-                          {notice.title}
+                          {notice.title || notice.content || '—'}
                         </p>
                       </div>
 

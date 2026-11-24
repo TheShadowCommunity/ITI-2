@@ -1,8 +1,9 @@
 export interface SanityNoticeDocument {
   _id: string;
-  noticeId?: string;
-  date?: string;
-  content?: string;
+  _createdAt?: string;
+  noticeId?: string | null;
+  date?: string | null;
+  content?: string | null;
   fileUrl?: string | null;
   fileName?: string | null;
   fileSize?: number | null;

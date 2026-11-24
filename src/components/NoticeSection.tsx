@@ -7,9 +7,13 @@ export const NoticeSection: React.FC = () => {
   const [notices, setNotices] = useState<NoticeItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
     let isMounted = true;
+    setIsLoading(true);
+    setError(null);
+
     fetchNotices()
       .then((data) => {
         if (isMounted) {
@@ -27,7 +31,7 @@ export const NoticeSection: React.FC = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [retryCount]);
 
   return (
     <section id="notices" className=" bg-white">
@@ -52,8 +56,15 @@ export const NoticeSection: React.FC = () => {
               सूचनाएं लोड हो रही हैं... (Loading notices...)
             </div>
           ) : error ? (
-            <div className="py-8 text-center text-red-600 text-sm font-hindi">
-              {error}
+            <div className="py-8 text-center">
+              <p className="text-red-600 text-sm font-hindi">{error}</p>
+              <button
+                type="button"
+                onClick={() => setRetryCount((c) => c + 1)}
+                className="mt-3 inline-flex items-center justify-center px-4 py-2 bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] text-xs sm:text-sm font-semibold rounded-[8px] transition-colors cursor-pointer"
+              >
+                पुनः प्रयास करें (Retry)
+              </button>
             </div>
           ) : notices.length === 0 ? (
             <div className="py-8 text-center text-navy-500 text-sm font-hindi">
@@ -73,7 +84,7 @@ export const NoticeSection: React.FC = () => {
                     {/* Left: Date & Time in 2 lines */}
                     <div className="flex-shrink-0 text-left max-md:pl-0 px-[12px] py-[8px] lg:px-[28px] border-r-1 border-navy-200 h-full">
                       <span className="block text-[12px] sm:text-[14px] font-semibold text-navy-500">
-                        {notice.date}
+                        {notice.date || '—'}
                       </span>
                       {notice.time && (
                         <span className="block text-[12px] sm:text-[14px] text-navy-500 font-medium">
@@ -85,7 +96,7 @@ export const NoticeSection: React.FC = () => {
                     {/* Center: Notice text */}
                     <div className="flex-grow">
                       <p className="text-xs sm:text-[14px] lg:text-[18px] text-navy-800 font-hindi leading-relaxed">
-                        {notice.title}
+                        {notice.title || notice.content || '—'}
                       </p>
                     </div>
 

@@ -3,8 +3,11 @@ import { sanityClient } from '../sanity/client';
 
 export const PAGE_SIZE = 5;
 
+const GET_NOTICES_ENDPOINT = '/.netlify/functions/get-notices';
+
 const PUBLISHED_NOTICES_QUERY = `*[_type == "notice"] | order(date desc, _createdAt desc) {
   _id,
+  _createdAt,
   noticeId,
   date,
   content,
@@ -27,16 +30,30 @@ function formatFileSize(bytes?: number | null): string | undefined {
 }
 
 /**
+ * Safely validates optional attachment URLs to allow only http/https links.
+ */
+function sanitizeAttachmentUrl(rawUrl?: unknown): string | undefined {
+  if (typeof rawUrl !== 'string') return undefined;
+  const trimmed = rawUrl.trim();
+  if (!trimmed) return undefined;
+  if (/^https?:\/\//i.test(trimmed)) {
+    return trimmed;
+  }
+  return undefined;
+}
+
+/**
  * Formats an ISO date or datetime string from Sanity into display date & optional time.
  */
-export function formatSanityNoticeDate(rawDate?: string): { date: string; time: string } {
-  if (!rawDate) {
+export function formatSanityNoticeDate(rawDate?: string | null): { date: string; time: string } {
+  if (typeof rawDate !== 'string' || !rawDate.trim()) {
     return { date: '', time: '' };
   }
 
-  const parsed = new Date(rawDate);
+  const trimmed = rawDate.trim();
+  const parsed = new Date(trimmed);
   if (Number.isNaN(parsed.getTime())) {
-    return { date: rawDate, time: '' };
+    return { date: trimmed, time: '' };
   }
 
   const date = parsed.toLocaleDateString('en-GB', {
@@ -46,7 +63,7 @@ export function formatSanityNoticeDate(rawDate?: string): { date: string; time: 
   });
 
   // Only show time when the Sanity value includes a time component (datetime vs date-only)
-  const hasTimeComponent = rawDate.includes('T');
+  const hasTimeComponent = trimmed.includes('T');
   const time = hasTimeComponent
     ? parsed.toLocaleTimeString('en-GB', {
         hour: '2-digit',
@@ -59,28 +76,43 @@ export function formatSanityNoticeDate(rawDate?: string): { date: string; time: 
 }
 
 /**
- * Normalizes a Sanity notice document into the UI NoticeItem shape.
+ * Normalizes a Sanity notice document into the UI NoticeItem shape,
+ * safely handling missing, null, or optional fields.
  */
-export function normalizeSanityNotice(doc: SanityNoticeDocument): NoticeItem {
-  const { date, time } = formatSanityNoticeDate(doc.date);
-  const text = (doc.content || '').trim();
-  const validFileUrl =
-    typeof doc.fileUrl === 'string' && doc.fileUrl.trim().length > 0
-      ? doc.fileUrl.trim()
-      : undefined;
+export function normalizeSanityNotice(doc: SanityNoticeDocument, fallbackIndex = 0): NoticeItem {
+  const rawDate =
+    (typeof doc.date === 'string' && doc.date.trim()) ||
+    (typeof doc._createdAt === 'string' && doc._createdAt.trim()) ||
+    undefined;
+  const { date, time } = formatSanityNoticeDate(rawDate);
+
+  const rawNoticeId =
+    typeof doc.noticeId === 'string'
+      ? doc.noticeId.trim()
+      : doc.noticeId != null
+        ? String(doc.noticeId).trim()
+        : '';
+  const documentId =
+    typeof doc._id === 'string' && doc._id.trim() ? doc._id.trim() : `notice-${fallbackIndex}`;
+  const resolvedId = rawNoticeId || documentId;
+
+  const text = typeof doc.content === 'string' ? doc.content.trim() : '';
+  const validFileUrl = sanitizeAttachmentUrl(doc.fileUrl);
+  const attachmentLabel =
+    typeof doc.fileName === 'string' && doc.fileName.trim() ? doc.fileName.trim() : undefined;
 
   return {
-    id: doc.noticeId?.trim() || doc._id,
-    documentId: doc._id,
-    noticeId: doc.noticeId?.trim() || doc._id,
-    date,
+    id: resolvedId,
+    documentId,
+    noticeId: resolvedId,
+    date: date || '—',
     time,
-    isoDate: doc.date || undefined,
-    title: text,
+    isoDate: rawDate,
+    title: text || resolvedId,
     content: text,
     downloadUrl: validFileUrl,
     attachmentUrl: validFileUrl,
-    attachmentLabel: doc.fileName || undefined,
+    attachmentLabel,
     fileSize: formatFileSize(doc.fileSize),
   };
 }
@@ -89,7 +121,7 @@ export function normalizeSanityNotice(doc: SanityNoticeDocument): NoticeItem {
  * Robust parsing helper to convert multiple date/time string variants into a reliable timestamp.
  */
 export function parseNoticeDateTime(dateStr: string, timeStr?: string): number {
-  if (!dateStr) return 0;
+  if (!dateStr || dateStr === '—') return 0;
 
   const isoTime = Date.parse(dateStr);
   if (!Number.isNaN(isoTime)) return isoTime;
@@ -111,7 +143,7 @@ export function sortNoticesDescending(notices: NoticeItem[]): NoticeItem[] {
     if (timeB !== timeA) {
       return timeB - timeA;
     }
-    return b.id.localeCompare(a.id);
+    return (b.id || '').localeCompare(a.id || '');
   });
 }
 
@@ -157,16 +189,64 @@ export function getPaginatedNotices(
   };
 }
 
-/**
- * Fetches published notices from Sanity CMS ordered by date (newest first).
- * Uses the public read-only client; no write token is ever used in the browser.
- */
-export async function fetchNotices(): Promise<NoticeItem[]> {
-  const docs = await sanityClient.fetch<SanityNoticeDocument[]>(PUBLISHED_NOTICES_QUERY);
+function mapNoticeDocuments(docs: unknown): NoticeItem[] {
   if (!Array.isArray(docs)) {
     return [];
   }
-  return sortNoticesDescending(docs.map(normalizeSanityNotice));
+  const validDocs = docs.filter(
+    (item): item is SanityNoticeDocument => Boolean(item) && typeof item === 'object'
+  );
+  return sortNoticesDescending(validDocs.map((doc, idx) => normalizeSanityNotice(doc, idx)));
+}
+
+/**
+ * Fetches published notices ordered by date (newest first).
+ *
+ * Uses the same-origin Netlify Function (`/.netlify/functions/get-notices`) first to avoid
+ * cross-origin CORS restrictions on deployed domains, and falls back to the public read-only
+ * Sanity client only when the local dev server does not run Netlify Functions.
+ */
+export async function fetchNotices(): Promise<NoticeItem[]> {
+  let shouldFallbackToDirectSanity = false;
+
+  try {
+    const response = await fetch(GET_NOTICES_ENDPOINT, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+      },
+    });
+
+    const contentType = response.headers.get('content-type') || '';
+    const isJson = contentType.includes('application/json');
+
+    if (response.ok && isJson) {
+      const payload = (await response.json()) as {
+        success?: boolean;
+        notices?: unknown;
+        message?: string;
+      };
+      if (payload?.success && Array.isArray(payload.notices)) {
+        return mapNoticeDocuments(payload.notices);
+      }
+      throw new Error(payload?.message || 'Unexpected notice response format.');
+    }
+
+    // In local Vite dev (`npm run dev`), `/.netlify/functions/get-notices` hits the SPA
+    // fallback (HTML) or returns 404. Only fall back to direct Sanity reads in that case.
+    if (response.status === 404 || !isJson) {
+      shouldFallbackToDirectSanity = true;
+    } else {
+      throw new Error(`Notice service returned HTTP ${response.status}`);
+    }
+  } catch (err) {
+    if (!shouldFallbackToDirectSanity) {
+      throw err;
+    }
+  }
+
+  const docs = await sanityClient.fetch<SanityNoticeDocument[]>(PUBLISHED_NOTICES_QUERY);
+  return mapNoticeDocuments(docs);
 }
 
 const MANAGE_NOTICE_ENDPOINT = '/.netlify/functions/manage-notice';
