@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { HomePage } from './components/HomePage';
 import { GuestLecturesPage } from './components/GuestLecturesPage';
 import { ContactPage } from './components/ContactPage';
@@ -14,9 +14,14 @@ import {EventPage} from './components/EventPage';
 import {FacilitiesPage} from './components/FacilitiesPage';
 import { AdmissionPolicyPage } from './components/AdmissionPolicyPage';
 
+const StudioPage = lazy(() => import('./components/StudioPage'));
+
 function getRoutePath(): string {
   if (typeof window === 'undefined') return '/';
   const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+  if (pathname === '/studio' || pathname.startsWith('/studio/')) {
+    return '/studio';
+  }
   if (
     pathname === '/rules' ||
     pathname === '/rules-and-regulations' ||
@@ -105,6 +110,12 @@ function getRoutePath(): string {
   ) {
     return '/career';
   }
+  if (
+    window.location.hash.startsWith('#/studio') ||
+    window.location.hash === '#studio'
+  ) {
+    return '/studio';
+  }
   return pathname;
 }
 
@@ -126,6 +137,20 @@ export default function App() {
       window.removeEventListener('applet-navigate', handleRouteChange);
     };
   }, []);
+
+  if (currentPath === '/studio') {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-screen flex items-center justify-center bg-[#F4F5F7] text-[#1F2A3C] text-sm font-medium">
+            Loading Sanity Studio...
+          </div>
+        }
+      >
+        <StudioPage />
+      </Suspense>
+    );
+  }
 
   if (
     currentPath === '/rules' ||

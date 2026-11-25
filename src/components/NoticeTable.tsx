@@ -85,7 +85,8 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
           {/* Table Body */}
           <tbody className="divide-y divide-[#DDE1E7]">
             {notices.map((notice) => {
-              const fileUrl = notice.downloadUrl || notice.attachmentUrl || notice.href || '#';
+              const rawUrl = notice.attachmentUrl || notice.downloadUrl || notice.href;
+              const fileUrl = rawUrl && rawUrl !== '#' ? rawUrl : undefined;
 
               return (
                 <tr
@@ -96,7 +97,7 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
                   <td className="w-[105px] sm:w-[145px] lg:w-[180px] px-4 sm:px-6 md:px-8 py-4 sm:py-5 align-top border-r border-[#DDE1E7]">
                     <div className="flex flex-col">
                       <span className="text-[13px] sm:text-[14px] font-semibold text-navy-900 font-heading leading-tight whitespace-nowrap">
-                        {notice.date}
+                        {notice.date || '—'}
                       </span>
                       {notice.time && (
                         <span className="text-[11px] sm:text-[12px] text-navy-500 font-medium mt-0.5 sm:mt-1 whitespace-nowrap">
@@ -112,35 +113,39 @@ export const NoticeTable: React.FC<NoticeTableProps> = ({ notices, isLoading }) 
                       {/* Notice Title / Hindi text */}
                       <div className="flex-grow">
                         <p className="text-[13px] sm:text-[14px] leading-relaxed text-navy-900 font-hindi">
-                          {notice.title}
+                          {notice.title || notice.content || '—'}
                         </p>
                       </div>
 
-                      {/* Download Action Button on right edge */}
-                      <div className="flex-shrink-0 pt-0.5">
-                        <a
-                          href={fileUrl}
-                          download
-                          aria-label={`Download notice: ${notice.title.slice(0, 30)}...`}
-                          className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-navy-500 hover:text-navy-900 hover:bg-[#F4F5F7] focus:outline-hidden focus:ring-2 focus:ring-[#F2B418] transition-all"
-                          title="Download Notice PDF / Circular"
-                        >
-                          <svg
-                            className="w-5 h-5 transition-transform group-hover:translate-y-0.5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
+                      {/* Download Action Button on right edge (only rendered when attachment exists) */}
+                      {fileUrl && (
+                        <div className="flex-shrink-0 pt-0.5">
+                          <a
+                            href={fileUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            download={notice.attachmentLabel || true}
+                            aria-label={`Download notice${notice.attachmentLabel ? `: ${notice.attachmentLabel}` : ''}`}
+                            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-navy-500 hover:text-navy-900 hover:bg-[#F4F5F7] focus:outline-hidden focus:ring-2 focus:ring-[#F2B418] transition-all"
+                            title={notice.attachmentLabel || 'Download Notice PDF / Circular'}
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={1.8}
-                              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                            />
-                          </svg>
-                        </a>
-                      </div>
+                            <svg
+                              className="w-5 h-5 transition-transform group-hover:translate-y-0.5"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={1.8}
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                              />
+                            </svg>
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </td>
                 </tr>

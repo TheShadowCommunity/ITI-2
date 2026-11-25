@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { EnquiryCategory, EnquiryFormData, EnquirySubmissionState } from '../types/enquiry';
-import { submitEnquiryForm } from '../services/enquiryService';
+import { EnquirySubmissionError, submitEnquiryForm } from '../services/enquiryService';
 
 export interface EnquiryFormProps {
   idPrefix?: string;
@@ -86,6 +86,10 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (submissionState.status === 'submitting') {
+      return;
+    }
+
     if (!validate()) {
       return;
     }
@@ -100,8 +104,6 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
       setSubmissionState({
         status: 'success',
         message: res.message,
-        serverPendingNote:
-          'नोट: क्लाइंट-साइड सत्यापन सफल रहा। सर्वर-साइड सानिध्य (Sanity) और ईमेल (Resend) बैकएंड क्रेडेंशियल कॉन्फ़िगरेशन के लिए स्टेज्ड है।',
       });
       setFormData({
         category: defaultCategory,
@@ -111,10 +113,16 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         comment: '',
       });
       setErrors({});
-    } catch {
+    } catch (err) {
+      if (err instanceof EnquirySubmissionError && err.fieldErrors) {
+        setErrors((prev) => ({ ...prev, ...err.fieldErrors }));
+      }
       setSubmissionState({
         status: 'error',
-        message: 'फॉर्म सबमिट करने में समस्या आई। कृपया पुनः प्रयास करें।',
+        message:
+          err instanceof Error && err.message
+            ? err.message
+            : 'फॉर्म सबमिट करने में समस्या आई। कृपया पुनः प्रयास करें।',
       });
     }
   };
@@ -282,13 +290,8 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
 
         {/* Feedback / Status */}
         {submissionState.status === 'success' && (
-          <div className="p-3.5 bg-emerald-50 border border-emerald-200 rounded-[8px]">
+          <div className="p-3.5 bg-emerald-50 border border-emerald-200 rounded-[8px]" role="status">
             <p className="text-xs sm:text-sm font-bold text-emerald-800">{submissionState.message}</p>
-            {submissionState.serverPendingNote && (
-              <p className="text-[11px] sm:text-xs text-emerald-700 mt-1 leading-normal">
-                {submissionState.serverPendingNote}
-              </p>
-            )}
           </div>
         )}
 

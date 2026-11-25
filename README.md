@@ -38,9 +38,9 @@ npm run lint
    - **Exportability**: 100% standard Vite React application that can be run on any local machine, exported to GitHub, or inspected/debugged by Codex, Claude, or Cursor without vendor lock-in.
    - **Maintainability**: Pure component modularity with clean data separation.
 3. **Styling**: Tailwind CSS v4 using the modern CSS-first `@theme` configuration in `src/index.css`.
-4. **Deferred Sanity & Resend Integrations**:
-   - Notice data fetching is encapsulated in `src/services/noticeService.ts`.
-   - Form submission and validation are decoupled in `src/services/enquiryService.ts`.
+4. **Sanity CMS & Netlify Functions Integration**:
+   - Published notices are fetched read-only in `src/services/noticeService.ts` via `src/sanity/client.ts`.
+   - All Sanity write operations (enquiry submissions and notice creation/updates) execute server-side through Netlify Functions (`netlify/functions/submit-enquiry.ts` and `netlify/functions/manage-notice.ts`) using `SANITY_WRITE_TOKEN`.
 
 ---
 
@@ -154,6 +154,25 @@ To ensure balanced proportions, readability, and zero horizontal clipping across
   - **Interactive Center Grid**: Side-by-side arrangement of the Enquiry Form and the Campus Location Map visual (`siteImages.mapLocation`), scaling gracefully on laptops (`lg:grid-cols-[1.4fr_1fr] 2xl:grid-cols-[809px_551px]`).
   - **Institutional Overview**: Side-by-side layout with Hindi introductory copy, accreditation tags (2019 में स्थापित, भारत सरकार NCVT द्वारा मान्यता प्राप्त), and campus architecture photography (`siteImages.aboutCampus`).
   - **Shared Header & Footer**: Seamless site-wide navigation.
+
+---
+
+## 8. Sanity CMS & Netlify Environment Variables
+
+- **Embedded Sanity Studio**: Available at `/studio` (schemas: `notice` and `formSubmission`).
+- **Public Read-Only Client (`src/sanity/client.ts`)**: Reads published notices using only non-sensitive public identifiers (`VITE_SANITY_PROJECT_ID`, `VITE_SANITY_DATASET`). No write token is ever included in the browser bundle.
+- **Server-Side Write Functions (`netlify/functions/`)**:
+  - `POST /.netlify/functions/submit-enquiry` (alias `/api/enquiry`): Validates, sanitizes, and saves `EnquiryForm` submissions as `formSubmission` documents in Sanity.
+  - `POST` / `PUT` / `PATCH /.netlify/functions/manage-notice` (alias `/api/notices`): Authenticated endpoint (requires `Authorization: Bearer <NOTICE_ADMIN_SECRET>`) to create or update `notice` documents in Sanity.
+- **Required Netlify Environment Variables** (Netlify Site Settings → Environment Variables):
+  - `SANITY_PROJECT_ID`: `69bcrt4o` (server-side functions)
+  - `SANITY_DATASET`: `production` (server-side functions)
+  - `SANITY_WRITE_TOKEN`: Sanity API token with Editor/Write permissions (server-side only — never use `VITE_SANITY_WRITE_TOKEN`)
+  - `NOTICE_ADMIN_SECRET`: Strong random secret required as a Bearer token when calling `/.netlify/functions/manage-notice`
+  - `VITE_SANITY_PROJECT_ID`: `69bcrt4o` (optional public override for browser read client & `/studio`)
+  - `VITE_SANITY_DATASET`: `production` (optional public override for browser read client & `/studio`)
+- **Sanity CORS Origins**: Add your deployed Netlify domain (and `http://localhost:3000` for local dev) under Sanity Manage → API → CORS origins (enable **Allow credentials** for `/studio`).
+
 
 
 

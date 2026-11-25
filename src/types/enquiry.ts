@@ -11,5 +11,4 @@ export interface EnquiryFormData {
 export interface EnquirySubmissionState {
   status: 'idle' | 'submitting' | 'success' | 'error';
   message: string | null;
-  serverPendingNote?: string;
 }
