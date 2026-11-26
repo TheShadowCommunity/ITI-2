@@ -2,7 +2,11 @@ import React from 'react';
 import { ItiLogo } from './ItiLogo';
 import { navigateTo } from '../utils/navigation';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  compactLg?: boolean;
+}
+
+export const Footer: React.FC<FooterProps> = ({ compactLg = false }) => {
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('mailto:') || href.startsWith('http://') || href.startsWith('https://')) {
       return;
@@ -12,10 +16,14 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-white pt-[72px] pb-[42px] lg:pt-14 pb-8">
+    <footer className={`bg-white pt-[72px] pb-[42px] pb-8 ${compactLg ? 'lg:pt-9 lg:pb-6 xl:pt-14 xl:pb-[42px]' : 'lg:pt-14'}`}>
       <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
         {/* Main Footer Links & Branding Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-[#DDE1E7]">
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 ${
+            compactLg ? 'lg:gap-8 lg:pb-6 xl:gap-12 xl:pb-10' : 'lg:gap-12'
+          } pb-10 border-b border-[#DDE1E7]`}
+        >
           {/* Brand Col (396 x 72 px) */}
           <div className="lg:col-span-4 flex flex-col items-start">
             <a href="/" onClick={(e) => handleLinkClick(e, '/')} className="group">
@@ -28,8 +36,18 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center">
             {/* Home Column (106 px) */}
             <div>
-              <h4 className="text-[16px] lg:text-[18px] font-medium text-navy-800 mb-3 font-heading">Home</h4>
-              <ul className="space-y-[8px] text-[14px] text-navy-500">
+              <h4
+                className={`text-[16px] ${
+                  compactLg ? 'lg:text-[15px] lg:mb-2 xl:text-[18px] xl:mb-3' : 'lg:text-[18px]'
+                } font-medium text-navy-800 mb-3 font-heading`}
+              >
+                Home
+              </h4>
+              <ul
+                className={`space-y-[8px] text-[14px] ${
+                  compactLg ? 'lg:space-y-[5px] lg:text-[12.5px] xl:space-y-[8px] xl:text-[14px]' : ''
+                } text-navy-500`}
+              >
                 <li><a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="hover:text-navy-900 transition-colors">About Us</a></li>
                 <li><a href="/contact" onClick={(e) => handleLinkClick(e, '/contact')} className="hover:text-navy-900 transition-colors">Contact us</a></li>
                 <li><a href="/careers" onClick={(e) => handleLinkClick(e, '/careers')} className="hover:text-navy-900 transition-colors">Career</a></li>
@@ -38,8 +56,18 @@ export const Footer: React.FC = () => {
 
             {/* Academics Column 1 (121 px) */}
             <div>
-              <h4 className="text-[16px] lg:text-[18px] font-medium text-navy-800 mb-3 font-heading">Academics</h4>
-              <ul className="space-y-[8px] text-[14px] text-navy-500">
+              <h4
+                className={`text-[16px] ${
+                  compactLg ? 'lg:text-[15px] lg:mb-2 xl:text-[18px] xl:mb-3' : 'lg:text-[18px]'
+                } font-medium text-navy-800 mb-3 font-heading`}
+              >
+                Academics
+              </h4>
+              <ul
+                className={`space-y-[8px] text-[14px] ${
+                  compactLg ? 'lg:space-y-[5px] lg:text-[12.5px] xl:space-y-[8px] xl:text-[14px]' : ''
+                } text-navy-500`}
+              >
                 <li><a href="/#trades" onClick={(e) => handleLinkClick(e, '/#trades')} className="hover:text-navy-900 transition-colors">Courses</a></li>
                 <li><a href="/faculty" onClick={(e) => handleLinkClick(e, '/faculty')} className="hover:text-navy-900 transition-colors">Faculties</a></li>
                 <li><a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="font-semibold text-yellow-700 hover:text-navy-900 transition-colors">Guest Lectures</a></li>
@@ -50,8 +78,18 @@ export const Footer: React.FC = () => {
 
             {/* Academics Column 2 (121 px) */}
             <div>
-              <h4 className="text-[16px] lg:text-[18px] font-medium text-navy-800 mb-3 font-heading">Academics</h4>
-              <ul className="space-y-[8px] text-[14px] text-navy-500">
+              <h4
+                className={`text-[16px] ${
+                  compactLg ? 'lg:text-[15px] lg:mb-2 xl:text-[18px] xl:mb-3' : 'lg:text-[18px]'
+                } font-medium text-navy-800 mb-3 font-heading`}
+              >
+                Academics
+              </h4>
+              <ul
+                className={`space-y-[8px] text-[14px] ${
+                  compactLg ? 'lg:space-y-[5px] lg:text-[12.5px] xl:space-y-[8px] xl:text-[14px]' : ''
+                } text-navy-500`}
+              >
                 <li><a href="/#trades" onClick={(e) => handleLinkClick(e, '/#trades')} className="hover:text-navy-900 transition-colors">Courses</a></li>
                 <li><a href="/faculty" onClick={(e) => handleLinkClick(e, '/faculty')} className="hover:text-navy-900 transition-colors">Faculties</a></li>
                 <li><a href="/guest-lectures" onClick={(e) => handleLinkClick(e, '/guest-lectures')} className="font-semibold text-yellow-700 hover:text-navy-900 transition-colors">Guest Lectures</a></li>
@@ -62,8 +100,18 @@ export const Footer: React.FC = () => {
 
             {/* Others Column (106 px) */}
             <div>
-              <h4 className="text-[16px] lg:text-[18px] font-medium text-navy-800 mb-3 font-heading">Others</h4>
-              <ul className="space-y-[8px] text-[14px] text-navy-500">
+              <h4
+                className={`text-[16px] ${
+                  compactLg ? 'lg:text-[15px] lg:mb-2 xl:text-[18px] xl:mb-3' : 'lg:text-[18px]'
+                } font-medium text-navy-800 mb-3 font-heading`}
+              >
+                Others
+              </h4>
+              <ul
+                className={`space-y-[8px] text-[14px] ${
+                  compactLg ? 'lg:space-y-[5px] lg:text-[12.5px] xl:space-y-[8px] xl:text-[14px]' : ''
+                } text-navy-500`}
+              >
                 <li><a href="/#trades" onClick={(e) => handleLinkClick(e, '/#trades')} className="hover:text-navy-900 transition-colors">Trainings</a></li>
                 <li><a href="/gallery" onClick={(e) => handleLinkClick(e, '/gallery')} className="hover:text-navy-900 transition-colors">Infrastructure</a></li>
                 <li><a href="/feedback" onClick={(e) => handleLinkClick(e, '/feedback')} className="hover:text-navy-900 transition-colors">Feedbacks</a></li>
@@ -74,7 +122,11 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Footer Base Row (Figma 10:775: 1392 x 46 px) */}
-        <div className="pt-6 border-t-1 border-[#F4F5F7] flex flex-col sm:flex-row items-center justify-between text-[12px] text-navy-500 gap-2">
+        <div
+          className={`pt-6 ${
+            compactLg ? 'lg:pt-4 lg:text-[11.5px] xl:pt-6 xl:text-[12px]' : ''
+          } border-t-1 border-[#F4F5F7] flex flex-col sm:flex-row items-center justify-between text-[12px] text-navy-500 gap-2`}
+        >
           <p>© 2025 New Lucknow City Private ITI. All Rights Reserved.</p>
           <p className="font-medium text-navy-500">
             Made by Invia Creations

@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { ItiLogo } from './ItiLogo';
 import { navigateTo } from '../utils/navigation';
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  compactLg?: boolean;
+}
+
+export const Header: React.FC<HeaderProps> = ({ compactLg = false }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
@@ -89,11 +93,15 @@ export const Header: React.FC = () => {
   return (
     <header className="w-full sticky top-0 z-50 bg-navy-900 md:bg-white shadow-xs">
       {/* 1. Desktop Top Navigation Strip (Figma node 10:442: 1520 x 46 px) */}
-      <div className="hidden lg:block bg-navy-900 text-[#F4F5F7] text-[12px] h-[46px] border-b border-white/10">
+      <div
+        className={`hidden lg:block bg-navy-900 text-[#F4F5F7] ${
+          compactLg ? 'text-[11px] xl:text-[12px] h-[34px] xl:h-[46px]' : 'text-[12px] h-[46px]'
+        } border-b border-white/10`}
+      >
         <div className="max-w-[1392px] mx-auto h-full flex justify-end items-center">
           <div className="flex items-center h-full">
             {/* First four neutral links */}
-            <div className="flex items-center space-x-6 text-[#F4F5F7] mr-4">
+            <div className={`flex items-center ${compactLg ? 'space-x-5 xl:space-x-6' : 'space-x-6'} text-[#F4F5F7] mr-4`}>
               <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="hover:text-[#F2B418] transition-colors">About Us</a>
               <a href="/careers" onClick={(e) => handleLinkClick(e, '/careers')} className="hover:text-[#F2B418] transition-colors">Careers</a>
               <a href="/gallery" onClick={(e) => handleLinkClick(e, '/gallery')} className="hover:text-[#F2B418] transition-colors">Events</a>
@@ -101,7 +109,11 @@ export const Header: React.FC = () => {
             </div>
 
             {/* Yellow-highlighted group 86:693 */}
-            <div className="bg-yellow-500 text-navy-900 flex items-center h-full pl-[12px] pr-[40px] space-x-5">
+            <div
+              className={`bg-yellow-500 text-navy-900 flex items-center h-full pl-[12px] ${
+                compactLg ? 'pr-[28px] xl:pr-[40px] space-x-4 xl:space-x-5' : 'pr-[40px] space-x-5'
+              }`}
+            >
               <a href="/#enquiry" onClick={(e) => handleLinkClick(e, '/#enquiry')} className="hover:opacity-80 transition-opacity">Admissions</a>
               <a href="#" className="hover:opacity-80 transition-opacity">Prospectus</a>
               <a href="/feedback" onClick={(e) => handleLinkClick(e, '/feedback')} className="hover:opacity-80 transition-opacity">Feedbacks</a>
@@ -112,7 +124,11 @@ export const Header: React.FC = () => {
 
       {/* 2. Desktop Menu Bar (Figma node 10:451: 1520 x 86 px) / Mobile Header (10:782: 430 x 65 px) */}
       <div className="w-full">
-        <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0 flex items-center justify-between h-[65px] lg:h-[86px]">
+        <div
+          className={`max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0 flex items-center justify-between ${
+            compactLg ? 'h-[65px] lg:h-[62px] xl:h-[86px]' : 'h-[65px] lg:h-[86px]'
+          }`}
+        >
           {/* Logo Region */}
           <a 
             href="/" 
@@ -138,7 +154,11 @@ export const Header: React.FC = () => {
                 <a
                   href={item.href}
                   onClick={(e) => handleLinkClick(e, item.href)}
-                  className="px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px] text-navy-500 hover:text-[#D99A00] transition-colors inline-flex items-center gap-1 rounded-md"
+                  className={`${
+                    compactLg
+                      ? 'px-2 xl:px-3 py-1.5 xl:py-2 text-[13px] xl:text-[15px]'
+                      : 'px-2.5 xl:px-3 py-2 text-[14px] xl:text-[15px]'
+                  } text-navy-500 hover:text-[#D99A00] transition-colors inline-flex items-center gap-1 rounded-md`}
                 >
                   {item.name}
                   {item.hasDropdown && (

@@ -37,12 +37,12 @@ export const NoticeSection: React.FC = () => {
     <section id="notices" className=" bg-white">
       <div className="w-full">
         {/* Dark Navy Header Banner with Megaphone Icon (Figma 57:1101) */}
-        <div className="bg-navy-900 py-[80px] px-[16px] lg:py-[72px] lg:px-[64px] flex items-center text-white">
-        <div className="w-[100px]">
+        <div className="bg-navy-900 py-[80px] px-[16px] lg:py-[36px] lg:px-[40px] xl:py-[72px] xl:px-[64px] flex items-center text-white">
+        <div className="w-[100px] lg:w-[68px] xl:w-[100px] flex-shrink-0">
               <img src="/assets/icons/notice.svg" alt="" className="w-full h-full" />
             </div>
           <div>
-            <h2 className="font-medium ml-[16px] text-[36px] lg:text-[42px] xl:text-[56px] lg:font-semibold tracking-tight text-neutral-200 font-serat">
+            <h2 className="font-medium ml-[16px] text-[36px] lg:text-[28px] xl:text-[56px] lg:font-semibold tracking-tight text-neutral-200 font-serat">
               Notice & Announcement
             </h2>
   
@@ -50,9 +50,9 @@ export const NoticeSection: React.FC = () => {
         </div>
 
         {/* Notices Container */}
-        <div className="py-[80px] px-[16px] lg:py-[100px] lg:px-[64px]">
+        <div className="py-[80px] px-[16px] lg:py-[44px] lg:px-[40px] xl:py-[100px] xl:px-[64px]">
           {isLoading ? (
-            <div className="py-12 text-center text-navy-500 text-sm font-hindi">
+            <div className="py-12 lg:py-8 xl:py-12 text-center text-navy-500 text-sm font-hindi">
               सूचनाएं लोड हो रही हैं... (Loading notices...)
             </div>
           ) : error ? (
@@ -79,15 +79,15 @@ export const NoticeSection: React.FC = () => {
                 return (
                   <div
                     key={notice.id}
-                    className="py-5 sm:py-6 flex items-start justify-between gap-4 sm:gap-6 group hover:bg-white/60 -mx-3 sm:-mx-4 px-3 sm:px-4 rounded-lg transition-colors"
+                    className="py-5 sm:py-6 lg:py-3.5 xl:py-6 flex items-start justify-between gap-4 sm:gap-6 group hover:bg-white/60 -mx-3 sm:-mx-4 px-3 sm:px-4 rounded-lg transition-colors"
                   >
                     {/* Left: Date & Time in 2 lines */}
-                    <div className="flex-shrink-0 text-left max-md:pl-0 px-[12px] py-[8px] lg:px-[28px] border-r-1 border-navy-200 h-full">
-                      <span className="block text-[12px] sm:text-[14px] font-semibold text-navy-500">
+                    <div className="flex-shrink-0 text-left max-md:pl-0 px-[12px] py-[8px] lg:px-[18px] lg:py-[4px] xl:px-[28px] xl:py-[8px] border-r-1 border-navy-200 h-full">
+                      <span className="block text-[12px] sm:text-[14px] lg:text-[12.5px] xl:text-[14px] font-semibold text-navy-500">
                         {notice.date || '—'}
                       </span>
                       {notice.time && (
-                        <span className="block text-[12px] sm:text-[14px] text-navy-500 font-medium">
+                        <span className="block text-[12px] sm:text-[14px] lg:text-[12px] xl:text-[14px] text-navy-500 font-medium">
                           {notice.time}
                         </span>
                       )}
@@ -95,7 +95,7 @@ export const NoticeSection: React.FC = () => {
 
                     {/* Center: Notice text */}
                     <div className="flex-grow">
-                      <p className="text-xs sm:text-[14px] lg:text-[18px] text-navy-800 font-hindi leading-relaxed">
+                      <p className="text-xs sm:text-[14px] lg:text-[14.5px] xl:text-[18px] text-navy-800 font-hindi leading-relaxed">
                         {notice.title || notice.content || '—'}
                       </p>
                     </div>
@@ -112,7 +112,7 @@ export const NoticeSection: React.FC = () => {
                           title={notice.attachmentLabel || 'Download attachment'}
                           className="text-navy-500 hover:text-navy-900 transition-colors inline-flex items-center justify-center"
                         >
-                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <svg className="w-6 h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                           </svg>
                         </a>
@@ -125,7 +125,7 @@ export const NoticeSection: React.FC = () => {
           )}
 
           {/* View More Button */}
-          <div className="mt-8 text-center">
+          <div className="mt-8 lg:mt-5 xl:mt-8 text-center">
             <a
               href="/notice"
               onClick={(e) => {

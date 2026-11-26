@@ -224,8 +224,8 @@ const RecruiterCard: React.FC<RecruiterCardProps> = ({ item, isClone = false, is
       title={`${item.name}${item.category ? ` • ${item.category}` : ''}`}
       tabIndex={isClone ? -1 : 0}
       className={`w-full ${
-        isMobile ? 'h-[105px] sm:h-[115px]' : 'h-[110px] sm:h-[125px]'
-      } flex items-center justify-center p-4 bg-white rounded-[12px] border border-[#DDE1E7] shadow-2xs hover:shadow-xs hover:border-[#F2B418] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F2B418] select-none group/card cursor-default`}
+        isMobile ? 'h-[105px] sm:h-[115px]' : 'h-[110px] sm:h-[125px] lg:h-[94px] xl:h-[125px]'
+      } flex items-center justify-center p-4 lg:p-3 xl:p-4 bg-white rounded-[12px] border border-[#DDE1E7] shadow-2xs hover:shadow-xs hover:border-[#F2B418] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F2B418] select-none group/card cursor-default`}
     >
       <div className="w-full flex items-center justify-center transform transition-transform duration-200 group-hover/card:scale-105">
         <RecruiterLogoRenderer item={item} />
@@ -391,9 +391,9 @@ export const RecruitersSection: React.FC = () => {
       className="w-full max-w-[551px] flex flex-col justify-start select-none"
     >
       {/* Header with active indicator (200px wide, #F2B418) and controls */}
-      <div className="mb-[48px]">
+      <div className="mb-[48px] lg:mb-6 xl:mb-[48px]">
         <div className="flex items-center justify-between">
-          <h2 className="text-[36px] lg:text-[32px] font-semibold text-navy-900 tracking-tight font-hindi leading-tight">
+          <h2 className="text-[36px] lg:text-[24px] xl:text-[32px] font-semibold text-navy-900 tracking-tight font-hindi leading-tight">
             हमारे भर्ती कर्ता
           </h2>
 
@@ -445,8 +445,8 @@ export const RecruitersSection: React.FC = () => {
         </div>
 
         {/* Active Indicator 200px wide */}
-        <div className="w-[150px] lg:w-[200px] h-[8px] lg:h-[12px] bg-yellow-600 mt-[12px] rounded-full" />
-        <p className="text-[16px] text-navy-500 font-hindi leading-relaxed mt-[12px] max-w-[551px]">
+        <div className="w-[150px] lg:w-[140px] xl:w-[200px] h-[8px] lg:h-[7px] xl:h-[12px] bg-yellow-600 mt-[12px] lg:mt-[8px] xl:mt-[12px] rounded-full" />
+        <p className="text-[16px] lg:text-[13px] xl:text-[16px] text-navy-500 font-hindi leading-relaxed mt-[12px] lg:mt-[10px] xl:mt-[12px] max-w-[551px]">
           हमारे संस्थान में उद्योग-केंद्रित, प्रमाणित और व्यावहारिक व्यवसायिक ट्रेड्स संचालित किए जाते हैं, जो छात्रों को कुशल और रोजगारोन्मुखी बनाते हैं।
         </p>
       </div>
@@ -494,7 +494,7 @@ export const RecruitersSection: React.FC = () => {
                 */}
                 <div
                   className={`grid ${
-                    isMobile ? 'grid-cols-1 gap-3.5 sm:gap-4' : 'grid-cols-2 gap-4 sm:gap-5'
+                    isMobile ? 'grid-cols-1 gap-3.5 sm:gap-4' : 'grid-cols-2 gap-4 sm:gap-5 lg:gap-3.5 xl:gap-5'
                   } w-full`}
                 >
                   {group.map((item) => (
@@ -514,7 +514,7 @@ export const RecruitersSection: React.FC = () => {
 
       {/* Pagination Dot Indicators (shows active group & allows direct jumping) */}
       {totalGroups > 1 && (
-        <div className="flex items-center justify-center gap-1.5 mt-5" aria-label="Recruiter groups pagination">
+        <div className="flex items-center justify-center gap-1.5 mt-5 lg:mt-3.5 xl:mt-5" aria-label="Recruiter groups pagination">
           {groups.map((_, idx) => (
             <button
               key={`dot-${idx}`}

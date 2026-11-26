@@ -16,7 +16,7 @@ export const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#F4F5F7] text-navy-900 selection:bg-[#F2B418] selection:text-[#14171C]">
       {/* 1. Header & Navigation (Figma 10:440 / 10:782) */}
-      <Header />
+      <Header compactLg />
 
       <main className="flex-grow">
         {/* 2. Hero Section (Figma 20:837 / 66:745) */}
@@ -31,11 +31,11 @@ export const HomePage: React.FC = () => {
         <AboutSection />
 
         {/* 5. Desktop-specific Middle Section: Enquiry Form + Recruiters */}
-        <div className="hidden lg:block py-12 xl:py-16 bg-white border-y border-[#DDE1E7]">
+        <div className="hidden lg:block py-9 xl:py-16 bg-white border-y border-[#DDE1E7]">
           <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.38fr_1fr] 2xl:grid-cols-[809px_551px] gap-6 xl:gap-[32px] items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.28fr_1fr] xl:grid-cols-[1.38fr_1fr] 2xl:grid-cols-[809px_551px] gap-6 xl:gap-[32px] items-start">
               <div className="w-full max-w-[809px]">
-                <EnquiryForm idPrefix="desktop-mid-enquiry" defaultCategory="admission" />
+                <EnquiryForm idPrefix="desktop-mid-enquiry" defaultCategory="admission" compactLg />
               </div>
               <div className="w-full max-w-[551px] pl-0 lg:pl-2 xl:pl-6 flex flex-col justify-start">
                 <RecruitersSection />
@@ -48,7 +48,7 @@ export const HomePage: React.FC = () => {
         <TradesSection />
 
         {/* 7. Student Testimonials (Figma 50:1106 / 67:1115) */}
-         <FeedbackCarousel />
+         <FeedbackCarousel compactLg />
 
         {/* 8. Mobile-specific Logo Banner (Figma 10:898 - Appears after testimonials on mobile) */}
         <div className="block lg:hidden py-12 bg-white px-4 border-b border-[#DDE1E7]">
@@ -75,7 +75,7 @@ export const HomePage: React.FC = () => {
       </main>
 
       {/* 13. Institutional Footer (Figma 10:718 / 10:974) */}
-      <Footer />
+      <Footer compactLg />
     </div>
   );
 };

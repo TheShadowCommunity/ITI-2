@@ -3,43 +3,43 @@ import { siteImages } from '../data/assets';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="py-[80px] px-[16px] lg:py-[100px] lg:px-[64px] bg-[#F4F5F7]">
+    <section id="about" className="py-[80px] px-[16px] lg:py-[52px] lg:px-[40px] xl:py-[100px] xl:px-[64px] bg-[#F4F5F7]">
       <div className="max-w-[1392px] ">
         {/* ===================== DESKTOP INTRODUCTION (Adaptive 3 Columns: ~1.35fr / 1fr / 1.15fr up to 593 / 356 / 443 px) ===================== */}
-        <div className="hidden lg:grid grid-cols-[1.35fr_1fr_1.15fr] 2xl:grid-cols-[593px_356px_443px] gap-6 xl:gap-8 items-stretch min-h-[380px]">
+        <div className="hidden lg:grid grid-cols-[1.35fr_1fr_1.15fr] 2xl:grid-cols-[593px_356px_443px] gap-5 xl:gap-8 items-stretch min-h-[290px] xl:min-h-[380px]">
           {/* Column 1: Left content */}
           <div className="flex flex-col justify-between pr-2 xl:pr-6 w-full">
             <div>
               {/* Eyebrow */}
-              <span className="block text-[13px] xl:text-[14px] leading-[22px] font-semibold text-navy-200 tracking-wide mb-[8px] xl:mb-[10px]">
+              <span className="block text-[12px] xl:text-[14px] leading-[20px] xl:leading-[22px] font-semibold text-navy-200 tracking-wide mb-[6px] xl:mb-[10px]">
                 About Our College
               </span>
-              {/* Title: Montserrat SemiBold, responsive 28-36px */}
-              <h2 className="text-[28px] xl:text-[34px] 2xl:text-[36px] leading-[1.25] font-semibold text-navy-900 font-heading tracking-tight mb-[18px] xl:mb-[24px]">
+              {/* Title: Montserrat SemiBold, responsive 24-36px */}
+              <h2 className="text-[24px] xl:text-[34px] 2xl:text-[36px] leading-[1.2] xl:leading-[1.25] font-semibold text-navy-900 font-heading tracking-tight mb-[14px] xl:mb-[24px]">
                 New Lucknow City<br />Private ITI
               </h2>
 
               {/* Tags Group */}
-              <div className="space-y-3 mb-6 ">
-                <div className="flex items-center gap-3 text-sm">
-                  <div className="w-5 h-5 flex items-center justify-center text-navy-200 flex-shrink-0">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="space-y-2 xl:space-y-3 mb-4 xl:mb-6 ">
+                <div className="flex items-center gap-2.5 xl:gap-3 text-sm">
+                  <div className="w-4 h-4 xl:w-5 xl:h-5 flex items-center justify-center text-navy-200 flex-shrink-0">
+                    <svg className="w-4 h-4 xl:w-5 xl:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <rect x="3" y="4" width="18" height="18" rx="2" strokeWidth="1.75" />
                       <line x1="16" y1="2" x2="16" y2="6" strokeWidth="1.75" />
                       <line x1="8" y1="2" x2="8" y2="6" strokeWidth="1.75" />
                       <line x1="3" y1="10" x2="21" y2="10" strokeWidth="1.75" />
                     </svg>
                   </div>
-                  <span className="font-hindi text-navy-500 font-medium text-[14px] xl:text-[15px]">2019 में स्थापित</span>
+                  <span className="font-hindi text-navy-500 font-medium text-[13px] xl:text-[15px]">2019 में स्थापित</span>
                 </div>
 
-                <div className="flex items-center gap-3 text-sm">
-                  <div className="w-5 h-5 flex items-center justify-center text-navy-200 flex-shrink-0">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center gap-2.5 xl:gap-3 text-sm">
+                  <div className="w-4 h-4 xl:w-5 xl:h-5 flex items-center justify-center text-navy-200 flex-shrink-0">
+                    <svg className="w-4 h-4 xl:w-5 xl:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeWidth="1.75" d="M3 21h18M3 10h18M5 10v11M9 10v11M15 10v11M19 10v11M12 3l9 7H3l9-7z" />
                     </svg>
                   </div>
-                  <span className="font-hindi text-navy-500 font-medium text-[14px] xl:text-[15px]">भारत सरकार NCVT द्वारा मान्यता प्राप्त</span>
+                  <span className="font-hindi text-navy-500 font-medium text-[13px] xl:text-[15px]">भारत सरकार NCVT द्वारा मान्यता प्राप्त</span>
                 </div>
               </div>
             </div>
@@ -48,7 +48,7 @@ export const AboutSection: React.FC = () => {
             <div>
               <a
                 href="#enquiry"
-                className="inline-flex items-center justify-center w-[180px] xl:w-[212px] h-[48px] xl:h-[56px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-semibold text-[14px] xl:text-[15px] rounded-[8px] shadow-xs transition-colors"
+                className="inline-flex items-center justify-center w-[158px] xl:w-[212px] h-[40px] xl:h-[56px] bg-[#F2B418] hover:bg-[#D99A00] text-[#14171C] font-semibold text-[13px] xl:text-[15px] rounded-[8px] shadow-xs transition-colors"
               >
                 Go To Enquiry
               </a>
@@ -56,7 +56,7 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* Column 2: Image slot */}
-          <div className="rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative min-h-[320px] 2xl:h-[392px] w-full">
+          <div className="rounded-[16px] overflow-hidden bg-slate-200 border border-[#DDE1E7] relative min-h-[260px] xl:min-h-[320px] 2xl:h-[392px] w-full">
             <img
               src={siteImages.aboutCampus}
               alt="New Lucknow City Private ITI Institute Campus"
@@ -68,8 +68,8 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* Column 3: Description */}
-          <div className="flex flex-col justify-start text-[13px] xl:text-[14px] leading-[22px] xl:leading-[24px] text-navy-500 font-hindi w-full pl-0 xl:pl-4">
-            <p className="mb-4">
+          <div className="flex flex-col justify-start text-[12.5px] xl:text-[14px] leading-[20px] xl:leading-[24px] text-navy-500 font-hindi w-full pl-0 xl:pl-4">
+            <p className="mb-3 xl:mb-4">
               न्यू लखनऊ सिटी प्राइवेट आईटीआई ने लखनऊ के सर्वश्रेष्ठ आईटीआई कॉलेजों में से एक के रूप में तेज़ी से अपनी पहचान बनाई है, जो छात्रों को उद्योग-प्रासंगिक कौशल और व्यावहारिक ज्ञान प्रदान करने के लिए समर्पित है। न्यू लखनऊ सिटी प्राइवेट इंडस्ट्रियल ट्रेनिंग इंस्टीट्यूट, जिसकी स्थापना 2019 में हुई थी, प्राउडली फिनिकल एजुकेशनल ट्रस्ट द्वारा प्रमोट किया गया है। यह ट्रस्ट भारतीय ट्रस्ट अधिनियम, 1882 (पंजीकरण संख्या: 5367) के अंतर्गत पंजीकृत है और इसका पंजीकृत कार्यालय 3 कैनाल स्ट्रीट, लखनऊ - 700014 में स्थित है।
             </p>
             <p>

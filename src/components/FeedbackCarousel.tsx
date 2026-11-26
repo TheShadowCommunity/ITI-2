@@ -3,9 +3,13 @@ import { feedbackTestimonials, FeedbackTestimonial } from '../data/feedbackTesti
 
 interface FeedbackCarouselProps {
   className?: string;
+  compactLg?: boolean;
 }
 
-export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = '' }) => {
+export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({
+  className = '',
+  compactLg = false,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,6 +27,8 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
         setCardWidth(Math.min(w - 64, 340));
       } else if (w < 768) {
         setCardWidth(380);
+      } else if (compactLg && w >= 1024 && w < 1360) {
+        setCardWidth(345);
       } else if (w < 1280) {
         setCardWidth(410);
       } else {
@@ -33,7 +39,7 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
     updateCardWidth();
     window.addEventListener('resize', updateCardWidth);
     return () => window.removeEventListener('resize', updateCardWidth);
-  }, []);
+  }, [compactLg]);
 
   const handlePrev = useCallback(() => {
     if (isAnimating) return;
@@ -93,8 +99,16 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
       </div>
 
       {/* Main Layout Container */}
-      <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0 py-12 sm:py-16 lg:py-20">
-        <div className="flex flex-col lg:flex-row items-stretch lg:items-center min-h-[380px] lg:min-h-[460px] gap-8 lg:gap-0">
+      <div
+        className={`max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0 py-12 sm:py-16 ${
+          compactLg ? 'lg:py-10 xl:py-20' : 'lg:py-20'
+        }`}
+      >
+        <div
+          className={`flex flex-col lg:flex-row items-stretch lg:items-center min-h-[380px] ${
+            compactLg ? 'lg:min-h-[330px] xl:min-h-[460px]' : 'lg:min-h-[460px]'
+          } gap-8 lg:gap-0`}
+        >
           
           {/* =========================================================================
               LEFT WHITE SECTION
@@ -106,15 +120,27 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
               - Does NOT reflow, flicker, or shift on arrow clicks
              ========================================================================= */}
           <div
-            className="w-full lg:w-[340px] xl:w-[380px] lg:h-[260px] xl:mr-[40px] lg:pr-8 xl:pr-10 flex-shrink-0 z-20  relative flex flex-col justify-between self-stretch"
+            className={`w-full ${
+              compactLg
+                ? 'lg:w-[290px] xl:w-[380px] lg:h-[220px] xl:h-[260px] lg:pr-6 xl:pr-10'
+                : 'lg:w-[340px] xl:w-[380px] lg:h-[260px] lg:pr-8 xl:pr-10'
+            } xl:mr-[40px] flex-shrink-0 z-20  relative flex flex-col justify-between self-stretch`}
        
           >
-            <div className="space-y-4">
-              <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-bold text-navy-900 tracking-tight font-hindi leading-tight">
+            <div className={compactLg ? 'space-y-4 lg:space-y-2.5 xl:space-y-4' : 'space-y-4'}>
+              <h2
+                className={`text-[28px] sm:text-[34px] ${
+                  compactLg ? 'lg:text-[26px] xl:text-[38px]' : 'lg:text-[38px]'
+                } font-bold text-navy-900 tracking-tight font-hindi leading-tight`}
+              >
                 हमारे छात्रों के अनुभव
               </h2>
 
-              <p className="text-[14px] sm:text-[15px] text-navy-500 font-hindi leading-relaxed text-justify">
+              <p
+                className={`text-[14px] sm:text-[15px] ${
+                  compactLg ? 'lg:text-[13px] xl:text-[15px]' : ''
+                } text-navy-500 font-hindi leading-relaxed text-justify`}
+              >
                 आपकी कहानी किसी और के लिए प्रेरणा बन सकती है!<br />
                 अगर आप भी अपना अनुभव साझा करना चाहते हैं, तो नीचे दिए गए बटन पर{' '}
                 <a
@@ -128,15 +154,22 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
             </div>
 
             {/* Navigation Controls: Clean minimalist arrows matching Figma reference */}
-            <div className="flex items-center gap-4 pt-6 lg:pt-8" aria-label="Carousel Navigation">
+            <div
+              className={`flex items-center gap-4 pt-6 ${
+                compactLg ? 'lg:gap-3 xl:gap-4 lg:pt-4 xl:pt-8' : 'lg:pt-8'
+              }`}
+              aria-label="Carousel Navigation"
+            >
               <button
                 type="button"
                 onClick={handlePrev}
                 disabled={isAnimating}
                 aria-label="Previous testimonial"
-                className="w-10 h-10 rounded-full border border-[#CBD5E1] bg-white hover:bg-[#F8FAFC] text-navy-500 hover:text-navy-900 flex items-center justify-center transition-all shadow-xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F2B418] disabled:opacity-60"
+                className={`w-10 h-10 ${
+                  compactLg ? 'lg:w-8 lg:h-8 xl:w-10 xl:h-10' : ''
+                } rounded-full border border-[#CBD5E1] bg-white hover:bg-[#F8FAFC] text-navy-500 hover:text-navy-900 flex items-center justify-center transition-all shadow-xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F2B418] disabled:opacity-60`}
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className={compactLg ? 'w-5 h-5 lg:w-4 lg:h-4 xl:w-5 xl:h-5' : 'w-5 h-5'} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
@@ -146,9 +179,11 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
                 onClick={handleNext}
                 disabled={isAnimating}
                 aria-label="Next testimonial"
-                className="w-10 h-10 rounded-full border border-[#CBD5E1] bg-white hover:bg-[#F8FAFC] text-navy-500 hover:text-navy-900 flex items-center justify-center transition-all shadow-xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F2B418] disabled:opacity-60"
+                className={`w-10 h-10 ${
+                  compactLg ? 'lg:w-8 lg:h-8 xl:w-10 xl:h-10' : ''
+                } rounded-full border border-[#CBD5E1] bg-white hover:bg-[#F8FAFC] text-navy-500 hover:text-navy-900 flex items-center justify-center transition-all shadow-xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F2B418] disabled:opacity-60`}
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className={compactLg ? 'w-5 h-5 lg:w-4 lg:h-4 xl:w-5 xl:h-5' : 'w-5 h-5'} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
@@ -185,18 +220,27 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
                 return (
                   <article
                     key={item.id}
-                    className="rounded-[16px] bg-white p-6 sm:p-7 shadow-lg border border-[#DDE1E7] flex flex-col justify-between transition-all duration-300"
+                    className={`rounded-[16px] bg-white p-6 sm:p-7 min-h-[340px] ${
+                      compactLg ? 'lg:p-4 lg:min-h-[265px] xl:p-7 xl:min-h-[340px]' : ''
+                    } shadow-lg border border-[#DDE1E7] flex flex-col justify-between transition-all duration-300`}
                     style={{
                       width: `${cardWidth}px`,
-                      minHeight: '340px',
                       flexShrink: 0,
                     }}
                     aria-current={isActive ? 'true' : undefined}
                   >
                     <div>
                       {/* User Header */}
-                      <div className="flex items-center gap-3.5 mb-4 pb-3 border-b border-slate-100">
-                        <div className="w-[56px] h-[56px] rounded-full overflow-hidden bg-slate-200 border border-[#DDE1E7] flex-shrink-0 shadow-2xs">
+                      <div
+                        className={`flex items-center gap-3.5 mb-4 pb-3 ${
+                          compactLg ? 'lg:gap-2.5 lg:mb-3 lg:pb-2 xl:gap-3.5 xl:mb-4 xl:pb-3' : ''
+                        } border-b border-slate-100`}
+                      >
+                        <div
+                          className={`w-[56px] h-[56px] ${
+                            compactLg ? 'lg:w-[44px] lg:h-[44px] xl:w-[56px] xl:h-[56px]' : ''
+                          } rounded-full overflow-hidden bg-slate-200 border border-[#DDE1E7] flex-shrink-0 shadow-2xs`}
+                        >
                           <img
                             src={item.avatar}
                             alt={`${item.name} profile portrait`}
@@ -207,23 +251,39 @@ export const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ className = 
                           />
                         </div>
                         <div className="overflow-hidden">
-                          <h3 className="text-[16px] sm:text-[17px] font-bold text-navy-900 leading-snug font-heading truncate">
+                          <h3
+                            className={`text-[16px] sm:text-[17px] ${
+                              compactLg ? 'lg:text-[14.5px] xl:text-[17px]' : ''
+                            } font-bold text-navy-900 leading-snug font-heading truncate`}
+                          >
                             {item.name}
                           </h3>
-                          <span className="text-[12px] sm:text-[13px] text-navy-500 font-medium block truncate">
+                          <span
+                            className={`text-[12px] sm:text-[13px] ${
+                              compactLg ? 'lg:text-[11.5px] xl:text-[13px]' : ''
+                            } text-navy-500 font-medium block truncate`}
+                          >
                             {item.role}
                           </span>
                         </div>
                       </div>
 
                       {/* Quote Text */}
-                      <blockquote className="text-[13.5px] sm:text-[14px] leading-[23px] sm:leading-[25px] text-navy-800 font-hindi text-justify">
+                      <blockquote
+                        className={`text-[13.5px] sm:text-[14px] leading-[23px] sm:leading-[25px] ${
+                          compactLg ? 'lg:text-[12.5px] lg:leading-[20px] xl:text-[14px] xl:leading-[25px]' : ''
+                        } text-navy-800 font-hindi text-justify`}
+                      >
                         &ldquo;{item.quote}&rdquo;
                       </blockquote>
                     </div>
 
                     {/* Bottom Indicator */}
-                    <div className="pt-4 mt-2 flex items-center justify-between text-[11px] text-[#94A3B8]">
+                    <div
+                      className={`pt-4 mt-2 ${
+                        compactLg ? 'lg:pt-2.5 xl:pt-4' : ''
+                      } flex items-center justify-between text-[11px] text-[#94A3B8]`}
+                    >
                       <span>New Lucknow City Private ITI</span>
                       <span className="text-[#F2B418] font-bold">★★★★★</span>
                     </div>

@@ -3,41 +3,41 @@ import { tradesData } from '../data/trades';
 
 export const TradesSection: React.FC = () => {
   return (
-    <section id="trades" className="py-16 lg:py-24 bg-navy-900">
+    <section id="trades" className="py-16 lg:py-12 xl:py-24 bg-navy-900">
       <div className="max-w-[1392px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-0">
         {/* Section Heading with Active Indicator */}
-             <div className="mb-[48px] lg:mb-[72px]">
-          <h2 className="text-[34px] lg:text-[42px] xl:text-[56px] font-medium font-serat text-neutral-200 tracking-tight">
+             <div className="mb-[48px] lg:mb-8 xl:mb-[72px]">
+          <h2 className="text-[34px] lg:text-[28px] xl:text-[56px] font-medium font-serat text-neutral-200 tracking-tight">
              व्यवसायिक पाठ्यक्रम (Trades)
           </h2>
-          <div className="w-[150px] h-[8px] lg:w-[200px] lg:h-[12px] bg-yellow-600 mt-[12px] rounded-full" />
+          <div className="w-[150px] h-[8px] lg:w-[140px] lg:h-[7px] xl:w-[200px] xl:h-[12px] bg-yellow-600 mt-[12px] lg:mt-[8px] xl:mt-[12px] rounded-full" />
         </div>
        
 
         {/* ===================== DESKTOP 3x2 GRID (Hidden on mobile) ===================== */}
-        <div className="hidden lg:grid grid-cols-3 gap-6 xl:gap-8">
+        <div className="hidden lg:grid grid-cols-3 gap-4 xl:gap-8">
           {tradesData.map((trade) => (
             <div
               key={trade.id}
               className="bg-white text-navy-800 rounded-[16px] overflow-hidden shadow-md flex flex-col justify-between border border-white/10 group hover:shadow-xl transition-all duration-200"
             >
               {/* Content Panel */}
-              <div className="p-5 xl:p-6 flex flex-col justify-between flex-grow">
+              <div className="p-4 xl:p-6 flex flex-col justify-between flex-grow">
                 <div>
-                  <h3 className="text-[18px] xl:text-[20px] font-medium text-navy-800 font-hindi leading-snug">
+                  <h3 className="text-[15.5px] xl:text-[20px] font-medium text-navy-800 font-hindi leading-snug">
                     {trade.titleHindi}
                   </h3>
-                  <span className="block text-[12px] xl:text-[13px] text-navy-500 mb-2.5 xl:mb-3 font-sans">
+                  <span className="block text-[11.5px] xl:text-[13px] text-navy-500 mb-1.5 xl:mb-3 font-sans">
                     {trade.titleEnglish}
                   </span>
-                  <p className="text-[12px] lg:text-[14px] xl:text-[16px] leading-[20px] xl:leading-[22px] text-navy-500 font-hindi line-clamp-3">
+                  <p className="text-[12px] lg:text-[12.5px] xl:text-[16px] leading-[18px] xl:leading-[22px] text-navy-500 font-hindi line-clamp-3">
                     {trade.description}
                   </p>
                 </div>
-                <div className="mt-4 xl:mt-5 pt-1">
+                <div className="mt-2.5 xl:mt-5 pt-1">
                   <a
                     href="#enquiry"
-                    className="inline-flex items-center text-[13px] font-bold text-yellow-700 gap-1"
+                    className="inline-flex items-center text-[12px] xl:text-[13px] font-bold text-yellow-700 gap-1"
                   >
                     Learn More 
                     <div className="">
@@ -48,7 +48,7 @@ export const TradesSection: React.FC = () => {
               </div>
 
               {/* Edge-attached image at bottom */}
-              <div className="w-full h-[160px] xl:h-[180px] bg-slate-200 overflow-hidden relative">
+              <div className="w-full h-[126px] xl:h-[180px] bg-slate-200 overflow-hidden relative">
                 <img
                   src={trade.image}
                   alt={`${trade.titleHindi} ${trade.titleEnglish}`}
