@@ -54,23 +54,25 @@ export function validateAndSanitizeEnquiry(rawBody: unknown): ValidationOutcome 
   }
 
   const email = sanitizeText(body.email, 254).toLowerCase();
-  if (!email) {
-    fieldErrors.email = 'कृपया अपना ईमेल पता दर्ज करें (Email is required)';
-  } else if (!EMAIL_REGEX.test(email)) {
-    fieldErrors.email = 'कृपया वैध ईमेल दर्ज करें (Valid email required)';
-  }
+  const trimmedMobile = sanitizeText(body.mobile, 20);
+  const normalizedMobile = trimmedMobile.replace(/[\s-]/g, '');
 
-  const rawMobile = sanitizeText(body.mobile, 20).replace(/[\s-]/g, '');
-  if (!rawMobile) {
-    fieldErrors.mobile = 'कृपया मोबाइल नंबर दर्ज करें (Mobile is required)';
-  } else if (!MOBILE_REGEX.test(rawMobile)) {
-    fieldErrors.mobile = 'कृपया 10 अंकों का वैध मोबाइल नंबर दर्ज करें';
+  if (!email && !trimmedMobile) {
+    const contactRequiredMsg =
+      'कृपया ईमेल या मोबाइल नंबर में से कम से कम एक दर्ज करें (Provide email or mobile number)';
+    fieldErrors.email = contactRequiredMsg;
+    fieldErrors.mobile = contactRequiredMsg;
+  } else {
+    if (email && !EMAIL_REGEX.test(email)) {
+      fieldErrors.email = 'कृपया वैध ईमेल दर्ज करें (Valid email required)';
+    }
+
+    if (trimmedMobile && !MOBILE_REGEX.test(normalizedMobile)) {
+      fieldErrors.mobile = 'कृपया 10 अंकों का वैध मोबाइल नंबर दर्ज करें';
+    }
   }
 
   const comment = sanitizeText(body.comment, 2000);
-  if (!comment) {
-    fieldErrors.comment = 'कृपया अपना संदेश या प्रश्न लिखें (Message is required)';
-  }
 
   if (Object.keys(fieldErrors).length > 0) {
     return {
@@ -86,7 +88,7 @@ export function validateAndSanitizeEnquiry(rawBody: unknown): ValidationOutcome 
       category: rawCategory as AllowedCategory,
       name,
       email,
-      mobile: rawMobile,
+      mobile: normalizedMobile,
       comment,
     },
   };

@@ -16,6 +16,37 @@ interface RadioOption {
   labelEng: string;
 }
 
+export function validateEnquiryForm(
+  formData: Pick<EnquiryFormData, 'name' | 'email' | 'mobile' | 'comment'>
+): Partial<Record<keyof EnquiryFormData, string>> {
+  const newErrors: Partial<Record<keyof EnquiryFormData, string>> = {};
+
+  if (!formData.name.trim()) {
+    newErrors.name = 'कृपया अपना नाम दर्ज करें (Name is required)';
+  }
+
+  const trimmedEmail = formData.email.trim();
+  const trimmedMobile = formData.mobile.trim();
+  const normalizedMobile = trimmedMobile.replace(/[\s-]/g, '');
+
+  if (!trimmedEmail && !trimmedMobile) {
+    const contactRequiredMsg =
+      'कृपया ईमेल या मोबाइल नंबर में से कम से कम एक दर्ज करें (Provide email or mobile number)';
+    newErrors.email = contactRequiredMsg;
+    newErrors.mobile = contactRequiredMsg;
+  } else {
+    if (trimmedEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+      newErrors.email = 'कृपया वैध ईमेल दर्ज करें (Valid email required)';
+    }
+
+    if (trimmedMobile && !/^\d{10}$/.test(normalizedMobile)) {
+      newErrors.mobile = 'कृपया 10 अंकों का वैध मोबाइल नंबर दर्ज करें';
+    }
+  }
+
+  return newErrors;
+}
+
 export const EnquiryForm: React.FC<EnquiryFormProps> = ({
   idPrefix = 'form1',
   className = '',
@@ -57,28 +88,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
   };
 
   const validate = (): boolean => {
-    const newErrors: Partial<Record<keyof EnquiryFormData, string>> = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'कृपया अपना नाम दर्ज करें (Name is required)';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'कृपया अपना ईमेल पता दर्ज करें (Email is required)';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-      newErrors.email = 'कृपया वैध ईमेल दर्ज करें (Valid email required)';
-    }
-
-    if (!formData.mobile.trim()) {
-      newErrors.mobile = 'कृपया मोबाइल नंबर दर्ज करें (Mobile is required)';
-    } else if (!/^\d{10}$/.test(formData.mobile.replace(/[\s-]/g, ''))) {
-      newErrors.mobile = 'कृपया 10 अंकों का वैध मोबाइल नंबर दर्ज करें';
-    }
-
-    if (!formData.comment.trim()) {
-      newErrors.comment = 'कृपया अपना संदेश या प्रश्न लिखें (Message is required)';
-    }
-
+    const newErrors = validateEnquiryForm(formData);
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
